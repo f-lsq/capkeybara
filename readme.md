@@ -26,10 +26,10 @@ Whether you're a seasoned keyboard enthusiast, a newbie exploring the world of m
 
 ## System Design
 ### Entity Relationship Diagram
-![Landing Page](src\assets\images\readme\erd.png)
+![ERD](src/assets/images/readme/erd.png)
 
 ### SQL Schema Diagram
-![Landing Page](src\assets\images\readme\schema.png)
+![SQL Schema](src/assets/images/readme/erd.png)
 
 ### API Routes
 | Method/Path                         | Request Body / Parameters  | Response                           | 
