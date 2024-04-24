@@ -1,3 +1,5 @@
+[How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
+
 # Capkeybara
 [Capkeybara](#) is THE ultimate e-commerce platform for top-notch mechanical keyboard components that cater to all your needs! 
 
@@ -24,10 +26,10 @@ Whether you're a seasoned keyboard enthusiast, a newbie exploring the world of m
 
 ## System Design
 ### Entity Relationship Diagram
-![Landing Page](assets/readme/erd.png)
+![Landing Page](src\assets\images\readme\erd.png)
 
 ### SQL Schema Diagram
-![Landing Page](assets/readme/schema.png)
+![Landing Page](src\assets\images\readme\schema.png)
 
 ### API Routes
 | Method/Path                         | Request Body / Parameters  | Response                           | 
