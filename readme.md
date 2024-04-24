@@ -29,7 +29,7 @@ Whether you're a seasoned keyboard enthusiast, a newbie exploring the world of m
 ![ERD](src/assets/images/readme/erd.png)
 
 ### SQL Schema Diagram
-![SQL Schema](src/assets/images/readme/erd.png)
+![SQL Schema](src/assets/images/readme/schema.png)
 
 ### API Routes
 | Method/Path                         | Request Body / Parameters  | Response                           | 
