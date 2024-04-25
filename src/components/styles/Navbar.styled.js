@@ -23,7 +23,8 @@ export const StyledNavbar = styled.nav`
   }
 
   #navLeft li {
-    margin: 0 auto;
+    display: flex;
+    margin: auto;
   }
 
   ul {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Person, Cart3 } from 'react-bootstrap-icons';
+import { Search, Person, Cart3, List } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { StyledNavbar } from '../styles/Navbar.styled';
 
@@ -8,6 +8,7 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <div id="navLeft">
+          <List/>
           <ul>
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/shop">SHOP</Link></li>
@@ -16,7 +17,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div id="navCenter">
-          <Link to="/"><h1>Capkeybara</h1></Link>
+          <Link to="/"><h1>capkeybara</h1></Link>
         </div>
         <div id="navRight">
           <ul>
