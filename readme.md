@@ -1,5 +1,25 @@
 [How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
 
+Sample CSS 
+```
+  // Mobile View
+
+  // Tablet View
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+
+  }
+
+  // Laptop View
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+
+  }
+  
+  // Monitor View
+  @media screen and (min-width: 1280px) {
+    
+  }
+```
+
 # Capkeybara
 [Capkeybara](#) is THE ultimate e-commerce platform for top-notch mechanical keyboard components that cater to all your needs! 
 
