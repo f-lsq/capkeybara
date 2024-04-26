@@ -70,10 +70,10 @@ Whether you're a seasoned keyboard enthusiast, a newbie exploring the world of m
 
 ### User Stories
 1. As a **keyboard hobbyist** (regular), I want to browse the available keyboard accessories, so that I can make modifications to my current keyboard(s).
-2. As a **beginner** (uncertain), I want to follow a step by step guide on how to build a keyboard, and also a starter pack containing keyboard components, so that I can start building my first keyboard easily.
-3. As a **buyer** (spontaneous), I want to browse the pre-built keyboards, add them to my cart, checkout and track my orders in real time, so that I will be able to receive and use the keyboard.
-4. As a **seller**, I want to list my products and manage my orders, so that I can increase the reach of my products and make some profits.
-5. As a **site admin**, I want to be able to perform CRUD on the users, sellers and other relevant tables, so that the site remains clean, with no redundant data or disruptive users.
+2. As a **beginner** (uncertain), I want to follow a step by step guide on how to build a keyboard, or even purchase a starter pack containing keyboard components, so that I can start building my first keyboard easily.
+3. As a **buyer** (spontaneous), I want to browse the pre-built keyboards, add them to my cart, checkout and track my orders in real time, so that I will be able to receive and use the keyboard quickly.
+4. As a **vendor**, I want to list my products and manage my orders, so that I can increase the reach of my products and make more profits.
+5. As an **admin**, I want to be able to perform CRUD on the users, sellers and other tables in the database, so that the site remains clean, with no redundant data or disruptive users.
 
 ## Features
 <!-- List down the major features of your application, and also the algorithms that you have used to implement those features. If there are any limitations or bugs, please describe them as well. If you have any features pending implementation, you can also take the opportunity to discuss them here. -->
