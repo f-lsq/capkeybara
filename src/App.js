@@ -1,12 +1,17 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+// Styles
+import { StyledGlobal } from "./components/styles/GlobalStyles.styled";
+import { StyledFonts } from './components/styles/GlobalFonts.styled';
+
+// Views
 import Navbar from "./components/general/Navbar";
 import HomePage from "./views/HomePage";
 import ShopPage from "./views/ShopPage";
 import BuildAKeyboardPage from "./views/BuildAKeyboardPage";
 import AboutPage from "./views/AboutPage";
-import UserLogin from "./views/UserLogin";
-import { StyledGlobal } from "./components/styles/GlobalStyles.styled";
-import { StyledFonts } from './components/styles/GlobalFonts.styled';
+import BuyerLoginPage from "./views/buyers/BuyerLoginPage";
+import BuyerSignupPage from "./views/buyers/BuyerSignupPage";
 
 
 function App() {
@@ -20,7 +25,8 @@ function App() {
         <Route path="/shop" element={<ShopPage/>}/>
         <Route path="/build" element={<BuildAKeyboardPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/login" element={<UserLogin/>}/>
+        <Route path="/login" element={<BuyerLoginPage/>}/>
+        <Route path="/signup" element={<BuyerSignupPage/>}/>
       </Routes>
 
     </Router>

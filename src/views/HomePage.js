@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <>
       <h1>Home</h1> 
-      <img src={loading} className="App-logo" alt="loading" />
+      {/* <img src={loading} className="App-logo" alt="loading" /> */}
     </>
   )
 }
