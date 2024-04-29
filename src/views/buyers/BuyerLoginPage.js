@@ -1,9 +1,9 @@
-import BuyerLogin from "../../components/buyers/BuyerLogin";
+import BuyerLoginForm from "../../components/buyers/BuyerLoginForm";
 
 export default function BuyerLoginPage() {
   return (
     <>
-      <BuyerLogin/>
+      <BuyerLoginForm/>
     </>
   )
 }

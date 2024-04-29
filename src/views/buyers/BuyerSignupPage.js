@@ -1,9 +1,9 @@
-import BuyerSignup from "../../components/buyers/BuyerSignup";
+import BuyerSignupForm from "../../components/buyers/BuyerSignupForm";
 
 export default function BuyerSignupPage() {
   return (
     <>
-      <BuyerSignup/>
+      <BuyerSignupForm/>
     </>
   )
 }

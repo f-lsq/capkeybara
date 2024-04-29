@@ -7,8 +7,7 @@ export const StyledNavbar = styled.nav`
   background-image: url(${background});
   color: white;
   display: flex;
-  padding: 0 1rem;
-  border-radius: 0 0 10px 10px;
+  padding: 0 2rem;
 
   #navCenter {
     font-family: Cute-Font;
@@ -44,7 +43,7 @@ export const StyledNavbar = styled.nav`
     display: none;
     margin: auto;
     white-space: nowrap;
-    margin-right: 10px;
+    margin: 0 10px 0 0;
   }
 
   #navLeft li span {
@@ -56,7 +55,7 @@ export const StyledNavbar = styled.nav`
   }
   
   #navRight li {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   a {
@@ -93,6 +92,11 @@ export const StyledNavbar = styled.nav`
     
     #navLeft li {
       display: flex;
+      margin: 0 20px 0 0;
+    }
+
+    #navRight li {
+      margin-left: 20px;
     }
   }
   
@@ -112,11 +116,16 @@ export const StyledNavbar = styled.nav`
     
     #navLeft li {
       display: flex;
+      margin: 0 20px 0 0;
     }
 
     
     #navLeft li span {
       display: inline-block;
+    }
+
+    #navRight li {
+      margin-left: 20px;
     }
     
   }
