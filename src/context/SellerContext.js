@@ -1,5 +1,5 @@
 import React, {createContext} from 'react';
-import SellerServices from '../services/SellerServices';
+import SellerServices from '../service-layer/SellerServiceLayer';
 
 export const SellerContext = createContext();
 

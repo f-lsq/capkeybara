@@ -1,10 +1,10 @@
 import SellerNavbar from "../../components/sellers/SellerNavbar";
 
-export default function SellerProfilePage() {
+export default function SellerProductPage() {
   return (
     <>
       <SellerNavbar/>
-      <h1>Seller Profile Page</h1>
+      <h1>Seller Product Page</h1>
     </>
   )
 }

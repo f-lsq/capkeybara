@@ -1,6 +1,6 @@
 import apiRequests from "../api"
 
-const BuyerServices = {
+const BuyerServiceLayer = {
   createBuyer: async (data) => {
     const response = await apiRequests.post('/buyers/', data)
     return response;
@@ -11,4 +11,4 @@ const BuyerServices = {
   }
 }
 
-export default BuyerServices;
+export default BuyerServiceLayer;

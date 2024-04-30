@@ -5,7 +5,6 @@ import { StyledGlobal } from "./components/styles/GlobalStyles.styled";
 import { StyledFonts } from './components/styles/GlobalFonts.styled';
 
 // Views
-import Navbar from "./components/general/Navbar";
 import HomePage from "./views/HomePage";
 import ShopPage from "./views/ShopPage";
 import BuildAKeyboardPage from "./views/BuildAKeyboardPage";
@@ -18,6 +17,9 @@ import SellerLoginPage from "./views/sellers/SellerLoginPage";
 import SellerSignupPage from "./views/sellers/SellerSignupPage";
 import SellerProfilePage from "./views/sellers/SellerProfilePage";
 import SellerContextData from "./context/SellerContext";
+import SellerDashboardPage from "./views/sellers/SellerDashboardPage";
+import SellerProductPage from "./views/sellers/SellerProductPage";
+import SellerOrderPage from "./views/sellers/SellerOrderPage";
 
 
 function App() {
@@ -25,7 +27,6 @@ function App() {
     <Router>
       <StyledFonts/>
       <StyledGlobal/>
-      <Navbar/>
         <SellerContextData>
         <BuyerContextData>
           <Routes>
@@ -38,6 +39,9 @@ function App() {
             <Route path="/profile" element={<BuyerProfilePage/>}/>
             <Route path="/seller/login" element={<SellerLoginPage/>}/>
             <Route path="/seller/signup" element={<SellerSignupPage/>}/>
+            <Route path="/seller/dashboard" element={<SellerDashboardPage/>}/>
+            <Route path="/seller/product" element={<SellerProductPage/>}/>
+            <Route path="/seller/order" element={<SellerOrderPage/>}/>
             <Route path="/seller/profile" element={<SellerProfilePage/>}/>
           </Routes>
         </BuyerContextData>

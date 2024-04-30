@@ -76,7 +76,7 @@ fieldset {
 }
 
 input {
-  border: 1px solid #CCE2D3;
+  border: 1px solid #E2D5CC;
   padding: 0 3%;
   margin: 0.5rem 0 0.8rem 0;
 }
@@ -90,7 +90,7 @@ input:focus {
 .authContinueBtn {
   width: 100%;
   color: #FFFFFF;
-  border: 1px solid #CCE2D3;
+  border: 1px solid #E2D5CC;
 }
 
 .authBackBtn {
@@ -138,11 +138,11 @@ button {
 
 .authRedirectBtn {
   background: none;
-  border: 1px solid #26291E;
+  border: 1px solid #29251E;
 }
 
 .authRedirectBtn:hover {
- background: #F3F3F3;
+ background: #FAFAFA;
  transition: 0.5s;
 }
 
@@ -150,11 +150,11 @@ button {
   background: none;
   border: none;
   text-decoration: underline;
-  color: #5E8C6C;
+  color: #8C875E;
 }
 
 .authRedirectLink:hover {
-  color: #81B190;
+  color: #A79F5C;
   transition: 0.5s;
 }
 

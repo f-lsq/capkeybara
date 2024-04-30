@@ -27,7 +27,7 @@ export default function SellerLoginForm() {
         <img src={sellerAuthBackground} alt="Keycap of Capybara with orange on head" />
       </div>
       <div className="authForm">
-        <h1>Login</h1> 
+        <h1>Welcome back, Sellers!</h1> 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email">Email</label>
