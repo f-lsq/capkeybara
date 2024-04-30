@@ -1,7 +1,9 @@
+import SellerLoginForm from "../../components/sellers/SellerLoginForm";
+
 export default function SellerLoginPage() {
   return (
     <>
-      <h1>Seller Login Page</h1>
+      <SellerLoginForm/>
     </>
   )
 }

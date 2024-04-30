@@ -1,30 +1,30 @@
 import React, { useContext } from "react"
 import { useForm } from "react-hook-form";
-import { BuyerContext } from "../../context/BuyerContext";
+import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledLoginSignupForm } from "../styles/LoginSignupForm.styled";
-import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
+import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
 
-export default function BuyerLoginForm() {
+export default function SellerLoginForm() {
   
-  const buyerContext = useContext(BuyerContext);
+  const sellerContext = useContext(SellerContext);
   const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors} } = useForm();
   
   const onSubmit = async (data) => {
-      const response = await buyerContext.login(data)
+      const response = await sellerContext.login(data)
       if (response) {
-        navigate("/profile");
+        navigate("/seller/profile");
       } else {
-        navigate("/login");
+        navigate("/seller/login");
       }
   }
   return (
     <>
     <StyledLoginSignupForm>
       <div className="authBackground">
-        <img src={buyerAuthBackground} alt="Keycap of Capybara with orange on head" />
+        <img src={sellerAuthBackground} alt="Keycap of Capybara with sycee on head" />
       </div>
       <div className="authForm">
         <h1>Login</h1> 
@@ -52,8 +52,8 @@ export default function BuyerLoginForm() {
             </div>
             <input className="authSubmitBtn" type="submit" value="Log in"/>
           </form>
-          <button onClick={()=>navigate("/signup")}>Sign up</button>
-          <button onClick={()=>navigate("/seller/signup")}>Looking to sell your products?</button>
+          <button onClick={()=>navigate("/seller/signup")}>Sign up</button>
+          <button onClick={()=>navigate("/signup")}>Looking to buy our products?</button>
         </div>
     </StyledLoginSignupForm>
     </>
