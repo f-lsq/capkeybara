@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { useForm } from "react-hook-form";
 import { BuyerContext } from "../../context/BuyerContext";
 import { useNavigate } from "react-router-dom";
-import { StyledLoginSignupForm } from "../styles/LoginSignupForm.styled";
+import { StyledBuyerAuthForm } from "../styles/BuyerAuthForm.styled";
 import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
 
@@ -22,7 +22,7 @@ export default function BuyerLoginForm() {
   }
   return (
     <>
-    <StyledLoginSignupForm>
+    <StyledBuyerAuthForm>
       <div className="authBackground">
         <img src={buyerAuthBackground} alt="Keycap of Capybara with orange on head" />
       </div>
@@ -52,10 +52,10 @@ export default function BuyerLoginForm() {
             </div>
             <input className="authSubmitBtn" type="submit" value="Log in"/>
           </form>
-          <button onClick={()=>navigate("/signup")}>Sign up</button>
-          <button onClick={()=>navigate("/seller/signup")}>Looking to sell your products?</button>
+          <button className="authRedirectBtn" onClick={()=>navigate("/signup")}>Sign up</button>
+          <button className="authRedirectLink" onClick={()=>navigate("/seller/signup")}>Looking to sell your products?</button>
         </div>
-    </StyledLoginSignupForm>
+    </StyledBuyerAuthForm>
     </>
   )
 }

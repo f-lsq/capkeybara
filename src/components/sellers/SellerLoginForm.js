@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { useForm } from "react-hook-form";
 import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
-import { StyledLoginSignupForm } from "../styles/LoginSignupForm.styled";
+import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
 
@@ -15,16 +15,16 @@ export default function SellerLoginForm() {
   const onSubmit = async (data) => {
       const response = await sellerContext.login(data)
       if (response) {
-        navigate("/seller/profile");
+        navigate("/profile");
       } else {
-        navigate("/seller/login");
+        navigate("/login");
       }
   }
   return (
     <>
-    <StyledLoginSignupForm>
+    <StyledSellerAuthForm>
       <div className="authBackground">
-        <img src={sellerAuthBackground} alt="Keycap of Capybara with sycee on head" />
+        <img src={sellerAuthBackground} alt="Keycap of Capybara with orange on head" />
       </div>
       <div className="authForm">
         <h1>Login</h1> 
@@ -52,10 +52,10 @@ export default function SellerLoginForm() {
             </div>
             <input className="authSubmitBtn" type="submit" value="Log in"/>
           </form>
-          <button onClick={()=>navigate("/seller/signup")}>Sign up</button>
-          <button onClick={()=>navigate("/signup")}>Looking to buy our products?</button>
+          <button className="authRedirectBtn" onClick={()=>navigate("/seller/signup")}>Sign up</button>
+          <button className="authRedirectLink" onClick={()=>navigate("/signup")}>Looking to buy our products?</button>
         </div>
-    </StyledLoginSignupForm>
+    </StyledSellerAuthForm>
     </>
   )
 }

@@ -1,7 +1,9 @@
+import SellerSignupForm from "../../components/sellers/SellerSignupForm";
+
 export default function SellerSignupPage() {
   return (
     <>
-      <h1>Seller Signup Page</h1>
+      <SellerSignupForm/>
     </>
   )
 }

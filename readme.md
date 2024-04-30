@@ -1,5 +1,7 @@
 [How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
 
+# Replace all image to 'WebP'
+
 Sample CSS 
 ```
   // Mobile View

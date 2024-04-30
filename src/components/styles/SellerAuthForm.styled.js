@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-
-export const StyledLoginSignupForm = styled.div`
+export const StyledSellerAuthForm = styled.div`
 // Mobile View
 display: flex;
 
@@ -36,7 +35,6 @@ img {
 h1 {
   font-family: Aldrich;
   text-align: center;
-  margin: 5%; 0
 }
 
 h1,
@@ -56,40 +54,79 @@ form div p {
   font-size: 0.7rem;
   display: flex;
   align-items: center;
+  margin: -0.7rem 0 -0.15rem 0;
+  
 }
 
 form div a {
   font-size: 0.8rem;
   margin: 0 0 5% auto;
-  color: #5E8C6C;
+  color: #CC884A;
 }
 
 form div a:hover {
-  color: #81B190;
+  color: #F18D31;
   transition: 0.5s;
+}
+
+fieldset {
+  border: none;
+  width: 100%;
+  position: relative;
 }
 
 input {
   border: 1px solid #CCE2D3;
   padding: 0 3%;
-  margin: 2% 0 0.8rem 0;
+  margin: 0.5rem 0 0.8rem 0;
 }
 
 input:focus {
   outline: none;
 }
 
-.authSubmitBtn {
+.authBackBtn,
+.authSubmitBtn,
+.authContinueBtn {
   width: 100%;
-  background: #26291E;
   color: #FFFFFF;
   border: 1px solid #CCE2D3;
 }
 
+.authBackBtn {
+  position: absolute;
+  top: -50px;
+  width: auto;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.authSubmitBtn {
+  background: #29251E;
+}
+
+.authBackBtn,
+.authContinueBtn {
+  background: #93796B;
+}
+
+.authSubmitBtn:hover {
+  background: #484137;
+  transition: 0.5s;
+}
+
+.authBackBtn:hover,
+.authContinueBtn:hover {
+  background: #A28778;
+  transition: 0.5s;
+}
+
 input,
 .authSubmitBtn,
-button {
-  height: 40px;
+.authContinueBtn,
+.authRedirectBtn,
+.authRedirectLink {
+  min-height: 40px;
   border-radius: 2px;
 }
 
@@ -99,23 +136,31 @@ button {
   margin-top: 3%;
 }
 
-button:first-of-type {
+.authRedirectBtn {
   background: none;
   border: 1px solid #26291E;
 }
 
-button:last-of-type {
+.authRedirectBtn:hover {
+ background: #F3F3F3;
+ transition: 0.5s;
+}
+
+.authRedirectLink {
   background: none;
   border: none;
   text-decoration: underline;
-  color: #CC884A;
+  color: #5E8C6C;
 }
 
-button:last-of-type:hover {
-  color: #F18D31;
+.authRedirectLink:hover {
+  color: #81B190;
   transition: 0.5s;
 }
 
+.Toastify__toast-container {
+  width: 35vw;
+}
 
 
 // Tablet View
