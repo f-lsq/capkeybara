@@ -7,6 +7,7 @@ import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UploadWidget from "../general/UploadWidget";
 
 export default function SellerSignupForm() {
   
@@ -14,7 +15,7 @@ export default function SellerSignupForm() {
   const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors}, getValues } = useForm();
 
-  const [showFormFieldset, setShowFormFieldset] = useState(true);
+  const [showFormFieldset, setShowFormFieldset] = useState(false);
   const [accountTaken, setAccountTaken] = useState("");
 
   const onSubmit = async (data) => {
@@ -115,20 +116,12 @@ export default function SellerSignupForm() {
               <fieldset>
                 <button className="authBackBtn" onClick={()=>{setShowFormFieldset(true)}}>&#171; Back</button>
                 <div>
-                  <label htmlFor="first_name">First Name</label>
-                  <input type="text" id="first_name" name="first_name"
-                        {...register("first_name",{
-                          required: "First name is required"
+                  <label htmlFor="name">Name</label>
+                  <input type="text" id="name" name="name"
+                        {...register("name",{
+                          required: "Name is required"
                         })}/>
-                  {errors.first_name && <p><ExclamationCircle/>&nbsp;{errors.first_name.message}</p>}
-                </div>
-                <div>
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" id="last_name" name="last_name"
-                        {...register("last_name",{
-                          required: "Last name is required"
-                        })}/>
-                  {errors.last_name && <p><ExclamationCircle/>&nbsp;{errors.last_name.message}</p>}
+                  {errors.name && <p><ExclamationCircle/>&nbsp;{errors.name.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="contact">Contact</label>
@@ -143,12 +136,8 @@ export default function SellerSignupForm() {
                   {errors.contact && <p><ExclamationCircle/>&nbsp;{errors.contact.message}</p>}
                 </div>
                 <div>
-                  <label htmlFor="address">Address</label>
-                  <input type="text" id="address" name="address"
-                        {...register("address",{
-                          required: "Address is required"
-                        })}/>
-                  {errors.address && <p><ExclamationCircle/>&nbsp;{errors.address.message}</p>}
+                  <label htmlFor="uploadImage">Upload a Profile Image</label>
+                  <UploadWidget/>
                 </div>
                 <input className="authSubmitBtn" type="submit" value="Submit"/>
               </fieldset>

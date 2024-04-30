@@ -28,3 +28,4 @@ yarn-error.log*
 # Sensitive Information
 .env
 src/api
+src/components/general/UploadWidget.js
