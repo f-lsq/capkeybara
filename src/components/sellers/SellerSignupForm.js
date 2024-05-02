@@ -4,7 +4,7 @@ import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
-import sellerUploadImage from "../../assets/images/seller-upload-img.png"
+import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.png"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,23 +16,26 @@ export default function SellerSignupForm() {
   const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors}, getValues } = useForm();
 
-  const [showFormFieldset, setShowFormFieldset] = useState(false);
+  const [showFormFieldset, setShowFormFieldset] = useState(true);
   const [accountTaken, setAccountTaken] = useState("");
+  const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   const onSubmit = async (data) => {
-    if (data){
-      setAccountTaken("")
-      const response = await sellerContext.createSeller(data);
-      if (response) {
-        setShowFormFieldset(false);
-        // If on second 'signup' page
-        if (!showFormFieldset) {
-          navigate("/login");
-        }
-      } else {
-        setAccountTaken("Username or Email already taken. Please try again.");
-      }
-    }
+    console.log(data)
+    setShowFormFieldset(false);
+    // if (data){
+    //   setAccountTaken("")
+    //   const response = await sellerContext.createSeller(data);
+    //   if (response) {
+    //     setShowFormFieldset(false);
+    //     // If on second 'signup' page
+    //     if (!showFormFieldset) {
+    //       navigate("/login");
+    //     }
+    //   } else {
+    //     setAccountTaken("Username or Email already taken. Please try again.");
+    //   }
+    // }
   }
 
   const notifyIfTaken = () => {
@@ -137,8 +140,11 @@ export default function SellerSignupForm() {
                   {errors.contact && <p><ExclamationCircle/>&nbsp;{errors.contact.message}</p>}
                 </div>
                 <div>
-                  <label htmlFor="uploadImage">Upload a Profile Image</label>
-                  <UploadWidget defaultUploadImage={sellerUploadImage}/>
+                  <label htmlFor="image_url">Upload a Profile Image</label>
+                  <input type="hidden" id="image_url" name="image_url" value={uploadedImageURL}
+                         {...register("image_url")}/>
+                  <img src={uploadedImageURL || sellerDefaultProfileImage} alt="Profile to be uploaded by sellers"/>
+                  <UploadWidget setUploadedImageURL={setUploadedImageURL}/>
                 </div>
                 <input className="authSubmitBtn" type="submit" value="Submit"/>
               </fieldset>

@@ -39,7 +39,11 @@ h1 {
 
 h1,
 form,
-button {
+.authContinueBtn,
+.authBackBtn,
+.authRedirectBtn,
+.authRedirectLink
+ {
   width: 80%;
 }
 
@@ -71,6 +75,13 @@ form div a {
 form div a:hover {
   color: #F18D31;
   transition: 0.5s;
+}
+
+form div img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: contain;
+  width: 20%;
 }
 
 fieldset {
@@ -135,7 +146,9 @@ input,
 }
 
 .authSubmitBtn,
-button {
+.authContinueBtn,
+.authRedirectBtn,
+.authRedirectLink {
   cursor: pointer;
   margin-top: 3%;
 }
