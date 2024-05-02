@@ -4,6 +4,7 @@ import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
+import sellerUploadImage from "../../assets/images/seller-upload-img.png"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -137,7 +138,7 @@ export default function SellerSignupForm() {
                 </div>
                 <div>
                   <label htmlFor="uploadImage">Upload a Profile Image</label>
-                  <UploadWidget/>
+                  <UploadWidget defaultUploadImage={sellerUploadImage}/>
                 </div>
                 <input className="authSubmitBtn" type="submit" value="Submit"/>
               </fieldset>

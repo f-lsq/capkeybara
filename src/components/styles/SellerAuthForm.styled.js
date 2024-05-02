@@ -49,6 +49,10 @@ input {
   width: 100%;
 } 
 
+form div {
+  margin-top: 3%;
+}
+
 form div p {
   color: red;
   font-size: 0.7rem;
