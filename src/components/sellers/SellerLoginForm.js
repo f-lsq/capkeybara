@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SellerLoginForm() {
   
@@ -13,13 +15,25 @@ export default function SellerLoginForm() {
   const { register, handleSubmit, formState:{errors} } = useForm();
   
   const onSubmit = async (data) => {
+    try {
       const response = await sellerContext.login(data)
       if (response) {
-        navigate("/profile");
+        navigate("/seller/profile");
       } else {
-        navigate("/login");
+        notifyIfWrongLogin();
+        navigate("/seller/login");
       }
+    } catch(e) {
+      throw new Error(e);
+    }
   }
+
+  const notifyIfWrongLogin = () => {
+    toast.error("Wrong email or password", {
+      autoClose: 2000,
+    });
+  }
+
   return (
     <>
     <StyledSellerAuthForm>
@@ -28,6 +42,7 @@ export default function SellerLoginForm() {
       </div>
       <div className="authForm">
         <h1>Welcome back, Sellers!</h1> 
+        <ToastContainer/>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email">Email</label>

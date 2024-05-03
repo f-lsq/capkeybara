@@ -7,12 +7,21 @@ export default function BuyerContextData({children}) {
   
   const serviceOperations = {
     createBuyer: async (data) => {
-      const responseData = await BuyerServiceLayer.createBuyer(data);
-      return responseData;
+      try {
+        const responseData = await BuyerServiceLayer.createBuyer(data);
+        return responseData;
+      } catch(e) {
+        throw new Error(e);
+      }
+
     },
     login: async (data) => {
-      const responseData = await BuyerServiceLayer.login(data);
-      return responseData;
+      try {
+        const responseData = await BuyerServiceLayer.login(data);
+        return responseData;
+      } catch(e) {
+        throw new Error(e);
+      }
     }
   }
 

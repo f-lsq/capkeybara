@@ -7,12 +7,22 @@ export default function SellerContextData({children}) {
   
   const serviceOperations = {
     createSeller: async (data) => {
-      const responseData = await SellerServices.createSeller(data);
-      return responseData;
+      try {
+        const responseData = await SellerServices.createSeller(data);
+        return responseData;
+      } catch(e) {
+        throw new Error(e);
+      }
+
     },
     login: async (data) => {
-      const responseData = await SellerServices.login(data);
-      return responseData;
+      try {
+        const responseData = await SellerServices.login(data);
+        return responseData;    
+      } catch(e) {
+        throw new Error(e);
+      }
+
     }
   }
 

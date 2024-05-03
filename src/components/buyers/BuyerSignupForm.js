@@ -37,8 +37,6 @@ export default function BuyerSignupForm() {
     if (accountTaken) {
       toast.dismiss("accTaken")
       toast.warn(accountTaken, {
-        icon: false,
-        closeButton: false,
         autoClose: 2000,
         toastId: "accTaken",
       });

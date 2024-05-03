@@ -1,10 +1,11 @@
 import SellerNavbar from "../../components/sellers/SellerNavbar";
+import SellerSidebar from "../../components/sellers/SellerSidebar";
 
 export default function SellerOrderPage() {
   return (
     <>
       <SellerNavbar/>
-      <h1>Seller Order Page</h1>
+      <SellerSidebar/><h1>Seller Order Page</h1>
     </>
   )
 }

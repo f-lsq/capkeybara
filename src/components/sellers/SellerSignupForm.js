@@ -14,36 +14,33 @@ export default function SellerSignupForm() {
   
   const sellerContext = useContext(SellerContext);
   const navigate = useNavigate();
-  const { register, handleSubmit, formState:{errors}, getValues } = useForm();
+  const { register, handleSubmit, formState:{errors}, getValues, setValue } = useForm();
 
   const [showFormFieldset, setShowFormFieldset] = useState(true);
   const [accountTaken, setAccountTaken] = useState("");
   const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   const onSubmit = async (data) => {
-    console.log(data)
-    setShowFormFieldset(false);
-    // if (data){
-    //   setAccountTaken("")
-    //   const response = await sellerContext.createSeller(data);
-    //   if (response) {
-    //     setShowFormFieldset(false);
-    //     // If on second 'signup' page
-    //     if (!showFormFieldset) {
-    //       navigate("/login");
-    //     }
-    //   } else {
-    //     setAccountTaken("Username or Email already taken. Please try again.");
-    //   }
-    // }
+    if (data){
+      setAccountTaken("")
+      const response = await sellerContext.createSeller(data);
+      console.log("response", response)
+      if (response) {
+        setShowFormFieldset(false);
+        // If on second 'signup' page
+        if (!showFormFieldset) {
+          navigate("/login");
+        }
+      } else {
+        setAccountTaken("Username or Email already taken. Please try again.");
+      }
+    }
   }
 
   const notifyIfTaken = () => {
     if (accountTaken) {
       toast.dismiss("accTaken")
-      toast.warn(accountTaken, {
-        icon: false,
-        closeButton: false,
+      toast.error(accountTaken, {
         autoClose: 2000,
         toastId: "accTaken",
       });
@@ -141,12 +138,15 @@ export default function SellerSignupForm() {
                 </div>
                 <div>
                   <label htmlFor="image_url">Upload a Profile Image</label>
-                  <input type="hidden" id="image_url" name="image_url" value={uploadedImageURL}
-                         {...register("image_url")}/>
+                  <input type="hidden" id="image_url" name="image_url"
+                         {...register("image_url",{
+                          value: uploadedImageURL
+                         })}/>
                   <img src={uploadedImageURL || sellerDefaultProfileImage} alt="Profile to be uploaded by sellers"/>
                   <UploadWidget setUploadedImageURL={setUploadedImageURL}/>
                 </div>
-                <input className="authSubmitBtn" type="submit" value="Submit"/>
+                <input className="authSubmitBtn" type="submit" value="Submit" 
+                       onClick={()=>setValue("image_url", uploadedImageURL)}/>
               </fieldset>
             }
           </form>

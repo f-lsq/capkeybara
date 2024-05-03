@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/BuyerAuthForm.styled";
 import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function BuyerLoginForm() {
   
@@ -17,8 +19,15 @@ export default function BuyerLoginForm() {
       if (response) {
         navigate("/profile");
       } else {
+        notifyIfWrongLogin();
         navigate("/login");
       }
+  }
+
+  const notifyIfWrongLogin = () => {
+    toast.error("Wrong email or password", {
+      autoClose: 2000,
+    });
   }
   return (
     <>
@@ -28,6 +37,7 @@ export default function BuyerLoginForm() {
       </div>
       <div className="authForm">
         <h1>Login</h1> 
+        <ToastContainer/>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email">Email</label>
