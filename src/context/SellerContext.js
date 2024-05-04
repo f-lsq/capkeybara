@@ -18,6 +18,7 @@ export default function SellerContextData({children}) {
     login: async (data) => {
       try {
         const responseData = await SellerServices.login(data);
+        console.log(responseData);
         return responseData;    
       } catch(e) {
         throw new Error(e);

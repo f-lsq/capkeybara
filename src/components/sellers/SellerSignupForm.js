@@ -24,12 +24,11 @@ export default function SellerSignupForm() {
     if (data){
       setAccountTaken("")
       const response = await sellerContext.createSeller(data);
-      console.log("response", response)
       if (response) {
         setShowFormFieldset(false);
         // If on second 'signup' page
         if (!showFormFieldset) {
-          navigate("/login");
+          navigate("/seller/login");
         }
       } else {
         setAccountTaken("Username or Email already taken. Please try again.");

@@ -7,10 +7,12 @@ import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../context/AuthContext";
 
 export default function SellerLoginForm() {
   
   const sellerContext = useContext(SellerContext);
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors} } = useForm();
   
@@ -18,6 +20,7 @@ export default function SellerLoginForm() {
     try {
       const response = await sellerContext.login(data)
       if (response) {
+        authContext.login(response.data, "seller");
         navigate("/seller/profile");
       } else {
         notifyIfWrongLogin();

@@ -1,13 +1,14 @@
+import SellerAddProduct from "../../components/sellers/SellerAddProduct";
 import SellerNavbar from "../../components/sellers/SellerNavbar";
 import SellerSidebar from "../../components/sellers/SellerSidebar";
 import { StyledSellerMainBody } from "../../components/styles/SellerMainBody.styled";
 
-export default function SellerProfilePage() {
+export default function SellerAddProductPage() {
   return (
     <>
       <SellerNavbar/>
       <StyledSellerMainBody>
-        <SellerSidebar/><h1>Seller Profile Page</h1>
+        <SellerSidebar/><SellerAddProduct/>
       </StyledSellerMainBody>
       
     </>

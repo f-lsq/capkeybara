@@ -19,7 +19,11 @@ import SellerProfilePage from "./views/sellers/SellerProfilePage";
 import SellerContextData from "./context/SellerContext";
 import SellerDashboardPage from "./views/sellers/SellerDashboardPage";
 import SellerProductPage from "./views/sellers/SellerProductPage";
-import SellerOrderPage from "./views/sellers/SellerOrderPage";
+import SellerAddProductPage from "./views/sellers/SellerAddProductPage";
+import ProductContextData from "./context/ProductContext";
+import AuthContextData from "./context/AuthContext";
+import SellerUpdateProductPage from "./views/sellers/SellerUpdateProductPage";
+import SellerDeleteProductPage from "./views/sellers/SellerDeleteProductPage";
 
 
 function App() {
@@ -29,21 +33,27 @@ function App() {
       <StyledGlobal/>
         <SellerContextData>
         <BuyerContextData>
+        <AuthContextData>
+        <ProductContextData>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/shop" element={<ShopPage/>}/>
             <Route path="/build" element={<BuildAKeyboardPage/>}/>
             <Route path="/about" element={<AboutPage/>}/>
-            <Route path="/login" element={<BuyerLoginPage/>}/>
             <Route path="/signup" element={<BuyerSignupPage/>}/>
+            <Route path="/login" element={<BuyerLoginPage/>}/>
             <Route path="/profile" element={<BuyerProfilePage/>}/>
-            <Route path="/seller/login" element={<SellerLoginPage/>}/>
             <Route path="/seller/signup" element={<SellerSignupPage/>}/>
+            <Route path="/seller/profile" element={<SellerProfilePage/>}/>
+            <Route path="/seller/login" element={<SellerLoginPage/>}/>
             <Route path="/seller/dashboard" element={<SellerDashboardPage/>}/>
             <Route path="/seller/product" element={<SellerProductPage/>}/>
-            <Route path="/seller/order" element={<SellerOrderPage/>}/>
-            <Route path="/seller/profile" element={<SellerProfilePage/>}/>
+            <Route path="/seller/product/add" element={<SellerAddProductPage/>}/>
+            <Route path="/seller/product/update/:productId" element={<SellerUpdateProductPage/>}/>
+            <Route path="/seller/product/delete/:productId" element={<SellerDeleteProductPage/>}/>
           </Routes>
+        </ProductContextData>
+        </AuthContextData>
         </BuyerContextData>
         </SellerContextData>
     </Router>

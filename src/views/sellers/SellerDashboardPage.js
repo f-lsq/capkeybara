@@ -1,11 +1,15 @@
 import SellerNavbar from "../../components/sellers/SellerNavbar";
 import SellerSidebar from "../../components/sellers/SellerSidebar";
+import { StyledSellerMainBody } from "../../components/styles/SellerMainBody.styled";
 
 export default function SellerDashboardPage() {
   return (
     <>
       <SellerNavbar/>
-      <SellerSidebar/><h1>Seller Dashboard Page</h1>
+      <StyledSellerMainBody>
+        <SellerSidebar/><h1>Seller Dashboard Page</h1>
+      </StyledSellerMainBody>
+      
     </>
   )
 }
