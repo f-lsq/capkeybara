@@ -1,52 +1,68 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ExclamationCircle } from 'react-bootstrap-icons';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import UploadWidget from '../general/UploadWidget';
 import defaultUploadImage from "../../assets/images/upload-img.jpg"
 
-const SellerAddProduct = () => {
+const SellerUpdateProduct = () => {
 
   const productContext = useContext(ProductContext);
+  const { productId } = useParams();
   const navigate = useNavigate();
-  const { register, handleSubmit, formState:{errors}, setValue } = useForm({
-    defaultValues: {
-      image_url: "",
-      description: "",
-      seller_id: localStorage.getItem("id")
-    }
-  });
+  
   const [categories, setCategories] = useState([]);
+  const [product, setProduct] = useState({});
   const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await productContext.getAllCategories();
-        setCategories(response.data.allCategories);
+        const responseCategories = await productContext.getAllCategories();
+        const responseProducts = await productContext.getProductById(productId);
+        setCategories(responseCategories.data.allCategories);
+        setProduct(responseProducts.data.existingProduct);
       } catch (e) {
         console.log(e);
       }
 
     }
     fetchData();
-  },[]) 
+  },[productId]) 
+
+  useEffect(() => {
+    try {
+    // Set default values after product state is updated
+      setValue('name', product.name);
+      setValue('description', product.description);
+      setValue('price', product.price);
+      setValue('cost', product.cost);
+      setValue('quantity_available', product.quantity_available);
+      setUploadedImageURL(product.image_url);
+      setValue('category_id', product.category_id);
+      setValue('seller_id', localStorage.getItem("id"));
+    } catch (e) {
+      console.log(e);
+    }
+  }, [product]);
+
+  const { register, handleSubmit, formState:{errors}, setValue } = useForm();
 
   const onSubmit = async (data) => {
     if (data) {
-      const response = await productContext.createProduct(data);
+      const response = await productContext.updateProduct(productId, data);
       if (response.status === 200) {
         navigate("/seller/product");
       }
     } else {
-      navigate("/seller/product/add")
+      navigate(`/seller/product/update/${productId}`)
     }
   }
 
   return (
     <div>
-      <h1>Add product</h1>
+      <h1>Update product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div>
@@ -131,11 +147,11 @@ const SellerAddProduct = () => {
           </div>
         </div>
         
-        <input className="authSubmitBtn" type="submit" value="Add Product"
+        <input className="authSubmitBtn" type="submit" value="Update Product"
                onClick={()=>setValue("image_url", uploadedImageURL)}/>
       </form>
     </div>
   );
 };
 
-export default SellerAddProduct;
+export default SellerUpdateProduct;

@@ -17,6 +17,15 @@ const SellerServiceLayer = {
     } catch(e) {
       throw new Error(e);
     }
+  },
+
+  getSellerById: async (params) => {
+    try {
+      const response = await apiRequests.get('/sellers/', params)
+      return response;
+    } catch(e) {
+      throw new Error(e);
+    }
   }
 }
 

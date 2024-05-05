@@ -33,6 +33,8 @@ export default function SellerSignupForm() {
       } else {
         setAccountTaken("Username or Email already taken. Please try again.");
       }
+    } else {
+      navigate("/seller/signup")
     }
   }
 

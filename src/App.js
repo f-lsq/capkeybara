@@ -24,6 +24,7 @@ import ProductContextData from "./context/ProductContext";
 import AuthContextData from "./context/AuthContext";
 import SellerUpdateProductPage from "./views/sellers/SellerUpdateProductPage";
 import SellerDeleteProductPage from "./views/sellers/SellerDeleteProductPage";
+import CartContextData from "./context/CartContext";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <BuyerContextData>
         <AuthContextData>
         <ProductContextData>
+        <CartContextData>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/shop" element={<ShopPage/>}/>
@@ -52,6 +54,7 @@ function App() {
             <Route path="/seller/product/update/:productId" element={<SellerUpdateProductPage/>}/>
             <Route path="/seller/product/delete/:productId" element={<SellerDeleteProductPage/>}/>
           </Routes>
+        </CartContextData>
         </ProductContextData>
         </AuthContextData>
         </BuyerContextData>

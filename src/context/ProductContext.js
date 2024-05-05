@@ -52,6 +52,18 @@ export default function ProductContextData({children}) {
 
     },
 
+    updateProduct: async (productId, data) => {
+      try {
+        const response = await ProductServiceLayer.updateProduct(productId, data);
+        return response;
+      } catch(e) {
+        throw new Error(e);
+      }
+
+    },
+
+
+
     deleteProduct: async (productId) => {
       try {
         const response = await ProductServiceLayer.deleteProduct(productId);

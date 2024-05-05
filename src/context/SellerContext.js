@@ -8,8 +8,8 @@ export default function SellerContextData({children}) {
   const serviceOperations = {
     createSeller: async (data) => {
       try {
-        const responseData = await SellerServices.createSeller(data);
-        return responseData;
+        const response = await SellerServices.createSeller(data);
+        return response;
       } catch(e) {
         throw new Error(e);
       }
@@ -17,13 +17,21 @@ export default function SellerContextData({children}) {
     },
     login: async (data) => {
       try {
-        const responseData = await SellerServices.login(data);
-        console.log(responseData);
-        return responseData;    
+        const response = await SellerServices.login(data);
+        return response;    
       } catch(e) {
         throw new Error(e);
       }
 
+    },
+
+    getSellerById: async (sellerId) => {
+      try {
+        const response = await SellerServices.getSellerById(sellerId);
+        return response;    
+      } catch(e) {
+        throw new Error(e);
+      }
     }
   }
 

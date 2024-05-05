@@ -1,11 +1,17 @@
-import React from 'react';
+import SellerNavbar from "../../components/sellers/SellerNavbar";
+import SellerSidebar from "../../components/sellers/SellerSidebar";
+import SellerUpdateProduct from "../../components/sellers/SellerUpdateProduct";
+import { StyledSellerMainBody } from "../../components/styles/SellerMainBody.styled";
 
-const SellerUpdateProductPage = () => {
+export default function SellerDeleteProductPage() {
   return (
-    <div>
+    <>
+      <SellerNavbar/>
+      <StyledSellerMainBody>
+        <SellerSidebar/><SellerUpdateProduct/>
+      </StyledSellerMainBody>
       
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default SellerUpdateProductPage;

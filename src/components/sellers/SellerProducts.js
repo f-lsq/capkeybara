@@ -45,7 +45,7 @@ const SellerProducts = () => {
             products.map(product => (
               <tr key={product.id}>
                 <td>{product.id}</td>
-                <td>{product.image_url}</td>
+                <td><img src={product.image_url} alt={product.name}/></td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.cost}</td>
