@@ -3,7 +3,7 @@ import apiRequests from "../api"
 const SellerServiceLayer = {
   createSeller: async (data) => {
     try {
-      const response = await apiRequests.post('/sellers/', data)
+      const response = await apiRequests.post('/sellers/', '', data)
       return response;
     } catch(e) {
       throw new Error(e);
@@ -12,7 +12,7 @@ const SellerServiceLayer = {
   },
   login: async (data) => {
     try {
-      const response = await apiRequests.post('/sellers/login', data)
+      const response = await apiRequests.post('/sellers/login', '', data)
       return response;
     } catch(e) {
       throw new Error(e);

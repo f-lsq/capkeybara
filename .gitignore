@@ -29,3 +29,4 @@ yarn-error.log*
 .env
 src/api
 src/components/general/UploadWidget.js
+src/components/buyers/BuyerCart.js

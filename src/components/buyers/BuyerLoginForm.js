@@ -5,18 +5,21 @@ import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/BuyerAuthForm.styled";
 import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../context/AuthContext";
 
 export default function BuyerLoginForm() {
   
   const buyerContext = useContext(BuyerContext);
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
   const { register, handleSubmit, formState:{errors} } = useForm();
   
   const onSubmit = async (data) => {
       const response = await buyerContext.login(data)
       if (response) {
+        authContext.login(response.data, "buyer");
         navigate("/profile");
       } else {
         notifyIfWrongLogin();
@@ -27,6 +30,7 @@ export default function BuyerLoginForm() {
   const notifyIfWrongLogin = () => {
     toast.error("Wrong email or password", {
       autoClose: 2000,
+      toastId: "wrongLogin" // prevents duplicate
     });
   }
   return (
@@ -37,7 +41,7 @@ export default function BuyerLoginForm() {
       </div>
       <div className="authForm">
         <h1>Login</h1> 
-        <ToastContainer/>
+       
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email">Email</label>

@@ -3,7 +3,7 @@ import apiRequests from "../api"
 const BuyerServiceLayer = {
   createBuyer: async (data) => {
     try {
-      const response = await apiRequests.post('/buyers/', data)
+      const response = await apiRequests.post('/buyers/', "", data)
       return response;
     } catch(e) {
       throw new Error(e);
@@ -12,7 +12,7 @@ const BuyerServiceLayer = {
   },
   login: async (data) => {
     try {
-      const response = await apiRequests.post('/buyers/login', data)
+      const response = await apiRequests.post('/buyers/login', "", data)
       return response;
     } catch(e) {
       throw new Error(e);

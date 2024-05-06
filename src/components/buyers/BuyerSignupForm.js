@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/BuyerAuthForm.styled";
 import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function BuyerSignupForm() {
@@ -35,10 +35,9 @@ export default function BuyerSignupForm() {
 
   const notifyIfTaken = () => {
     if (accountTaken) {
-      toast.dismiss("accTaken")
       toast.warn(accountTaken, {
         autoClose: 2000,
-        toastId: "accTaken",
+        toastId: "accTaken" // prevents duplicate
       });
     }
   }
@@ -104,7 +103,6 @@ export default function BuyerSignupForm() {
                           validate: value => value === getValues().password || "Passwords should match"
                           })}/>
                   {errors.confirm_password && <p><ExclamationCircle/>&nbsp;{errors.confirm_password.message}</p>}
-                  <ToastContainer/>
                 </div>
                 <button className="authContinueBtn" onClick={notifyIfTaken}>Continue</button>
               </fieldset>

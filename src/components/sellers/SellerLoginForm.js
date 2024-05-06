@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../context/AuthContext";
 
@@ -34,6 +34,7 @@ export default function SellerLoginForm() {
   const notifyIfWrongLogin = () => {
     toast.error("Wrong email or password", {
       autoClose: 2000,
+      toastId: "wrongLogin" // prevents duplicate
     });
   }
 
@@ -45,7 +46,6 @@ export default function SellerLoginForm() {
       </div>
       <div className="authForm">
         <h1>Welcome back, Sellers!</h1> 
-        <ToastContainer/>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email">Email</label>

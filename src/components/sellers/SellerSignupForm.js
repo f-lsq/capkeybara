@@ -6,7 +6,7 @@ import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.png"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UploadWidget from "../general/UploadWidget";
 
@@ -109,7 +109,6 @@ export default function SellerSignupForm() {
                           validate: value => value === getValues().password || "Passwords should match"
                           })}/>
                   {errors.confirm_password && <p><ExclamationCircle/>&nbsp;{errors.confirm_password.message}</p>}
-                  <ToastContainer/>
                 </div>
                 <button className="authContinueBtn" onClick={notifyIfTaken}>Continue</button>
               </fieldset>

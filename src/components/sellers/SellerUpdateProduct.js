@@ -100,8 +100,8 @@ const SellerUpdateProduct = () => {
                       }
                     })}/>
               {errors.price && <p><ExclamationCircle/>&nbsp;{errors.price.message}</p>}
-            </div>
-            <div>
+          </div>
+          <div>
             <label htmlFor="cost">Cost Price</label>
             <input type="number" id="cost" name="cost" step=".01"
                   {...register("cost", {

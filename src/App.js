@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { StyledGlobal } from "./components/styles/GlobalStyles.styled";
 import { StyledFonts } from './components/styles/GlobalFonts.styled';
 
+// Dependencies
+import { ToastContainer } from "react-toastify";
+
 // Views
 import HomePage from "./views/HomePage";
 import ShopPage from "./views/ShopPage";
@@ -25,6 +28,11 @@ import AuthContextData from "./context/AuthContext";
 import SellerUpdateProductPage from "./views/sellers/SellerUpdateProductPage";
 import SellerDeleteProductPage from "./views/sellers/SellerDeleteProductPage";
 import CartContextData from "./context/CartContext";
+import BuyerCartPage from "./views/buyers/BuyerCartPage";
+import CheckoutContextData from "./context/CheckoutContext";
+import BuyerCheckoutSuccessPage from "./views/buyers/BuyerCheckoutSuccessPage";
+import BuyerCheckoutCancelPage from "./views/buyers/BuyerCheckoutCancelPage";
+
 
 
 function App() {
@@ -37,6 +45,8 @@ function App() {
         <AuthContextData>
         <ProductContextData>
         <CartContextData>
+        <CheckoutContextData>
+        <ToastContainer/>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/shop" element={<ShopPage/>}/>
@@ -45,6 +55,9 @@ function App() {
             <Route path="/signup" element={<BuyerSignupPage/>}/>
             <Route path="/login" element={<BuyerLoginPage/>}/>
             <Route path="/profile" element={<BuyerProfilePage/>}/>
+            <Route path="/cart" element={<BuyerCartPage/>}/>
+            <Route path="/checkout/success" element={<BuyerCheckoutSuccessPage/>}/>
+            <Route path="/checkout/cancel" element={<BuyerCheckoutCancelPage/>}/>
             <Route path="/seller/signup" element={<SellerSignupPage/>}/>
             <Route path="/seller/profile" element={<SellerProfilePage/>}/>
             <Route path="/seller/login" element={<SellerLoginPage/>}/>
@@ -54,6 +67,7 @@ function App() {
             <Route path="/seller/product/update/:productId" element={<SellerUpdateProductPage/>}/>
             <Route path="/seller/product/delete/:productId" element={<SellerDeleteProductPage/>}/>
           </Routes>
+        </CheckoutContextData>
         </CartContextData>
         </ProductContextData>
         </AuthContextData>
