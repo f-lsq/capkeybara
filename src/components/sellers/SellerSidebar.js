@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BoxArrowLeft, BoxSeam, ClipboardCheck, Gear, Grid1x2, Truck } from 'react-bootstrap-icons';
-import { StyledSellerSidebar } from '../styles/SellerSidebar.styled';
+import { StyledSellerSidebar } from '../styles/sellers/SellerSidebar.styled';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { SellerContext } from '../../context/SellerContext';

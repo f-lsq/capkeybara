@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { StyledSellerProducts } from '../styles/SellerProducts.styled';
+import { StyledSellerProducts } from '../styles/sellers/SellerProducts.styled';
 import { ProductContext } from '../../context/ProductContext';
 import { useNavigate } from 'react-router-dom';
 import { PlusLg } from 'react-bootstrap-icons';

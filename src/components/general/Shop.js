@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import { BagPlusFill } from 'react-bootstrap-icons';
-import { StyledShop } from '../styles/Shop.styled';
+import { StyledShop } from '../styles/general/Shop.styled';
 import { CartContext } from '../../context/CartContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -70,10 +70,13 @@ const Shop = () => {
                 <h1>{product.name}</h1>
                 <p>{product.category.name}</p>
               </div>
-              <h2>${product.price}</h2>
-              <button onClick={
-                ()=>handleAddCart(product.id, product.name)
-                }><BagPlusFill/>Add to Cart</button>
+              <div>
+                <h2>${product.price}</h2>
+                <button onClick={
+                  ()=>handleAddCart(product.id, product.name)
+                  }><BagPlusFill/>Add to Cart</button>
+              </div>
+              
             </section>
           </article> 
         ))

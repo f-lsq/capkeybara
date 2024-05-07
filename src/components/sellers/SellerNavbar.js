@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Person, List, XCircle, Bell } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
-import { StyledSellerNavbar } from '../styles/SellerNavbar.styled';
+import { StyledSellerNavbar } from '../styles/sellers/SellerNavbar.styled';
 
 export default function SellerNavbar() {
   const [displayMenu, setDisplayMenu] = useState(false);

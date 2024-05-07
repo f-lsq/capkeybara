@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
-import { StyledSellerAuthForm } from "../styles/SellerAuthForm.styled";
+import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
 import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.png"
 import { ExclamationCircle } from "react-bootstrap-icons";

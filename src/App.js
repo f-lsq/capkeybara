@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 // Styles
-import { StyledGlobal } from "./components/styles/GlobalStyles.styled";
-import { StyledFonts } from './components/styles/GlobalFonts.styled';
+import { StyledGlobal } from "./components/styles/general/GlobalStyles.styled";
+import { StyledFonts } from './components/styles/general/GlobalFonts.styled';
 
 // Dependencies
 import { ToastContainer } from "react-toastify";

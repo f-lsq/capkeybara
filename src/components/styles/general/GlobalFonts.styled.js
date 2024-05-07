@@ -1,19 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
-import RobotoBlackItalicTTF from '../../assets/fonts/Roboto-BlackItalic.ttf';
-import RobotoBlackTTF from '../../assets/fonts/Roboto-Black.ttf';
-import RobotoItalicTTF from '../../assets/fonts/Roboto-Italic.ttf';
-import RobotoBoldTTF from '../../assets/fonts/Roboto-Bold.ttf';
-import RobotoBoldItalicTTF from '../../assets/fonts/Roboto-BoldItalic.ttf';
-import RobotoLightTTF from '../../assets/fonts/Roboto-Light.ttf';
-import RobotoLightItalicTTF from '../../assets/fonts/Roboto-LightItalic.ttf';
-import RobotoMediumItalicTTF from '../../assets/fonts/Roboto-MediumItalic.ttf';
-import RobotoRegularTTF from '../../assets/fonts/Roboto-Regular.ttf';
-import RobotoMediumTTF from '../../assets/fonts/Roboto-Medium.ttf';
-import RobotoThinTTF from '../../assets/fonts/Roboto-Thin.ttf';
-import RobotoThinItalicTTF from '../../assets/fonts/Roboto-ThinItalic.ttf';
-import AldrichTTF from '../../assets/fonts/Aldrich-Regular.ttf';
-import CuteFontTTF from '../../assets/fonts/CuteFont-Regular.ttf';
+import RobotoBlackItalicTTF from '../../../assets/fonts/Roboto-BlackItalic.ttf';
+import RobotoBlackTTF from '../../../assets/fonts/Roboto-Black.ttf';
+import RobotoItalicTTF from '../../../assets/fonts/Roboto-Italic.ttf';
+import RobotoBoldTTF from '../../../assets/fonts/Roboto-Bold.ttf';
+import RobotoBoldItalicTTF from '../../../assets/fonts/Roboto-BoldItalic.ttf';
+import RobotoLightTTF from '../../../assets/fonts/Roboto-Light.ttf';
+import RobotoLightItalicTTF from '../../../assets/fonts/Roboto-LightItalic.ttf';
+import RobotoMediumItalicTTF from '../../../assets/fonts/Roboto-MediumItalic.ttf';
+import RobotoRegularTTF from '../../../assets/fonts/Roboto-Regular.ttf';
+import RobotoMediumTTF from '../../../assets/fonts/Roboto-Medium.ttf';
+import RobotoThinTTF from '../../../assets/fonts/Roboto-Thin.ttf';
+import RobotoThinItalicTTF from '../../../assets/fonts/Roboto-ThinItalic.ttf';
+import AldrichTTF from '../../../assets/fonts/Aldrich-Regular.ttf';
+import CuteFontTTF from '../../../assets/fonts/CuteFont-Regular.ttf';
 
 export const StyledFonts = createGlobalStyle`
   @font-face {
