@@ -23,7 +23,6 @@ export default function SellerNavbar() {
         </div>
         <div id="navRight">
           <ul>
-            <li><Search/></li>
             <li><Link to="/seller/login"><Person/></Link></li>
             <li><Bell/></li>
           </ul>

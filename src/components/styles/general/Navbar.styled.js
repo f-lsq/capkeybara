@@ -8,6 +8,8 @@ export const StyledNavbar = styled.nav`
   color: white;
   display: flex;
   padding: 0 2rem;
+  width: 100vw;
+  position: fixed;
 
   #navCenter {
     font-family: Cute-Font;
@@ -56,6 +58,18 @@ export const StyledNavbar = styled.nav`
   
   #navRight li {
     margin-left: 10px;
+    position: relative;
+  }
+
+  #navRight li span{
+    background: #FF6B17;
+    border-radius: 100px;
+    position: absolute;
+    top: -6px;
+    right: -9px;
+    font-size: 0.55rem;
+    padding: 3px;
+    font-family: Aldrich;
   }
 
   a {
@@ -64,20 +78,24 @@ export const StyledNavbar = styled.nav`
   }
 
   .bi:hover,
-  a:hover {
+  #navLeft a:hover {
     color: #FFBA34;
     transition: color 0.5s;
   }
 
 
 
+
+
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {
-    
+    padding: 0 3rem;
   }
 
   // Laptop View
   @media screen and (min-width: 769px) and (max-width: 1279px) {
+    padding: 0 3rem;
+
     #navCenter {
       font-size: 30px;
     }
@@ -102,6 +120,8 @@ export const StyledNavbar = styled.nav`
   
   // Monitor View
   @media screen and (min-width: 1280px) {
+    padding: 0 4rem;
+
     #navCenter {
       font-size: 40px;
     }

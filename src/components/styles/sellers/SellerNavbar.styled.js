@@ -8,6 +8,8 @@ export const StyledSellerNavbar = styled.nav`
   color: white;
   display: flex;
   padding: 0 2rem;
+  width: 100vw;
+  position: fixed;
 
   #navCenter {
     font-family: Cute-Font;
@@ -73,11 +75,14 @@ export const StyledSellerNavbar = styled.nav`
 
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 0 3rem;
     
   }
 
   // Laptop View
   @media screen and (min-width: 769px) and (max-width: 1279px) {
+    padding: 0 3rem;
+
     #navCenter {
       font-size: 30px;
     }
@@ -102,6 +107,8 @@ export const StyledSellerNavbar = styled.nav`
   
   // Monitor View
   @media screen and (min-width: 1280px) {
+    padding: 0 4rem;
+    
     #navCenter {
       font-size: 40px;
     }

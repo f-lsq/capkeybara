@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Search, Person, Cart3, List, XCircle } from 'react-bootstrap-icons';
+import { Person, Cart3, List, XCircle } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { StyledNavbar } from '../styles/general/Navbar.styled';
 import { CartContext } from '../../context/CartContext';
@@ -57,7 +57,6 @@ export default function Navbar() {
         </div>
         <div id="navRight">
           <ul>
-            <li><Search/></li>
             <li><Link to="/login"><Person/></Link></li>
             <li><Link to="/cart" onClick={handleRefreshCart}><Cart3/><span>{cartTotalQuantity}</span></Link></li>
           </ul>

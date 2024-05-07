@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const StyledSellerAuthForm = styled.div`
+export const StyledSellerAuthForm = styled.main`
 // Mobile View
 display: flex;
+padding-top: 2.94em;
 
 .authForm,
 form,
@@ -209,6 +210,8 @@ input,
 
 // Laptop View
 @media screen and (min-width: 769px) and (max-width: 1279px) {
+  padding-top: 3.5em;
+
   .authBackground,
   .authForm {
       height: calc(100vh - 3.5em);
@@ -226,9 +229,11 @@ input,
 
 // Monitor View
 @media screen and (min-width: 1280px) {
+  padding-top: 4.69em;
+  
   .authBackground,
   .authForm {
-    height: calc(100vh - 4.9em);
+    height: calc(100vh - 4.69em);
     width: 50vw;
   }
 

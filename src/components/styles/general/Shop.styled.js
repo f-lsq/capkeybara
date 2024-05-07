@@ -111,7 +111,7 @@ export const StyledShop = styled.main`
   // Laptop View
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     grid-template-columns: repeat(4, auto);
-    padding: 2vw 3.5vw;
+    padding: calc(3.5em + 2vw) 3.5vw;
 
     article {
       margin: 1.5vw;
@@ -138,7 +138,7 @@ export const StyledShop = styled.main`
   // Monitor View
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(5, auto);
-    padding: 2vw 3.5vw;
+    padding: calc(4.69em + 2vw) 3.5vw;
 
     article {
       margin: 1.5vw;
