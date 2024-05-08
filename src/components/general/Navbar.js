@@ -58,7 +58,7 @@ export default function Navbar() {
         <div id="navRight">
           <ul>
             <li><Link to="/login"><Person/></Link></li>
-            <li><Link to="/cart" onClick={handleRefreshCart}><Cart3/><span>{cartTotalQuantity}</span></Link></li>
+            <li><Link to="/cart" onClick={handleRefreshCart}><Cart3/><span><p>{cartTotalQuantity}</p></span></Link></li>
           </ul>
         </div>
       </StyledNavbar>

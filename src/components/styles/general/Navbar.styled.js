@@ -61,15 +61,23 @@ export const StyledNavbar = styled.nav`
     position: relative;
   }
 
-  #navRight li span{
+  #navRight li span {
     background: #FF6B17;
     border-radius: 100px;
     position: absolute;
     top: -6px;
     right: -9px;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navRight li span p {
     font-size: 0.55rem;
-    padding: 3px;
     font-family: Aldrich;
+    text-align: center;
   }
 
   a {
