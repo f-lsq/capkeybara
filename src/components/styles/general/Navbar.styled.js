@@ -10,6 +10,7 @@ export const StyledNavbar = styled.nav`
   padding: 0 2rem;
   width: 100vw;
   position: fixed;
+  z-index: 1000;
 
   #navCenter {
     font-family: Cute-Font;
@@ -86,14 +87,12 @@ export const StyledNavbar = styled.nav`
   }
 
   .bi:hover,
-  #navLeft a:hover {
+  #navCenter a:hover,
+  #navLeft a:hover,
+  #navRight ul li span:hover + .cart-icon{
     color: #FFBA34;
     transition: color 0.5s;
   }
-
-
-
-
 
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {
