@@ -29,13 +29,15 @@ h1 {
 
 button {
   border: none;
-  background: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
 }
 
 #cart-mobile-view {
-  padding-bottom: calc(2vh + 4*0.75rem + 2*2.5px + 10px + 2*10px);
+  padding-bottom: calc(2vh + 4*0.75rem + 2*2.5px + 2*10px);
   
   h1 {
     font-size: 1rem;
@@ -84,7 +86,7 @@ button {
 
     header h2 {
       font-size: 0.7rem;
-      width: calc(100vw - 25vw - 2*10px - 2*2.5rem);
+      width: calc(100vw - 25vw - 2*10px - 2*2.8rem);
       -webkit-box-orient: vertical;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -151,10 +153,18 @@ button {
 
     button {
       background: #FFD436;
-      border: none;
       border-radius: 3px;
       padding: 2.5px 0;
       margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #FFDA53;
+    }
+
+    button:active {
+      background: #F1C72F;
     }
 
     table tr th {
@@ -166,41 +176,199 @@ button {
       text-align: right;
     }
 
+    table tr span {
+      font-weight: 700;
+    }
+
   }
 }
 
 #cart-standard-view {
   display: none;
 
+  h1 {
+    font-size: 1.5rem;
+    padding: 3vh 5vw;
+  }
+
   div {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 10vh;
   }
 
   main {
-    table {
-      box-shadow: 0 0 10px rgba(225, 225, 225, 1);
-      width: 70vw;
-      input {
-        width: 10px;
-      }
-    }
+    padding: 3vw;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(225, 225, 225, 1);
+    width: calc(65vw);
 
-    img {
-      width: 100px;
+    table {
+      font-size: 0.85rem;
+      border-collapse: collapse;
+
+      thead tr th {
+        border-bottom: 1px solid #C3C3C3;
+        width: calc((65vw - 2*3vw) / 9);
+        padding: 5px;
+        font-weight: 400;
+      }
+
+      thead tr th:first-of-type {
+        width: calc(((65vw - 2*3vw) / 9) * 3);
+      }
+
+      tbody {
+
+        td {
+          padding: 5px;
+        }
+
+        .item-col {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 3vw;
+            margin-right: 1vw;
+          }
+
+          p {
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+          }
+        }
+
+        .price-col,
+        .subtotal-col {
+          width: calc(((65vw - 2*3vw) / 9) * 2);
+          text-align: center;
+        }
+
+        .quantity-col {
+          margin: auto;
+
+          div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+
+          button {
+            color: #3D3D3D;
+          }
+
+          input {
+            width: 2rem;
+            border: none;
+            text-align: center;
+          }
+        }
+
+        .remove-col {
+          width: 3rem;
+
+          button {
+            color: #CC935E;
+            margin: auto;
+          }
+
+          div {
+            button:first-of-type {
+              color: #5E8C6C;
+            }
+      
+            button:last-of-type {
+              color: #FF1A1A;
+            }
+          }
+        }
+      }
+
+      tfoot {
+        tr td {
+          border-top: 1px solid #C3C3C3; 
+          padding: 5px;
+        }
+        tr td p {
+          text-align: right;
+        }
+
+        tr td p span {
+          font-weight: 700;
+        }
+      }
     }
   }
 
   aside {
     display: flex;
     flex-direction: column;
-    height: 80vh;
     justify-content: space-between;
+    align-items: center;
+    
 
     section {
+      padding: 3vw;
+      border-radius: 20px;
       box-shadow: 0 0 10px rgba(225, 225, 225, 1);
+      width: calc(30vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      table {
+        margin-bottom: 2vh;;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+      }
+
+      table tbody tr {
+        height: 4vh;
+      }
+
+      table tbody tr th{
+        padding: 10px 0;
+        text-align: left;
+        font-weight: 400;
+      }
+
+      table tbody tr td{
+        padding: 10px 0;
+        text-align: right;
+        font-weight: 700;
+      }
+
+      table tbody tr:last-of-type th, 
+      table tbody tr:last-of-type td {
+        border-top: 1px solid #C3C3C3; 
+      }
+
+      button {
+        background: #FFD436;
+        border-radius: 3px;
+        padding: 1vh 3vw;
+        margin-top: 10px;
+        transition: 0.3s;
+      }
+  
+      button:hover {
+        background: #FFDA53;
+      }
+  
+      button:active {
+        background: #F1C72F;
+      }
     } 
+
+    img {
+      width: 25vw;
+    }
   }
 
 
@@ -209,11 +377,55 @@ button {
 // Tablet View
 @media screen and (min-width: 481px) and (max-width: 768px) {
   #cart-mobile-view {
-    display: none;
+    display: block;
+    padding-bottom: calc(2vh + 4*1rem + 2*2.5px + 10px + 2*20px);
+
+    .cart-item { 
+      height: 10vh;
+
+      button {
+        font-size: 1rem;
+      }
+
+      .cart-body {
+        padding: 10px 30px;
+      }
+
+      header {
+        h2 {
+          width: calc(100vw - 25vw - 2* 30px - 2* 3.5rem);
+          font-size: 0.9rem;
+        }
+      }
+    
+      footer {
+        p {
+          font-size: 1rem;
+        }
+
+        input {
+          font-size: 1rem;
+        }
+        
+      }
+    }
+
+    aside {
+      padding: 20px;
+      table tr th,
+      table tr td,
+      button {
+        font-size: 1rem;
+      }
+
+      
+    } 
   }
 
+
+
   #cart-standard-view {
-    display: block;
+    display: none;
   }
 }
 
