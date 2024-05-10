@@ -4,6 +4,7 @@ import checkoutCancelGif from "../../assets/images/checkout-cancel.gif"
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { CheckoutContext } from '../../context/CheckoutContext';
+import { StyledBuyerCheckoutCancel } from '../styles/buyers/BuyerCheckout.styled';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
 
@@ -21,7 +22,7 @@ const BuyerCheckoutSuccess = () => {
   }
   
   return (
-    <div>
+    <StyledBuyerCheckoutCancel>
       <img src={checkoutCancelImg}/>
       <img src={checkoutCancelGif}/>
       <h1>Your payment has failed</h1>
@@ -30,8 +31,7 @@ const BuyerCheckoutSuccess = () => {
         <button onClick={()=>navigate("/cart")}>Go Back</button>
         <button onClick={handleCheckout}>Retry Payment</button>
       </div>
-      
-    </div>
+    </StyledBuyerCheckoutCancel>
   );
 };
 

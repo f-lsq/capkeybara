@@ -36,6 +36,46 @@ button {
   cursor: pointer;
 }
 
+#cart-no-item-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 2.94em - 1.5rem - 0.8vh - 0.75rem - 3vh - 2*1vh);
+  width: 100vw;
+  
+  img {
+    width: 70vw;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding-bottom: 0.8vh;
+  }
+
+  p {
+    font-size: 0.75rem;
+    color: #474747;
+    margin-bottom: 3vh;
+  }
+
+  button {
+    background: #FFD436;
+    padding: 1vh 3vw;
+    border-radius: 5px;
+    transition: 0.2s;
+    font-size: 0.9rem;
+  }
+
+  button:hover {
+    background: #FFDA53;
+  }
+
+  button:active {
+    background: #F1C72F;
+  }
+}
+
 #cart-mobile-view {
   padding-bottom: calc(2vh + 4*0.75rem + 2*2.5px + 2*10px);
   
@@ -367,7 +407,7 @@ button {
     } 
 
     img {
-      width: 25vw;
+      width: 20vw;
     }
   }
 
@@ -376,6 +416,12 @@ button {
 
 // Tablet View
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  #cart-no-item-view {
+    img {
+      width: 60vw;
+    }
+  }
+
   #cart-mobile-view {
     display: block;
     padding-bottom: calc(2vh + 4*1rem + 2*2.5px + 10px + 2*20px);
@@ -422,8 +468,6 @@ button {
     } 
   }
 
-
-
   #cart-standard-view {
     display: none;
   }
@@ -432,6 +476,12 @@ button {
 // Laptop View
 @media screen and (min-width: 769px) and (max-width: 1279px) {
   padding-top: 3.5em;
+
+  #cart-no-item-view {
+    img {
+      width: 40vw;
+    }
+  }
 
   #cart-mobile-view {
     display: none;
@@ -445,6 +495,12 @@ button {
 // Monitor View
 @media screen and (min-width: 1280px) {
   padding-top: 4.69em;
+
+  #cart-no-item-view {
+    img {
+      width: 30vw;
+    }
+  }
 
   #cart-mobile-view {
     display: none;
