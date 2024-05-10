@@ -19,7 +19,8 @@ export default function BuyerLoginForm() {
   const onSubmit = async (data) => {
       const response = await buyerContext.login(data)
       if (response) {
-        authContext.login(response.data, "buyer");
+        const buyerProfileResponse = await buyerContext.getBuyerProfile();
+        authContext.login(buyerProfileResponse.data.payload.role);
         navigate("/profile");
       } else {
         notifyIfWrongLogin();

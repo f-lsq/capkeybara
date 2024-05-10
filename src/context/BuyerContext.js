@@ -15,11 +15,30 @@ export default function BuyerContextData({children}) {
       }
 
     },
+    
     login: async (data) => {
       try {
         const responseData = await BuyerServiceLayer.login(data);
         return responseData;
       } catch(e) {
+        throw new Error(e);
+      }
+    },
+
+    getBuyerProfile: async () => {
+      try {
+        const response = await BuyerServiceLayer.getBuyerProfile();
+        return response;
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+
+    refreshAccessToken: async () => {
+      try {
+        const response = await BuyerServiceLayer.refreshAccessToken();
+        return response;
+      } catch (e) {
         throw new Error(e);
       }
     }

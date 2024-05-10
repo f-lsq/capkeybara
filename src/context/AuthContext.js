@@ -1,29 +1,35 @@
-import React, {createContext} from 'react';
+import React, {createContext, useState} from 'react';
 
 export const AuthContext = createContext();
 
 export default function AuthContextData({children}) {
-  
+
+  // Rationale for storing 'loginStatus' and 'userRole' in sessions rather than local storage
+  // - These information are typically session-specific and can be cleared when a user closes their browser
+  //   which will ensure security and privacy 
+
   const serviceOperations = {
-    login: (data, role) => {
-      localStorage.setItem("role", role)
-      localStorage.setItem("id", data.id)
-      localStorage.setItem("username", data.username)
-      localStorage.setItem("email", data.email)
-      localStorage.setItem("accessToken", data.token)
-      localStorage.setItem("refreshToken", data.refreshToken)
-      localStorage.setItem("loginStatus", true)
+    login: (role) => {
+      sessionStorage.setItem('loginStatus', true)
+      sessionStorage.setItem('userRole', role)
     },
 
     logout: () => {
-      localStorage.removeItem("role")
-      localStorage.removeItem("id")
-      localStorage.removeItem("username")
-      localStorage.removeItem("email")
-      localStorage.removeItem("accessToken")
-      localStorage.removeItem("refreshToken")
-      localStorage.removeItem("loginStatus")
+      sessionStorage.removeItem('loginStatus')
+      sessionStorage.removeItem('userRole')
+    },
 
+    isAuthenticatedBuyer: () => {
+      const loginStatus = sessionStorage.getItem('loginStatus');
+      const userRole = sessionStorage.getItem('userRole');
+      console.log(loginStatus && userRole === "buyer")
+      return loginStatus && userRole === "buyer";
+    },
+
+    isAuthenticatedSeller: () => {
+      const loginStatus = sessionStorage.getItem('loginStatus');
+      const userRole = sessionStorage.getItem('userRole');
+      return loginStatus && userRole === "seller";
     }
   }
 

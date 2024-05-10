@@ -10,9 +10,28 @@ const BuyerServiceLayer = {
     }
 
   },
+
   login: async (data) => {
     try {
       const response = await apiRequests.post('/buyers/login', "", data)
+      return response;
+    } catch(e) {
+      throw new Error(e);
+    }
+  },
+
+  getBuyerProfile: async () => {
+    try {
+      const response = await apiRequests.get('/buyers/profile', "");
+      return response;
+    } catch(e) {
+      throw new Error(e);
+    }
+  },
+
+  refreshAccessToken: async (data) => {
+    try {
+      const response = await apiRequests.post('/buyers/refresh', "", data)
       return response;
     } catch(e) {
       throw new Error(e);
