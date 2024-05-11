@@ -22,7 +22,6 @@ export default function AuthContextData({children}) {
     isAuthenticatedBuyer: () => {
       const loginStatus = sessionStorage.getItem('loginStatus');
       const userRole = sessionStorage.getItem('userRole');
-      console.log(loginStatus && userRole === "buyer")
       return loginStatus && userRole === "buyer";
     },
 

@@ -5,9 +5,7 @@ import { StyledNavbar } from '../styles/general/Navbar.styled';
 import { CartContext } from '../../context/CartContext';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
-import { useRefreshAccessToken } from '../../utils';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useRefreshAccessToken, notifySuccess } from '../../utils';
 
 export default function Navbar() {
   useRefreshAccessToken();
@@ -35,10 +33,9 @@ export default function Navbar() {
       } catch (e) {
         console.log(e);
       }
-
     }
     fetchData();
-  },[]) 
+  }) 
 
   const handleRefreshCart = async () => {
     try {
@@ -56,21 +53,13 @@ export default function Navbar() {
     } catch (e) {
       console.log(e);
     }
-
-    
   }
 
   const handleLogout = async () => {
     authContext.logout();
-    notifyIfLogout();
+    buyerContext.logout();
+    notifySuccess("Logout successful. See you again!", "logoutSuccess");
     navigate("/login");
-  }
-
-  const notifyIfLogout = () => {
-    toast.success("Logout successful. See you again!", {
-      autoClose: 2000,
-      toastId: "wrongLogin" // prevents duplicate
-    });
   }
 
   return (
@@ -93,7 +82,7 @@ export default function Navbar() {
           <ul>
             {authContext.isAuthenticatedBuyer() 
             ? <li>
-                <p>Hello, {buyerProfile.first_name}</p>
+                <p><Link to="/profile">Hello, {buyerProfile.first_name}</Link></p>
                 <button onClick={handleLogout}>Log out</button>
               </li>
             : <li><Link to="/login"><Person/></Link></li>}

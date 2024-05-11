@@ -1,19 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import checkoutCancelImg from "../../assets/images/checkout-cancel.webp"
 import checkoutCancelGif from "../../assets/images/checkout-cancel.gif"
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { CheckoutContext } from '../../context/CheckoutContext';
 import { StyledBuyerCheckoutCancel } from '../styles/buyers/BuyerCheckout.styled';
+import { BuyerContext } from '../../context/BuyerContext';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
 
 const BuyerCheckoutSuccess = () => {
   const navigate = useNavigate();
   const checkoutContext = useContext(CheckoutContext);
+  const buyerContext = useContext(BuyerContext);
+  const [buyerId, setBuyerId] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const buyerResponse = await buyerContext.getBuyerProfile();
+          setBuyerId(buyerResponse.data.payload.id);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [])
 
   const handleCheckout = async () => {
-    const buyerId = localStorage.getItem("id"); 
     const responseCheckout = await checkoutContext.getCheckoutSession(buyerId);
     const stripe = await stripePromise;
     await stripe.redirectToCheckout({

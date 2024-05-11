@@ -8,8 +8,8 @@ export default function BuyerContextData({children}) {
   const serviceOperations = {
     createBuyer: async (data) => {
       try {
-        const responseData = await BuyerServiceLayer.createBuyer(data);
-        return responseData;
+        const response = await BuyerServiceLayer.createBuyer(data);
+        return response;
       } catch(e) {
         throw new Error(e);
       }
@@ -18,9 +18,18 @@ export default function BuyerContextData({children}) {
     
     login: async (data) => {
       try {
-        const responseData = await BuyerServiceLayer.login(data);
-        return responseData;
+        const response = await BuyerServiceLayer.login(data);
+        return response;
       } catch(e) {
+        throw new Error(e);
+      }
+    },
+
+    logout: async () => {
+      try {
+        const response = await BuyerServiceLayer.logout();
+        return response;
+      } catch (e) {
         throw new Error(e);
       }
     },
@@ -28,6 +37,24 @@ export default function BuyerContextData({children}) {
     getBuyerProfile: async () => {
       try {
         const response = await BuyerServiceLayer.getBuyerProfile();
+        return response;
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+
+    getBuyerId: async () => {
+      try {
+        const response = await BuyerServiceLayer.getBuyerProfile();
+        return response.data.payload.id;
+      } catch (e) {
+        throw new Error(e);
+      }
+    },
+
+    getBuyerById: async (buyerId) => {
+      try {
+        const response = await BuyerServiceLayer.getBuyerById(buyerId);
         return response;
       } catch (e) {
         throw new Error(e);

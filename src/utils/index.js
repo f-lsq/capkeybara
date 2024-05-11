@@ -10,11 +10,12 @@ export const useRefreshAccessToken = () => {
 
     useEffect(() => {
       const interval = setInterval(() => {
+        console.log('isAuthenticatedBuyer', authContext.isAuthenticatedBuyer())
         if (authContext.isAuthenticatedBuyer()) {
           buyerContext.refreshAccessToken();
           console.log("Access Token has been refreshed")
         }
-      }, 5000);
+      }, 10 * 60 * 1000);
 
       return () => clearInterval(interval);
     }, [])
@@ -48,12 +49,3 @@ export const notifyWarn = (message, toastId) => {
     toastId: toastId // prevents duplicate
   });
 }
-
-
-// export default { 
-//   useRefreshAccessToken,
-//   notifyInfo,
-//   notifyError,
-//   notifySuccess,
-//   notifyWarn
-//  };

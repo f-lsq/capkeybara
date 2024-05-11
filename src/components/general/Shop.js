@@ -1,68 +1,85 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ProductContext } from '../../context/ProductContext';
-import { BagPlusFill } from 'react-bootstrap-icons';
 import { StyledShop } from '../styles/general/Shop.styled';
-import { CartContext } from '../../context/CartContext';
+import { BagPlusFill } from 'react-bootstrap-icons';
 import { notifySuccess, notifyError } from '../../utils';
+import { AuthContext } from '../../context/AuthContext';
+import { BuyerContext } from '../../context/BuyerContext';
+import { CartContext } from '../../context/CartContext';
+import { ProductContext } from '../../context/ProductContext';
+import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
 
 const Shop = () => {
-  const productContext = useContext(ProductContext);
+  
+  const authContext = useContext(AuthContext);
+  const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
-  const navigate = useNavigate();
-
+  const productContext = useContext(ProductContext);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await productContext.getAllProduct()
-        console.log(response.data.allProducts)
         setProducts(response.data.allProducts)
       } catch (e) {
         console.log(e);
       }
-
     }
     fetchData();
-  },[]) 
+  }, [])
 
   const handleAddCart = async (productId, productName) => {
-    const buyerId = localStorage.getItem("id"); 
-    const productData = {
-      product_id: productId
+    try {
+      if (authContext.isAuthenticatedBuyer()) {
+        const buyerId = await buyerContext.getBuyerId();
+        const productData = {
+          product_id: productId
+        }
+        const response = await cartContext.addToCart(buyerId, productData);
+        if (response.status === 200) {
+          notifySuccess(`${productName} has been added to the cart.`)
+        } else {
+          notifyError(`${productName} was not added to the cart.`, 'addToCartError')
+        }
+      } else {
+        notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')  
+      }
+    } catch (e) {
+      notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')
+      console.log(e);
     }
-    const response = await cartContext.addToCart(buyerId, productData);
-    if (response.status === 200) {
-      notifySuccess(`${productName} has been added to the cart.`)
-    } else {
-      notifyError(`${productName} was not added to the cart.`)
-    }
+    
   }
 
   return (
-    <StyledShop>
-      {
-        products.map(product => (
-          <article key={product.id}>
-            <img src={product.image_url} alt={product.name}/>
-            <section>
-              <div>
-                <h1>{product.name}</h1>
-                <p>{product.category.name}</p>
-              </div>
-              <div>
-                <h2>${product.price}</h2>
-                <button onClick={
-                  ()=>handleAddCart(product.id, product.name)
-                  }><BagPlusFill/>Add to Cart</button>
-              </div>
-              
-            </section>
-          </article> 
-        ))
-      }
-    </StyledShop>
+    <>
+      <StyledShopSidebar>
+        Sidebar
+      </StyledShopSidebar>
+      <StyledShop>
+        {
+          products.map(product => (
+            <article key={product.id}>
+              <img src={product.image_url} alt={product.name} />
+              <section>
+                <div>
+                  <h1>{product.name}</h1>
+                  <p>{product.category.name}</p>
+                </div>
+                <div>
+                  <h2>${product.price}</h2>
+                  <button onClick={
+                    () => handleAddCart(product.id, product.name)
+                  }><BagPlusFill />Add to Cart</button>
+                </div>
+
+              </section>
+            </article>
+          ))
+        }
+      </StyledShop>
+    </>
+    
   );
 };
 

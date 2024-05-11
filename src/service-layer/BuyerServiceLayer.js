@@ -20,9 +20,27 @@ const BuyerServiceLayer = {
     }
   },
 
+  logout: async () => {
+    try {
+      const response = await apiRequests.post('/buyers/logout', "", "");
+      return response;
+    } catch (e) {
+      throw new Error(e);
+    }
+  },
+
   getBuyerProfile: async () => {
     try {
-      const response = await apiRequests.get('/buyers/profile', "");
+      const response = await apiRequests.post('/buyers/profile', "", "");
+      return response;
+    } catch(e) {
+      throw new Error(e);
+    }
+  },
+
+  getBuyerById: async (buyerId) => {
+    try {
+      const response = await apiRequests.get('/buyers/', buyerId);
       return response;
     } catch(e) {
       throw new Error(e);
