@@ -1,43 +1,37 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
-import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import sellerAuthBackground from "../../assets/images/seller-auth.webp";
+import { notifyError } from '../../utils';
 import { AuthContext } from "../../context/AuthContext";
+import { SellerContext } from "../../context/SellerContext";
 
 export default function SellerLoginForm() {
   
-  const sellerContext = useContext(SellerContext);
-  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  const sellerContext = useContext(SellerContext);
   const { register, handleSubmit, formState:{errors} } = useForm();
   
   const onSubmit = async (data) => {
     try {
+      
       const response = await sellerContext.login(data)
+      console.log(response);
       if (response) {
-        authContext.login(response.data, "seller");
+        const sellerProfileResponse = await sellerContext.getSellerProfile();
+        authContext.login(sellerProfileResponse.data.payload.role);
         navigate("/seller/profile");
       } else {
-        notifyIfWrongLogin();
+        notifyError("Wrong email or password", "wrongLogin");
         navigate("/seller/login");
       }
     } catch(e) {
-      throw new Error(e);
+      console.log(e);
     }
   }
-
-  const notifyIfWrongLogin = () => {
-    toast.error("Wrong email or password", {
-      autoClose: 2000,
-      toastId: "wrongLogin" // prevents duplicate
-    });
-  }
-
   return (
     <>
     <StyledSellerAuthForm>

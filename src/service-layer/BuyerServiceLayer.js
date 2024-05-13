@@ -8,7 +8,6 @@ const BuyerServiceLayer = {
     } catch(e) {
       throw new Error(e);
     }
-
   },
 
   login: async (data) => {
@@ -38,9 +37,9 @@ const BuyerServiceLayer = {
     }
   },
 
-  getBuyerById: async (buyerId) => {
+  getBuyerById: async (params) => {
     try {
-      const response = await apiRequests.get('/buyers/', buyerId);
+      const response = await apiRequests.get('/buyers/', params);
       return response;
     } catch(e) {
       throw new Error(e);

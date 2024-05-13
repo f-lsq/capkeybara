@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Navigate} from 'react-router-dom';
 import { notifyError } from '../utils';
@@ -6,13 +6,22 @@ import { notifyError } from '../utils';
 const ProtectedRoute = ({ role, children }) => {
   const authContext = useContext(AuthContext);
   
-  if (!authContext.isAuthenticatedBuyer() && role ==="buyer") {
-    notifyError("Please login to view the page.", "unauthorisedBuyer");
+  useEffect(()=> {
+    if (!authContext.isAuthenticatedBuyer() && role === "buyer") {
+      notifyError("Please login to view the page.", "unauthorisedBuyer");
+    } 
+
+    if (!authContext.isAuthenticatedBuyer() && role === "seller") {
+      notifyError("Please login to view the page.", "unauthorisedSeller");
+    } 
+  });
+  
+
+  if (!authContext.isAuthenticatedBuyer() && role ==="buyer") { 
     return <Navigate to="/login" />;
   } 
   
   if (!authContext.isAuthenticatedSeller() && role ==="seller") {
-    notifyError("Please login to view the page.", "unauthorisedSeller");
     return <Navigate to="/seller/login" />;
   }
 

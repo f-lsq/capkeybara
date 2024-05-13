@@ -44,8 +44,7 @@ const SellerSidebar = () => {
           <ul>
             {/* <li><Link to="/seller/dashboard"><Grid1x2/>Dashboard</Link></li> */}
             <li><Link to="/seller/product"><BoxSeam/>Products</Link></li>
-            {/* <li><ClipboardCheck/>Orders</li>
-            <li><Truck/>Shipping</li> */}
+            <li><ClipboardCheck/>Orders</li>
           </ul>
           <ul>
             {/* <li><Gear/>Settings</li> */}

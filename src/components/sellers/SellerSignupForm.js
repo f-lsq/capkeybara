@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
-import sellerAuthBackground from "../../assets/images/seller-auth.jpeg"
-import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.png"
+import sellerAuthBackground from "../../assets/images/seller-auth.webp"
+import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.webp"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

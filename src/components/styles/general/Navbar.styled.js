@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../../assets/images/backdrop.jpg";
+import background from "../../../assets/images/backdrop.webp";
 
 export const StyledNavbar = styled.nav`
   // Mobile View
@@ -38,19 +38,13 @@ export const StyledNavbar = styled.nav`
     display: block;
   } 
 
-  #navLeft .bi-x-circle {
-    display: none;
-  } 
-
   #navLeft li {
-    display: none;
     margin: auto;
     white-space: nowrap;
     margin: 0 10px 0 0;
   }
 
   #navLeft li span {
-    display: none;
   }
 
   #navRight ul {
@@ -94,6 +88,30 @@ export const StyledNavbar = styled.nav`
     transition: color 0.5s;
   }
 
+  #navlist-standard-view {
+    display: none;
+  }
+
+  #navlist-mobile-view {
+      position: absolute;
+      top: 3.25em;
+      flex-direction: column;
+      background-color: #CCE2D3E6;
+      border-radius: 0 0 10px 10px;
+      padding: 10px;
+      align-items: center;
+      width: 80vw;
+      font-size: 0.9rem;
+      li {
+        margin: 5px;
+        white-space: wrap;
+        text-align: center;
+      }
+      li a {
+        color: black;
+      }
+  }
+
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {
     padding: 0 3rem;
@@ -101,6 +119,14 @@ export const StyledNavbar = styled.nav`
 
   // Laptop View
   @media screen and (min-width: 769px) and (max-width: 1279px) {
+    #navlist-mobile-view {
+      display: none;
+    }
+
+    #navlist-standard-view {
+      display: flex;
+    }
+    
     padding: 0 3rem;
 
     #navCenter {
@@ -127,6 +153,14 @@ export const StyledNavbar = styled.nav`
   
   // Monitor View
   @media screen and (min-width: 1280px) {
+    #navlist-mobile-view {
+      display: none;
+    }
+
+    #navlist-standard-view {
+      display: flex;
+    }
+
     padding: 0 4rem;
 
     #navCenter {

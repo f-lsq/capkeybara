@@ -14,42 +14,42 @@ export default function Navbar() {
   const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
   const navigate = useNavigate();
-  const [cartTotalQuantity, setCartTotalQuantity] = useState(0);
-  const [buyerProfile, setBuyerProfile] = useState({
-    id: "",
-    first_name: "",
-    email: "",
-    username: ""
-  });
+  const [cartTotalQuantity, setCartTotalQuantity] = useState(null);
+  const [buyerProfile, setBuyerProfile] = useState(null);
+  const [displayMenu, setDisplayMenu] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const buyerResponse = await buyerContext.getBuyerProfile();
-        const buyerId = buyerResponse.data.payload.id;
-        const cartResponse = await cartContext.getCartTotalQuantity(buyerId)
-        setCartTotalQuantity(cartResponse)
-        setBuyerProfile(buyerResponse.data.payload);
+        if (authContext.isAuthenticatedBuyer()) {
+          const buyerResponse = await buyerContext.getBuyerProfile();
+          const buyerId = buyerResponse.data.payload.id;
+          const cartResponse = await cartContext.getCartTotalQuantity(buyerId)
+          setCartTotalQuantity(cartResponse)
+          setBuyerProfile(buyerResponse.data.payload);
+        }
       } catch (e) {
         console.log(e);
       }
     }
     fetchData();
-  }) 
+  })
 
   const handleRefreshCart = async () => {
     try {
-      const buyerId = buyerProfile.id;
-      const response = await cartContext.getCartItem(buyerId)
-      const cartItems = response.data.cartItems
-      cartItems.forEach(async (cartItem) => {
-        if (!cartItem.quantity) {
-          const productData = {
-            product_id: cartItem.product_id
+      if (authContext.isAuthenticatedBuyer()) {
+        const buyerId = buyerProfile.id;
+        const response = await cartContext.getCartItem(buyerId)
+        const cartItems = response.data.cartItems
+        cartItems.forEach(async (cartItem) => {
+          if (!cartItem.quantity) {
+            const productData = {
+              product_id: cartItem.product_id
+            }
+            await cartContext.removeCartItem(buyerId, productData)
           }
-          await cartContext.removeCartItem(buyerId, productData)
-        }
-      })
+        })
+      }
     } catch (e) {
       console.log(e);
     }
@@ -58,6 +58,8 @@ export default function Navbar() {
   const handleLogout = async () => {
     authContext.logout();
     buyerContext.logout();
+    setCartTotalQuantity(null)
+    setBuyerProfile(null);
     notifySuccess("Logout successful. See you again!", "logoutSuccess");
     navigate("/login");
   }
@@ -66,9 +68,16 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <div id="navLeft">
-          <List/>
-          <XCircle/>
-          <ul>
+          {!displayMenu && <List onClick={() => setDisplayMenu(true)} />}
+          {displayMenu && <XCircle  onClick={() => setDisplayMenu(false)}/>}
+          {displayMenu &&
+            (<ul id="navlist-mobile-view">
+              <li onClick={() => setDisplayMenu(false)}><Link to="/">HOME</Link></li>
+              <li onClick={() => setDisplayMenu(false)}><Link to="/shop">SHOP</Link></li>
+              <li onClick={() => setDisplayMenu(false)}><Link to="/build">BUILD <span>A KEYBOARD</span></Link></li>
+              <li onClick={() => setDisplayMenu(false)}><Link to="/about">ABOUT</Link></li>
+            </ul>)}
+          <ul id="navlist-standard-view">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/shop">SHOP</Link></li>
             <li><Link to="/build">BUILD <span>A KEYBOARD</span></Link></li>
@@ -80,16 +89,17 @@ export default function Navbar() {
         </div>
         <div id="navRight">
           <ul>
-            {authContext.isAuthenticatedBuyer() 
-            ? <li>
-                <p><Link to="/profile">Hello, {buyerProfile.first_name}</Link></p>
-                <button onClick={handleLogout}>Log out</button>
-              </li>
-            : <li><Link to="/login"><Person/></Link></li>}
+            {authContext.isAuthenticatedBuyer()
+              ? (buyerProfile && (
+                <li>
+                  <p><Link to="/profile">Hello, {buyerProfile.first_name}</Link></p>
+                  <button onClick={handleLogout}>Log out</button>
+                </li>))
+              : <li><Link to="/login"><Person /></Link></li>}
             <li><Link to="/cart" onClick={handleRefreshCart}>
-              <span><p>{cartTotalQuantity}</p></span>
-              <Cart3 className='cart-icon'/>
-              </Link></li>
+              {cartTotalQuantity !== null && <span><p>{cartTotalQuantity}</p></span>}
+              <Cart3 className='cart-icon' />
+            </Link></li>
           </ul>
         </div>
       </StyledNavbar>

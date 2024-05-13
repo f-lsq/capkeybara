@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { BuyerContext } from "../../context/BuyerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
-import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
+import buyerAuthBackground from "../../assets/images/buyer-auth.webp"
 import { ExclamationCircle } from "react-bootstrap-icons";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

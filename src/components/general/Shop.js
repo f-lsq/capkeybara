@@ -36,10 +36,10 @@ const Shop = () => {
           product_id: productId
         }
         const response = await cartContext.addToCart(buyerId, productData);
-        if (response.status === 200) {
+        if (response) {
           notifySuccess(`${productName} has been added to the cart.`)
         } else {
-          notifyError(`${productName} was not added to the cart.`, 'addToCartError')
+          notifyError(`No more stock for ${productName}!`, 'addToCartError')
         }
       } else {
         notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')  

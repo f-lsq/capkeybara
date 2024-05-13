@@ -1,15 +1,12 @@
 import React from 'react';
-import loading from '../loading.gif';
 import Navbar from '../components/general/Navbar';
-
-
+import Home from '../components/general/Home';
 
 const HomePage = () => {
   return (
     <>
       <Navbar/>
-      <h1>Home</h1> 
-      {/* <img src={loading} className="App-logo" alt="loading" /> */}
+      <Home/> 
     </>
   )
 }

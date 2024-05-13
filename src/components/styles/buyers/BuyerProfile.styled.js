@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const StyledBuyerProfile = styled.main`
+export const StyledBuyerProfile = styled.div`
 // Mobile View
 padding-top: 2.94em;
+
+#profile-standard-view {
+  display: none;
+}
 
 // Tablet View
 @media screen and (min-width: 481px) and (max-width: 768px) {

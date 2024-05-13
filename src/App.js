@@ -34,6 +34,7 @@ import BuyerCheckoutSuccessPage from "./views/buyers/BuyerCheckoutSuccessPage";
 import BuyerCheckoutCancelPage from "./views/buyers/BuyerCheckoutCancelPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFoundPage from "./views/NotFoundPage";
+import OrderContextData from "./context/OrderContext";
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
         <ProductContextData>
         <CartContextData>
         <CheckoutContextData>
+        <OrderContextData>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/shop" element={<ShopPage/>}/>
@@ -70,6 +72,7 @@ function App() {
             <Route path="/seller/product/delete/:productId" element={<ProtectedRoute role="seller"><SellerDeleteProductPage/></ProtectedRoute>}/>
             <Route path="*" element={<NotFoundPage/>}/>            
           </Routes>
+        </OrderContextData>
         </CheckoutContextData>
         </CartContextData>
         </ProductContextData>

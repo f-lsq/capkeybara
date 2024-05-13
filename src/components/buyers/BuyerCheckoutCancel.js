@@ -37,8 +37,8 @@ const BuyerCheckoutSuccess = () => {
   
   return (
     <StyledBuyerCheckoutCancel>
-      <img src={checkoutCancelImg}/>
-      <img src={checkoutCancelGif}/>
+      <img src={checkoutCancelImg} alt="Capybara with a sad expression while swimming in a pool of oranges"/>
+      <img src={checkoutCancelGif} alt="Animated cross logo"/>
       <h1>Your payment has failed</h1>
       <p>Please retry the payment after a moment.</p>
       <div>

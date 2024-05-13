@@ -1,39 +1,37 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { BuyerContext } from "../../context/BuyerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
-import buyerAuthBackground from "../../assets/images/buyer-auth.jpeg"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import buyerAuthBackground from "../../assets/images/buyer-auth.webp";
+import { notifyError } from '../../utils';
 import { AuthContext } from "../../context/AuthContext";
+import { BuyerContext } from "../../context/BuyerContext";
 
 export default function BuyerLoginForm() {
   
-  const buyerContext = useContext(BuyerContext);
-  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  const buyerContext = useContext(BuyerContext);
   const { register, handleSubmit, formState:{errors} } = useForm();
   
   const onSubmit = async (data) => {
+    try {
       const response = await buyerContext.login(data)
       if (response) {
         const buyerProfileResponse = await buyerContext.getBuyerProfile();
         authContext.login(buyerProfileResponse.data.payload.role);
         navigate("/profile");
       } else {
-        notifyIfWrongLogin();
+        notifyError("Wrong email or password", "wrongLogin");
         navigate("/login");
       }
+    } catch (e) {
+      console.log(e);
+    }
+
   }
 
-  const notifyIfWrongLogin = () => {
-    toast.error("Wrong email or password", {
-      autoClose: 2000,
-      toastId: "wrongLogin" // prevents duplicate
-    });
-  }
   return (
     <>
     <StyledBuyerAuthForm>

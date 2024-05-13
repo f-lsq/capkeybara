@@ -13,7 +13,6 @@ export default function BuyerContextData({children}) {
       } catch(e) {
         throw new Error(e);
       }
-
     },
     
     login: async (data) => {
