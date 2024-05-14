@@ -10,12 +10,12 @@ import { useRefreshAccessToken, notifySuccess } from '../../utils';
 export default function Navbar() {
   useRefreshAccessToken();
 
+  const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
-  const navigate = useNavigate();
-  const [cartTotalQuantity, setCartTotalQuantity] = useState(null);
   const [buyerProfile, setBuyerProfile] = useState(null);
+  const [cartTotalQuantity, setCartTotalQuantity] = useState(null);
   const [displayMenu, setDisplayMenu] = useState(false);
 
   useEffect(() => {

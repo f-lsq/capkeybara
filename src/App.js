@@ -20,7 +20,6 @@ import SellerLoginPage from "./views/sellers/SellerLoginPage";
 import SellerSignupPage from "./views/sellers/SellerSignupPage";
 import SellerProfilePage from "./views/sellers/SellerProfilePage";
 import SellerContextData from "./context/SellerContext";
-import SellerDashboardPage from "./views/sellers/SellerDashboardPage";
 import SellerProductPage from "./views/sellers/SellerProductPage";
 import SellerAddProductPage from "./views/sellers/SellerAddProductPage";
 import ProductContextData from "./context/ProductContext";
@@ -35,6 +34,7 @@ import BuyerCheckoutCancelPage from "./views/buyers/BuyerCheckoutCancelPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFoundPage from "./views/NotFoundPage";
 import OrderContextData from "./context/OrderContext";
+import SellerOrderPage from "./views/sellers/SellerOrderPage";
 
 function App() {
   
@@ -65,11 +65,11 @@ function App() {
             <Route path="/seller/signup" element={<SellerSignupPage/>}/>
             <Route path="/seller/login" element={<SellerLoginPage/>}/>
             <Route path="/seller/profile" element={<ProtectedRoute role="seller"><SellerProfilePage/></ProtectedRoute>}/>
-            <Route path="/seller/dashboard" element={<ProtectedRoute role="seller"><SellerDashboardPage/></ProtectedRoute>}/>
             <Route path="/seller/product" element={<ProtectedRoute role="seller"><SellerProductPage/></ProtectedRoute>}/>
             <Route path="/seller/product/add" element={<ProtectedRoute role="seller"><SellerAddProductPage/></ProtectedRoute>}/>
             <Route path="/seller/product/update/:productId" element={<ProtectedRoute role="seller"><SellerUpdateProductPage/></ProtectedRoute>}/>
             <Route path="/seller/product/delete/:productId" element={<ProtectedRoute role="seller"><SellerDeleteProductPage/></ProtectedRoute>}/>
+            <Route path="/seller/order" element={<ProtectedRoute role="seller"><SellerOrderPage/></ProtectedRoute>}/>
             <Route path="*" element={<NotFoundPage/>}/>            
           </Routes>
         </OrderContextData>

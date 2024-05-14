@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ExclamationCircle } from 'react-bootstrap-icons';
+import { Arrow90degLeft, ExclamationCircle, Floppy } from 'react-bootstrap-icons';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import UploadWidget from '../general/UploadWidget';
 import defaultUploadImage from "../../assets/images/upload-img.jpg"
+import { notifySuccess, notifyError } from '../../utils';
 
 const SellerUpdateProduct = () => {
 
@@ -41,7 +42,7 @@ const SellerUpdateProduct = () => {
       setValue('quantity_available', product.quantity_available);
       setUploadedImageURL(product.image_url);
       setValue('category_id', product.category_id);
-      setValue('seller_id', localStorage.getItem("id"));
+      setValue('seller_id', product.seller_id);
     } catch (e) {
       console.log(e);
     }
@@ -52,9 +53,12 @@ const SellerUpdateProduct = () => {
   const onSubmit = async (data) => {
     if (data) {
       const response = await productContext.updateProduct(productId, data);
-      if (response.status === 200) {
-        navigate("/seller/product");
+      if (response) {
+        notifySuccess(`Product of ID ${productId} has been updated.`, 'updateProductSuccess')
+      } else {
+        notifyError(`Product of ID ${productId} could not be update as it exist in an active order.`, 'updateProductError')
       }
+      navigate("/seller/product");
     } else {
       navigate(`/seller/product/update/${productId}`)
     }
@@ -64,6 +68,11 @@ const SellerUpdateProduct = () => {
     <div>
       <h1>Update product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="button" onClick={() => navigate("/seller/product")}><Arrow90degLeft />Cancel</button>
+        <button type="submit" className="authSubmitBtn"
+          onClick={() => setValue("image_url", uploadedImageURL)}>
+          <Floppy /> Update Product
+        </button>
         <div>
           <div>
             <label htmlFor="name">Product Name</label>
@@ -146,9 +155,6 @@ const SellerUpdateProduct = () => {
             <input type="hidden" id="seller_id" name="seller_id"/>
           </div>
         </div>
-        
-        <input className="authSubmitBtn" type="submit" value="Update Product"
-               onClick={()=>setValue("image_url", uploadedImageURL)}/>
       </form>
     </div>
   );

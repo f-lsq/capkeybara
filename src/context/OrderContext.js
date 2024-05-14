@@ -6,9 +6,17 @@ export const OrderContext = createContext();
 export default function OrderContextData({children}) {
  
   const serviceOperations = {
-    getOrders: async (buyerId) => {
+    getBuyerOrders: async (buyerId) => {
       try {
-        const response = await OrderServices.getOrders(buyerId);
+        const response = await OrderServices.getBuyerOrders(buyerId);
+        return response;
+      } catch(e) {
+        throw new Error(e);
+      }
+    },
+    getSellerOrders: async (sellerId) => {
+      try {
+        const response = await OrderServices.getSellerOrders(sellerId);
         return response;
       } catch(e) {
         throw new Error(e);

@@ -1,9 +1,17 @@
 import apiRequests from "../api"
 
 const OrderServiceLayer = {
-  getOrders: async (params) => {
+  getBuyerOrders: async (params) => {
     try {
       const response = await apiRequests.get('/orders/', params);
+      return response;
+    } catch(e) {
+      throw new Error(e);
+    }
+  },
+  getSellerOrders: async (params) => {
+    try {
+      const response = await apiRequests.get('/orders/seller/', params);
       return response;
     } catch(e) {
       throw new Error(e);

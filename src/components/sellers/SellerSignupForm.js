@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { SellerContext } from "../../context/SellerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
+import { ExclamationCircle } from "react-bootstrap-icons";
 import sellerAuthBackground from "../../assets/images/seller-auth.webp"
 import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.webp"
-import { ExclamationCircle } from "react-bootstrap-icons";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { notifyError } from '../../utils';
 import UploadWidget from "../general/UploadWidget";
+import { SellerContext } from "../../context/SellerContext";
 
 export default function SellerSignupForm() {
   
@@ -40,11 +39,7 @@ export default function SellerSignupForm() {
 
   const notifyIfTaken = () => {
     if (accountTaken) {
-      toast.dismiss("accTaken")
-      toast.error(accountTaken, {
-        autoClose: 2000,
-        toastId: "accTaken",
-      });
+      notifyError(accountTaken, "accountTaken");
     }
   }
 

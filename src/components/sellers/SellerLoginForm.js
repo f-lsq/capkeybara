@@ -23,7 +23,7 @@ export default function SellerLoginForm() {
       if (response) {
         const sellerProfileResponse = await sellerContext.getSellerProfile();
         authContext.login(sellerProfileResponse.data.payload.role);
-        navigate("/seller/profile");
+        navigate("/seller/product");
       } else {
         notifyError("Wrong email or password", "wrongLogin");
         navigate("/seller/login");

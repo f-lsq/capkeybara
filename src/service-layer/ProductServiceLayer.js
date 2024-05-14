@@ -37,9 +37,9 @@ const ProductServiceLayer = {
     }
   },
 
-  createProduct: async (params) => {
+  createProduct: async (data) => {
     try {
-      const response = await apiRequests.post('/products/', params, '')
+      const response = await apiRequests.post('/products/', "", data)
       return response;
     } catch(e) {
       throw new Error(e);

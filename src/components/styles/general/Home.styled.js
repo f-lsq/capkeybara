@@ -4,6 +4,22 @@ export const StyledHome = styled.main`
 
 // Mobile View
   padding-top: 2.94em;
+  
+  figure img:last-of-type {
+    display: hidden;
+  }
+
+  figure:hover {
+    cursor: pointer;
+    
+    img:first-of-type {
+      display: none;
+    }
+
+    img:last-of-type {
+      display: block;
+    }
+  } 
 
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {

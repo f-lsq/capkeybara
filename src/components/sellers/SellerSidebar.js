@@ -1,36 +1,43 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { BoxArrowLeft, BoxSeam, ClipboardCheck, Gear, Grid1x2, Truck } from 'react-bootstrap-icons';
-import { StyledSellerSidebar } from '../styles/sellers/SellerSidebar.styled';
 import { Link } from 'react-router-dom';
+import { StyledSellerSidebar } from '../styles/sellers/SellerSidebar.styled';
+import { BoxArrowLeft, BoxSeam, ClipboardCheck} from 'react-bootstrap-icons';
 import { AuthContext } from '../../context/AuthContext';
 import { SellerContext } from '../../context/SellerContext';
+import { useRefreshAccessToken, notifySuccess } from '../../utils';
 
 const SellerSidebar = () => {
+  useRefreshAccessToken();
+
   const authContext = useContext(AuthContext);
   const sellerContext = useContext(SellerContext);
-
-  const [seller, setSeller] = useState({});
+  const [seller, setSeller] = useState(null);
 
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await sellerContext.getSellerById(localStorage.getItem("id"))
-        setSeller(response.data.existingSeller)
+        const sellerId = await sellerContext.getSellerId();
+        const responseSeller = await sellerContext.getSellerById(sellerId);
+        setSeller(responseSeller.data.existingSeller)
       } catch (e) {
         console.log(e);
       }
     }
-
     fetchData();
-  },[])
+  },[seller])
 
   const handleLogOut = () => {
     authContext.logout();
+    sellerContext.logout();
+    setSeller(null);
+    notifySuccess("Logout successful. See you again!", "logoutSuccess");
   }
 
   return (
     <>
       <StyledSellerSidebar>
+        {
+        seller ? 
         <Link to="/seller/profile">
           <figure>
             <img src={seller.image_url} alt={seller.name}/>
@@ -39,16 +46,16 @@ const SellerSidebar = () => {
               <p>@{seller.username}</p>
             </figcaption>
           </figure>
-        </Link>
+        </Link> : 
+        <p>Loading...</p>
+        }
         <nav>
           <ul>
-            {/* <li><Link to="/seller/dashboard"><Grid1x2/>Dashboard</Link></li> */}
             <li><Link to="/seller/product"><BoxSeam/>Products</Link></li>
-            <li><ClipboardCheck/>Orders</li>
+            <li><Link to="/seller/order"><ClipboardCheck/>Orders</Link></li>
           </ul>
           <ul>
-            {/* <li><Gear/>Settings</li> */}
-            <li><Link to="/seller/login" onClick={()=>{handleLogOut()}}><BoxArrowLeft/>Logout</Link></li>
+            <li><Link to="/seller/login" onClick={handleLogOut}><BoxArrowLeft/>Logout</Link></li>
           </ul>
         </nav>
         

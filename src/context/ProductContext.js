@@ -42,9 +42,9 @@ export default function ProductContextData({children}) {
       }
     },
 
-    createProduct: async (data) => {
+    createProduct: async (productData) => {
       try {
-        const response = await ProductServiceLayer.createProduct(data);
+        const response = await ProductServiceLayer.createProduct(productData);
         return response;
       } catch(e) {
         throw new Error(e);
@@ -67,6 +67,7 @@ export default function ProductContextData({children}) {
     deleteProduct: async (productId) => {
       try {
         const response = await ProductServiceLayer.deleteProduct(productId);
+        console.log(response);
         return response;
       } catch(e) {
         throw new Error(e);

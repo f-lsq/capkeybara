@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { BuyerContext } from "../../context/BuyerContext";
 import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
-import buyerAuthBackground from "../../assets/images/buyer-auth.webp"
 import { ExclamationCircle } from "react-bootstrap-icons";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import buyerAuthBackground from "../../assets/images/buyer-auth.webp"
+import { notifyError } from '../../utils';
+import { BuyerContext } from "../../context/BuyerContext";
 
 export default function BuyerSignupForm() {
   
@@ -35,10 +34,7 @@ export default function BuyerSignupForm() {
 
   const notifyIfTaken = () => {
     if (accountTaken) {
-      toast.warn(accountTaken, {
-        autoClose: 2000,
-        toastId: "accTaken" // prevents duplicate
-      });
+      notifyError(accountTaken, "accountTaken");
     }
   }
 

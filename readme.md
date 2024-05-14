@@ -26,6 +26,7 @@ Sample CSS
 
 # Possible Improvement
 * Saving user information in localStorage or sessionStorage instead of constantly calling the API for the information -> Error calling API when token refreshes
+* Currently, buyers can bypass checkout by going to the checkout/success route
 
 # Capkeybara
 [Capkeybara](#) is THE ultimate e-commerce platform for top-notch mechanical keyboard components that cater to all your needs! 

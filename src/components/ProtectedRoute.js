@@ -11,7 +11,7 @@ const ProtectedRoute = ({ role, children }) => {
       notifyError("Please login to view the page.", "unauthorisedBuyer");
     } 
 
-    if (!authContext.isAuthenticatedBuyer() && role === "seller") {
+    if (!authContext.isAuthenticatedSeller() && role === "seller") {
       notifyError("Please login to view the page.", "unauthorisedSeller");
     } 
   });
