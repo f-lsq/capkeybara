@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { StyledHome } from '../styles/general/Home.styled';
+import { BagPlusFill, PlusSquareFill } from 'react-bootstrap-icons';
 import landingMain from '../../assets/images/landing-main.webp';
 import landingHover from '../../assets/images/landing-hover.webp';
+import loadingScreen from '../../assets/images/loading.gif';
 import { notifySuccess, notifyError, mergeSort } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
 import { CartContext } from '../../context/CartContext';
-import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
-import loadingScreen from '../../assets/images/loading.gif';
-import { BagPlusFill } from 'react-bootstrap-icons';
+
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -72,12 +74,16 @@ const Home = () => {
             <img src={landingMain} alt="Keyboard of various variant of green"></img>
             <img onClick={() => handleAddCart(9, "Macha Keys")} src={landingHover}
               alt="Keyboard of various variant of green"></img>
+            <div>
+              <PlusSquareFill/>
+              <p>Add to Cart</p>
+            </div>
           </figure>
-          <section>
+          <section id="cta-buttons">
             <button onClick={() => { navigate(`/shop`) }}>Browse Keyboard</button>
             <button onClick={() => { navigate(`/build`) }}>Build a Keyboard</button>
           </section>
-          <section>
+          <section id="recommendation">
             <h1>Top Recommended Keyboard</h1>
             {
               recommendKeyboards.slice(0, 3).map(recommendKeyboard => (

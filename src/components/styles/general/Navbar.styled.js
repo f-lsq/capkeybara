@@ -49,6 +49,24 @@ export const StyledNavbar = styled.nav`
 
   #navRight ul {
     justify-content: flex-end;
+    align-items: center;
+  }
+
+  #navRight li:first-of-type {
+    font-size: 0.6rem;
+    text-align: right;
+    white-space: nowrap;
+
+  }
+
+  #navRight li button {
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 3px;
+    font-weight: 600;
   }
   
   #navRight li {
@@ -69,6 +87,8 @@ export const StyledNavbar = styled.nav`
     align-items: center;
   }
 
+
+
   #navRight li span p {
     font-size: 0.55rem;
     font-family: Aldrich;
@@ -83,7 +103,8 @@ export const StyledNavbar = styled.nav`
   .bi:hover,
   #navCenter a:hover,
   #navLeft a:hover,
-  #navRight ul li span:hover + .cart-icon{
+  #navRight ul li span:hover + .cart-icon,
+  #navRight ul li button:hover{
     color: #FFBA34;
     transition: color 0.5s;
   }
@@ -149,6 +170,14 @@ export const StyledNavbar = styled.nav`
     #navRight li {
       margin-left: 20px;
     }
+
+    #navRight li:first-of-type {
+      font-size: 0.7rem;
+    }
+
+    #navRight li button {
+      font-size: 1rem;
+    }
   }
   
   // Monitor View
@@ -187,6 +216,14 @@ export const StyledNavbar = styled.nav`
 
     #navRight li {
       margin-left: 20px;
+    }
+
+    #navRight li:first-of-type {
+      font-size: 0.7rem;
+    }
+
+    #navRight li button {
+      font-size: 1rem;
     }
     
   }

@@ -10,6 +10,7 @@ export const StyledSellerNavbar = styled.nav`
   padding: 0 2rem;
   width: 100vw;
   position: fixed;
+  z-index: 1000;
 
   #navCenter {
     font-family: Cute-Font;

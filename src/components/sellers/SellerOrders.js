@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SellerContext } from '../../context/SellerContext';
 import { OrderContext } from '../../context/OrderContext';
-import { StyledSellerOrders } from '../styles/sellers/SellerOrders.styled';
+import { StyledSellerOrders } from '../styles/sellers/SellerTables.styled';
 import sellerOrdersEmptyBackground from "../../assets/images/seller-orders-empty.webp"
 import { useNavigate } from 'react-router-dom';
-import { Floppy, Pencil, XLg } from 'react-bootstrap-icons';
+import { FloppyFill, Pencil, XLg } from 'react-bootstrap-icons';
 import { convertDateTime, notifySuccess, notifyError } from '../../utils';
+import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 
 const SellerOrders = () => {
 
@@ -51,7 +52,7 @@ const SellerOrders = () => {
     <StyledSellerOrders>
       {orders.length !== 0 ?
         <>
-          <div id='seller-standard-order-view'>
+          <div className='seller-standard-table-view'>
             <h1>Order Items</h1>
             <table>
               <thead>
@@ -74,11 +75,11 @@ const SellerOrders = () => {
                       .map(order_item => (
                         <tr key={order.id + '-' + order_item.product.id}>
                           <td>{order.id}</td>
-                          <td>
-                            {/* <img src={order_item.product.image_url} alt={order_item.product.name} /> */}
+                          <td className='seller-product-name-col'>
+                            <img className="seller-product-img" src={order_item.product.image_url} alt={order_item.product.name} />
                             <p>{order_item.product.name}</p>
                           </td>
-                          <td>{isUpdating[0] ?
+                          <td className='seller-order-status-col'>{isUpdating[0] ?
                             <select name="order_status" value={newOrderStatus || order.order_status}
                               onChange={(e) => { setNewOrderStatus(e.target.value) }}>
                               <option value="Payment Made">Payment Made</option>
@@ -86,20 +87,20 @@ const SellerOrders = () => {
                               <option value="Out for Delivery">Out for Delivery</option>
                               <option value="Delivered">Delivered</option>
                             </select> :
-                            <p className={order.order_status}>{order.order_status}</p>
+                            <p className={order.order_status.split(' ')[0]}>{order.order_status}</p>
                           }</td>
-                          <td>{order_item.quantity}</td>
+                          <td className='seller-right-align-col'>{order_item.quantity}</td>
                           <td>{order.shipping_address}</td>
                           <td>{convertDateTime(order.date_created)}</td>
-                          <td>{(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
+                          <td className='seller-right-align-col'>{(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
-                          <td>
+                          <td className='seller-actions-col'>
                             {
                               isUpdating[0] && isUpdating[1] === order.id ?
                                 <div>
-                                  <button onClick={() => handleUpdate(order.id, newOrderStatus)}><Floppy /></button>
+                                  <button onClick={() => handleUpdate(order.id, newOrderStatus)}><FloppyFill /></button>
                                   <button onClick={() => setIsUpdating([false, ""])}><XLg /></button>
                                 </div> :
                                 <button onClick={() => setIsUpdating([true, order.id])}><Pencil /></button>
@@ -113,12 +114,12 @@ const SellerOrders = () => {
             </table>
           </div>
         </> :
-        <div id='seller-no-order-view'>
+        <StyledSellerPopup>
           <h1>No Orders Found</h1>
           <p>Orders placed by buyers will appear here.</p>
           <img src={sellerOrdersEmptyBackground} alt="Capybara taking a bath in a bucket while playing with oranges" />
           <button onClick={() => navigate("/seller/product")}>See Products</button>
-        </div>}
+        </StyledSellerPopup>}
     </StyledSellerOrders>
   );
 };

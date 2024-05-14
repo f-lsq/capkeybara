@@ -15,6 +15,7 @@ export const StyledGlobal = createGlobalStyle`
   }
 
   .loading-screen {
+    height: 100vh;
     margin: 0 auto;
     position: absolute;
     left: 50%;

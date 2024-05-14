@@ -60,7 +60,7 @@ export default function Navbar() {
     buyerContext.logout();
     setCartTotalQuantity(null)
     setBuyerProfile(null);
-    notifySuccess("Logout successful. See you again!", "logoutSuccess");
+    notifySuccess("Log out successful. See you again!", "logoutSuccess");
     navigate("/login");
   }
 

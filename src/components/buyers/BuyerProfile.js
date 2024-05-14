@@ -15,7 +15,6 @@ const BuyerProfile = () => {
   const [orders, setOrders] = useState(null);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -52,23 +51,23 @@ const BuyerProfile = () => {
                       <thead>
                         <tr>
                           <td>
-                            <p>{order.id}</p>
+                            <p className='profile-order-id'>CP{order.id}</p>
                             <p>{convertDateTime(order.date_created)}</p>
                           </td>
                           {
                             order.order_status === "Delivered" ?
-                              <td className='order-status-delivered'>
-                                <p>{order.order_status} on</p>
-                                <p>{convertDateTime(order.date_fulfilled)}</p>
+                              <td className='profile-order-status-delivered'>
+                                <p>{order.order_status}</p>
                               </td> :
-                              <td className='order-status'>
+                              <td className='profile-order-status'>
                                 {order.order_status}
                               </td>
                           }
                         </tr>
                         <tr>
-                          <td colSpan="100%">
-                            {buyer.address}
+                          <td colSpan="100%" className='profile-order-address'>
+                            <p>Deliver to:</p>
+                            <p>{order.shipping_address}</p>
                           </td>
                         </tr>
                       </thead>
@@ -76,15 +75,18 @@ const BuyerProfile = () => {
                         {
                           order.order_items.map(order_item => (
                             <tr key={order_item.id}>
-                              <td>
+                              <td className="profile-order-product">
                                 <img src={order_item.product.image_url} alt={order_item.product.name} />
                                 <div>
                                   <p>{order_item.product.name}</p>
                                   <p>Quantity: {order_item.quantity}</p>
                                 </div>
                               </td>
-                              <td>
-                                {order_item.quantity * order_item.product.price}
+                              <td className='profile-order-bold'>
+                                $ {(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}
                               </td>
                             </tr>
                           ))
@@ -93,21 +95,21 @@ const BuyerProfile = () => {
                       <tfoot>
                         <tr>
                           <td>Subtotal</td>
-                          <td>{order.subtotal.toLocaleString(undefined, {
+                          <td>$ {order.subtotal.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
                         </tr>
                         <tr>
                           <td>Shipping Fee</td>
-                          <td>{(order.shipping_cost * order.total_quantity).toLocaleString(undefined, {
+                          <td>$ {(order.shipping_cost * order.total_quantity).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
                         </tr>
                         <tr>
-                          <td>Total Paid</td>
-                          <td>{(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
+                          <td className='profile-order-bold'>Total Paid</td>
+                          <td className='profile-order-bold'>$ {(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
@@ -129,11 +131,13 @@ const BuyerProfile = () => {
           </div>
           <div id="profile-standard-view">
             <aside>
-              <img src={buyer.image_url} alt={buyer.name} />
-              <figcaption>
-                <p>{buyer.first_name} {buyer.last_name}</p>
-                <p>@{buyer.username}</p>
-              </figcaption>
+              <figure>
+                <img src={buyer.image_url} alt={buyer.name} />
+                <figcaption>
+                  <p>{buyer.first_name} {buyer.last_name}</p>
+                  <p>@{buyer.username}</p>
+                </figcaption>
+              </figure>
             </aside>
             <main>
               <h1>Order History</h1>
@@ -160,25 +164,25 @@ const BuyerProfile = () => {
                               <td>
                                 Date Fulfilled:
                               </td> :
-                              <td></td>
+                              <></>
                           }
                         </tr>
                         <tr>
-                          <td>
-                            {order.id}
+                          <td className='profile-order-id'>
+                            CP{order.id}
                           </td>
                           <td>
                             {convertDateTime(order.date_created)}
                           </td>
-                          <td>
-                            {buyer.address}
+                          <td className='profile-order-address'>
+                            {order.shipping_address}
                           </td>
                           {
                             order.order_status === "Delivered" ?
-                              <td className='order-status-delivered'>
+                              <td className='profile-order-status-delivered'>
                                 {order.order_status}
                               </td> :
-                              <td className='order-status'>
+                              <td className='profile-order-status'>
                                 {order.order_status}
                               </td>
                           }
@@ -199,14 +203,17 @@ const BuyerProfile = () => {
                               <td>
                                 <img src={order_item.product.image_url} alt={order_item.product.name} />
                               </td>
-                              <td>
+                              <td className="profile-order-product">
                                 <p>{order_item.product.name}</p>
                                 <p>Quantity: {order_item.quantity}</p>
                               </td>
                               <td>
                               </td>
-                              <td>
-                                {order_item.quantity * order_item.product.price}
+                              <td colSpan="2" className="profile-order-bold">
+                              $ {(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                          })}
                               </td>
                             </tr>
                           ))
@@ -215,22 +222,25 @@ const BuyerProfile = () => {
                       </tbody>
                       <tfoot>
                         <tr>
+                          <td colSpan="3"></td>
                           <td>Subtotal</td>
-                          <td>{order.subtotal.toLocaleString(undefined, {
+                          <td>$ {order.subtotal.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
                         </tr>
                         <tr>
+                          <td colSpan="3"></td>
                           <td>Shipping Fee</td>
-                          <td>{(order.shipping_cost * order.total_quantity).toLocaleString(undefined, {
+                          <td>$ {(order.shipping_cost * order.total_quantity).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
                         </tr>
                         <tr>
-                          <td>Total Paid</td>
-                          <td>{(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
+                          <td colSpan="3"></td>
+                          <td className="profile-order-bold">Total Paid</td>
+                          <td className="profile-order-bold">$ {(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>

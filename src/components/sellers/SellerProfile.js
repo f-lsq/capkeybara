@@ -61,16 +61,16 @@ const SellerProfile = () => {
             <p>Contact: {seller.contact}</p>
             <p>Join Date: {convertDateTime(seller.date_created)}</p>
           </article>
-          <section>
+          <article>
             <div>
               <h3>Products Sold</h3>
-              <p>{productsSold ? productsSold : "..."}</p>
+              <p>{productsSold ? productsSold : 0}</p>
             </div>
             <div>
               <h3>Orders Fulfilled</h3>
-              <p>{ordersFulfilled ? ordersFulfilled : "..."}</p>
+              <p>{ordersFulfilled ? ordersFulfilled : 0}</p>
             </div>
-          </section>
+          </article>
       </section>
       :
         <div className="loading-screen">

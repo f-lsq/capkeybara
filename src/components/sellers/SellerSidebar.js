@@ -30,7 +30,7 @@ const SellerSidebar = () => {
     authContext.logout();
     sellerContext.logout();
     setSeller(null);
-    notifySuccess("Logout successful. See you again!", "logoutSuccess");
+    notifySuccess("Log out successful. See you again!", "logoutSuccess");
   }
 
   return (

@@ -12,7 +12,6 @@ export const StyledShop = styled.main`
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(235, 235, 235, 1);
     transition: 0.2s;
-    cursor: pointer;
   }
 
   article:hover {

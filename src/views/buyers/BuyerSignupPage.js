@@ -1,4 +1,5 @@
 import BuyerSignupForm from "../../components/buyers/BuyerSignupForm";
+import Footer from "../../components/general/Footer";
 import Navbar from "../../components/general/Navbar";
 
 export default function BuyerSignupPage() {
@@ -6,6 +7,7 @@ export default function BuyerSignupPage() {
     <>
       <Navbar/>
       <BuyerSignupForm/>
+      <Footer/>
     </>
   )
 }

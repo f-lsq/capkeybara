@@ -1,3 +1,4 @@
+import SellerFooter from "../../components/sellers/SellerFooter";
 import SellerNavbar from "../../components/sellers/SellerNavbar";
 import SellerSidebar from "../../components/sellers/SellerSidebar";
 import SellerUpdateProduct from "../../components/sellers/SellerUpdateProduct";
@@ -10,6 +11,7 @@ export default function SellerDeleteProductPage() {
       <StyledSellerMainBody>
         <SellerSidebar/><SellerUpdateProduct/>
       </StyledSellerMainBody>
+      <SellerFooter/>
       
     </>
   )

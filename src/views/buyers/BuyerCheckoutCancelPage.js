@@ -1,4 +1,5 @@
 import BuyerCheckoutCancel from "../../components/buyers/BuyerCheckoutCancel";
+import Footer from "../../components/general/Footer";
 import Navbar from "../../components/general/Navbar";
 
 export default function BuyerCheckoutCancelPage() {
@@ -6,6 +7,7 @@ export default function BuyerCheckoutCancelPage() {
     <>
       <Navbar/>
       <BuyerCheckoutCancel/>
+      <Footer/>
     </>
   )
 }

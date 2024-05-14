@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import { notifySuccess, notifyError } from '../../utils';
+import { StyledSellerDeletePopup } from '../styles/sellers/SellerPopup.styled';
 
 const SellerDeleteProduct = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const SellerDeleteProduct = () => {
   }
 
   return (
-    <div>
+    <StyledSellerDeletePopup>
       <h1>Are you sure?</h1>
       <p>You are about to delete {product.name}</p>
       <img src={product.image_url} alt={product.name}/>
@@ -48,7 +49,7 @@ const SellerDeleteProduct = () => {
           No, please cancel this
         </button>
       </div>
-    </div>
+    </StyledSellerDeletePopup>
   );
 };
 

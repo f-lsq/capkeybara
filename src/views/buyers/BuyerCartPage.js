@@ -1,4 +1,5 @@
 import BuyerCart from "../../components/buyers/BuyerCart";
+import Footer from "../../components/general/Footer";
 import Navbar from "../../components/general/Navbar";
 
 export default function BuyerCartPage() {
@@ -6,6 +7,7 @@ export default function BuyerCartPage() {
     <>
       <Navbar/>
       <BuyerCart/>
+      <Footer/>
     </>
   )
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledBuyerCheckout = styled.section`
   // Mobile View
   padding-top: 2.94em;
+  margin-bottom: 10vh;
 
   display: flex;
   flex-direction: column;

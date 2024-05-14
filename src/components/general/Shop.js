@@ -54,7 +54,7 @@ const Shop = () => {
   return (
     <>
       <StyledShopSidebar>
-        Sidebar
+        
       </StyledShopSidebar>
       <StyledShop>
         {

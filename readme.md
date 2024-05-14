@@ -24,6 +24,29 @@ Sample CSS
   }
 ```
 
+Sample CSS 
+```
+  // Mobile View
+
+
+  // Tablet View
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+
+  }
+
+  // Laptop View
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+
+  }
+
+  // Monitor View
+  @media screen and (min-width: 1280px) {
+
+    
+  }
+```
+
+
 # Possible Improvement
 * Saving user information in localStorage or sessionStorage instead of constantly calling the API for the information -> Error calling API when token refreshes
 * Currently, buyers can bypass checkout by going to the checkout/success route

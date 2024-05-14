@@ -19,7 +19,6 @@ export default function SellerLoginForm() {
     try {
       
       const response = await sellerContext.login(data)
-      console.log(response);
       if (response) {
         const sellerProfileResponse = await sellerContext.getSellerProfile();
         authContext.login(sellerProfileResponse.data.payload.role);

@@ -22,7 +22,7 @@ export default function SellerNavbar() {
             </ul>)}
         </div>
         <div id="navCenter">
-          <Link to="/seller/dashboard"><h1>capkeybara</h1></Link>
+          <Link to="/seller/product"><h1>capkeybara</h1></Link>
         </div>
         <div id="navRight">
           <ul>

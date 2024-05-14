@@ -19,15 +19,18 @@ export const StyledSellerSidebar = styled.aside`
 
   figure {
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 
   figure img {
     aspect-ratio: 1/1;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     width: 40px;
+    height: 40px;
     margin-right: 5px;
+    border: 1.5px solid #6A4840;
   }
 
   figure figcaption {
@@ -62,11 +65,12 @@ export const StyledSellerSidebar = styled.aside`
     align-items: center;
     padding: 8px 18px;
     border-radius: 5px;
+    margin: 10px;
+    transition: 0.2s;
   }
 
   nav ul li a:hover {
     background: #DCAC6C;
-    transition: 0.3s;
   }
 
   nav ul li a svg {
