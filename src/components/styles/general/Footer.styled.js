@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import background from "../../../assets/images/backdrop.webp";
-import sellerBackground from "../../../assets/images/seller-backdrop.webp";
+import background from "../../../assets/images/main/backdrop.webp";
+import sellerBackground from "../../../assets/images/main/seller-backdrop.webp";
 
 export const StyledFooter = styled.footer`
   // Mobile View

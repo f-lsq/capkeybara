@@ -7,6 +7,7 @@ import { BuyerContext } from '../../context/BuyerContext';
 import { CartContext } from '../../context/CartContext';
 import { ProductContext } from '../../context/ProductContext';
 import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
+import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
 
 const Shop = () => {
   
@@ -60,7 +61,7 @@ const Shop = () => {
         {
           products.map(product => (
             <article key={product.id}>
-              <img src={product.image_url} alt={product.name} />
+              <img src={product.image_url || imageNotAvailable} alt={product.name} />
               <section>
                 <div>
                   <h1>{product.name}</h1>

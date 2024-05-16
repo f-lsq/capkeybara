@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../../assets/images/backdrop.webp";
+import background from "../../../assets/images/main/backdrop.webp";
 
 export const StyledNavbar = styled.nav`
   // Mobile View

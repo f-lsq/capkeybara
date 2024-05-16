@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../../assets/images/backdrop.webp";
+import background from "../../../assets/images/main/backdrop.webp";
 
 export const StyledHome = styled.main`
 
@@ -41,6 +41,10 @@ export const StyledHome = styled.main`
     img:last-of-type {
       display: none;
     }
+
+    svg {
+      filter: drop-shadow( 0px 3px 5px rgba(0, 0, 0, .7));
+    }
     
     div {
       display: none;
@@ -50,6 +54,8 @@ export const StyledHome = styled.main`
       transform: translate(-50%, -50%);
       font-size: 1rem;
       font-weight: bold;
+      color: #FFC75B;
+      text-shadow: 0px 3px 5px rgba(0, 0, 0, .7);
     }
   }
 
@@ -80,7 +86,7 @@ export const StyledHome = styled.main`
 
     button {
       border: none;
-      padding: 1.5vh 5vw; 
+      padding: 2vh 5vw; 
       margin-bottom: 2vh;
       border-radius: 10px;
       cursor: pointer;
@@ -157,7 +163,7 @@ export const StyledHome = styled.main`
 
       button {
         border: none;
-        padding: 1vh 3vw;
+        padding: 1vh 1.5vw;
         border-radius: 3px;
         background: #F9DA69;
         display: flex;

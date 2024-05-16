@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
-import sellerAuthBackground from "../../assets/images/seller-auth.webp"
-import sellerDefaultProfileImage from "../../assets/images/seller-upload-img.webp"
+import sellerAuthBackground from "../../assets/images/main/seller-auth.webp"
+import sellerDefaultProfileImage from "../../assets/images/main/seller-upload-img.webp"
 import { notifyError } from '../../utils';
 import UploadWidget from "../general/UploadWidget";
 import { SellerContext } from "../../context/SellerContext";

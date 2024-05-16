@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductContext } from '../../context/ProductContext';
 import UploadWidget from '../general/UploadWidget';
-import defaultUploadImage from "../../assets/images/upload-img.jpg"
+import defaultUploadImage from "../../assets/images/main/seller-upload-img.webp"
 import { notifySuccess, notifyError } from '../../utils';
 import { StyledSellerProductForm } from '../styles/sellers/SellerProductForm.styled';
 

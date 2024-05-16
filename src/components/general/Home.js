@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledHome } from '../styles/general/Home.styled';
 import { BagPlusFill, PlusSquareFill } from 'react-bootstrap-icons';
-import landingMain from '../../assets/images/landing-main.webp';
-import landingHover from '../../assets/images/landing-hover.webp';
-import loadingScreen from '../../assets/images/loading.gif';
+import landingMain from '../../assets/images/main/landing-main.webp';
+import landingHover from '../../assets/images/main/landing-hover.webp';
+import loadingScreen from '../../assets/images/main/loading.gif';
 import { notifySuccess, notifyError, mergeSort } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
@@ -84,7 +84,7 @@ const Home = () => {
             <button onClick={() => { navigate(`/build`) }}>Build a Keyboard</button>
           </section>
           <section id="recommendation">
-            <h1>Top Recommended Keyboard</h1>
+            <h1>Top Recommended Keyboards</h1>
             {
               recommendKeyboards.slice(0, 3).map(recommendKeyboard => (
                 <article key={recommendKeyboard.id}>

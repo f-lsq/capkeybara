@@ -10,12 +10,7 @@ export const StyledShop = styled.main`
     margin: 2vw;
     width: calc((100vw - 4*3vw - 2*4vw) / 2);
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(235, 235, 235, 1);
     transition: 0.2s;
-  }
-
-  article:hover {
-    box-shadow: 0 0 15px rgba(220, 220, 220, 1);
   }
 
   img {
@@ -65,7 +60,7 @@ export const StyledShop = styled.main`
   }
 
   button {
-    margin: 2px 0 15px 0;
+    margin: 1vh 0 2vh 0;
     background-color: #F9DA69;
     color: black;
     border: none;
@@ -75,7 +70,6 @@ export const StyledShop = styled.main`
     align-items: center;
     justify-content: space-evenly;
     white-space: nowrap;
-    box-shadow: 0 2px 5px rgba(82, 52, 22, 0.2);
     transition: 0.2s;
     cursor: pointer;
   }
@@ -89,7 +83,6 @@ export const StyledShop = styled.main`
   }
 
   button:active {
-    margin: calc(2px + 2px) 0 calc(15px - 2px) 0;
     background-color: #EBC641;
     box-shadow: 0 0 5px rgba(82, 52, 22, 0.2);
     

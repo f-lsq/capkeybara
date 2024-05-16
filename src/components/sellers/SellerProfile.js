@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SellerContext } from '../../context/SellerContext';
 import { StyledSellerProfile } from '../styles/sellers/SellerProfile.styled';
-import loadingScreen from '../../assets/images/loading.gif';
+import loadingScreen from '../../assets/images/main/loading.gif';
 import { convertDateTime } from '../../utils';
 import { ProductContext } from '../../context/ProductContext';
 import { OrderContext } from '../../context/OrderContext';

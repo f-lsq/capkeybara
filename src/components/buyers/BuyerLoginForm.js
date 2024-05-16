@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
-import buyerAuthBackground from "../../assets/images/buyer-auth.webp";
+import buyerAuthBackground from "../../assets/images/main/buyer-auth.webp";
 import { notifyError } from '../../utils';
 import { AuthContext } from "../../context/AuthContext";
 import { BuyerContext } from "../../context/BuyerContext";

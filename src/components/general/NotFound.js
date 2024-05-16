@@ -1,5 +1,5 @@
 import React from 'react';
-import notFoundImg from "../../assets/images/not-found.webp"
+import notFoundImg from "../../assets/images/main/not-found.webp"
 import { StyledNotFound } from '../styles/general/NotFound.styled';
 import { useNavigate } from 'react-router-dom';
 

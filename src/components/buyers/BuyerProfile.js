@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StyledBuyerProfile } from '../styles/buyers/BuyerProfile.styled';
 import { BuyerContext } from '../../context/BuyerContext';
-import loadingScreen from '../../assets/images/loading.gif';
+import loadingScreen from '../../assets/images/main/loading.gif';
 import { OrderContext } from '../../context/OrderContext';
 import { convertDateTime } from '../../utils';
-import buyerOrdersEmptyBackground from "../../assets/images/buyer-orders-empty.webp"
+import buyerOrdersEmptyBackground from "../../assets/images/main/buyer-orders-empty.webp"
 import { useNavigate } from 'react-router-dom';
 
 const BuyerProfile = () => {

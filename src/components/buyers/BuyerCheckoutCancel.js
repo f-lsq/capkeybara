@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import checkoutCancelImg from "../../assets/images/checkout-cancel.webp"
-import checkoutCancelGif from "../../assets/images/checkout-cancel.gif"
+import checkoutCancelImg from "../../assets/images/main/checkout-cancel.webp"
+import checkoutCancelGif from "../../assets/images/main/checkout-cancel.gif"
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { CheckoutContext } from '../../context/CheckoutContext';

@@ -1,3 +1,4 @@
+import SellerFooter from "../../components/sellers/SellerFooter";
 import SellerNavbar from "../../components/sellers/SellerNavbar";
 import SellerProfile from "../../components/sellers/SellerProfile";
 import SellerSidebar from "../../components/sellers/SellerSidebar";
@@ -10,6 +11,7 @@ export default function SellerProfilePage() {
       <StyledSellerMainBody>
         <SellerSidebar/><SellerProfile/>
       </StyledSellerMainBody>
+      <SellerFooter/>
       
     </>
   )

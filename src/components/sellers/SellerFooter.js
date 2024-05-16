@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { StyledSellerFooter } from '../styles/general/Footer.styled';
-import footerLogo from '../../assets/images/footer.webp';
+import footerLogo from '../../assets/images/main/footer.webp';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledFooter } from '../styles/general/Footer.styled';
-import footerLogo from '../../assets/images/footer.webp';
+import footerLogo from '../../assets/images/main/footer.webp';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {

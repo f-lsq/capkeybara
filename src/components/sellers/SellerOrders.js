@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { SellerContext } from '../../context/SellerContext';
 import { OrderContext } from '../../context/OrderContext';
 import { StyledSellerOrders } from '../styles/sellers/SellerTables.styled';
-import sellerOrdersEmptyBackground from "../../assets/images/seller-orders-empty.webp"
+import sellerOrdersEmptyBackground from "../../assets/images/main/seller-orders-empty.webp"
 import { useNavigate } from 'react-router-dom';
 import { FloppyFill, Pencil, XLg } from 'react-bootstrap-icons';
 import { convertDateTime, notifySuccess, notifyError } from '../../utils';

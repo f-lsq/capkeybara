@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledBuildAKeyboard } from '../styles/general/BuildAKeyboard.styled';
-import buildAKeyboardBackground from '../../assets/images/build-a-keyboard.webp';
+import buildAKeyboardBackground from '../../assets/images/main/build-a-keyboard.webp';
 import { useNavigate } from 'react-router-dom';
 
 const BuildAKeyboard = () => {

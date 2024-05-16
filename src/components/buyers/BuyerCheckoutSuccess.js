@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import checkoutSuccessImg from "../../assets/images/checkout-success.webp"
-import checkoutSuccessGif from "../../assets/images/checkout-success.gif"
+import checkoutSuccessImg from "../../assets/images/main/checkout-success.webp"
+import checkoutSuccessGif from "../../assets/images/main/checkout-success.gif"
 import { useNavigate } from 'react-router-dom';
 import { StyledBuyerCheckoutSuccess } from '../styles/buyers/BuyerCheckout.styled';
 import { AuthContext } from '../../context/AuthContext';

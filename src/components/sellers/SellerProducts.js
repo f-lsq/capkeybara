@@ -4,7 +4,7 @@ import { StyledSellerProducts } from '../styles/sellers/SellerTables.styled';
 import { Pencil, PlusLg, TrashFill } from 'react-bootstrap-icons';
 import { ProductContext } from '../../context/ProductContext';
 import { SellerContext } from '../../context/SellerContext';
-import sellerProductsEmptyBackground from "../../assets/images/seller-products-empty.webp"
+import sellerProductsEmptyBackground from "../../assets/images/main/seller-products-empty.webp"
 import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 
 const SellerProducts = () => {

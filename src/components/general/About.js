@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledAbout } from '../styles/general/About.styled';
-import aboutMainBackground from '../../assets/images/about-main.webp';
-import aboutTeamBackground from '../../assets/images/about-team.webp';
+import aboutMainBackground from '../../assets/images/main/about-main.webp';
+import aboutTeamBackground from '../../assets/images/main/about-team.webp';
 
 const About = () => {
   return (
