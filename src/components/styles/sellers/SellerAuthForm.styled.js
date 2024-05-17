@@ -115,6 +115,7 @@ input:focus {
   width: auto;
   padding: 2px 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .authSubmitBtn {

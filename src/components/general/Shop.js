@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { StyledShop } from '../styles/general/Shop.styled';
 import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
-import { BagPlusFill } from 'react-bootstrap-icons';
+import { BagPlusFill, Search } from 'react-bootstrap-icons';
 import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
 import { notifySuccess, notifyError } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
@@ -10,6 +11,7 @@ import { CartContext } from '../../context/CartContext';
 import { ProductContext } from '../../context/ProductContext';
 
 const Shop = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const authContext = useContext(AuthContext);
   const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
@@ -50,10 +52,23 @@ const Shop = () => {
     }
   }
 
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <>
       <StyledShopSidebar>
-
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor='search-term'><h1>Search</h1></label>
+          <input type='text' id='search-term' name='search-term' 
+          {...register('search-term')}/> 
+          <button type='submit'><Search/></button>
+        </form> */}
       </StyledShopSidebar>
       <StyledShop>
         {

@@ -5,8 +5,8 @@ import UploadWidget from "../general/UploadWidget";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import sellerAuthBackground from "../../assets/images/main/seller-auth.webp"
-import sellerDefaultProfileImage from "../../assets/images/main/seller-upload-img.webp"
-import { notifyError } from '../../utils';
+import defaultProfileImage from "../../assets/images/main/upload-img.webp"
+import { notifyError, notifySuccess } from '../../utils';
 import { SellerContext } from "../../context/SellerContext";
 
 export default function SellerSignupForm() {
@@ -25,6 +25,7 @@ export default function SellerSignupForm() {
         setShowFormFieldset(false);
         // If on second 'signup' page
         if (!showFormFieldset) {
+          notifySuccess(`Account has been created for @${data.username}!`, "sellerSignupSuccess");
           navigate("/seller/login");
         }
       } else {
@@ -134,7 +135,7 @@ export default function SellerSignupForm() {
                     {...register("image_url", {
                       value: uploadedImageURL
                     })} />
-                  <img src={uploadedImageURL || sellerDefaultProfileImage} alt="Profile to be uploaded by sellers" />
+                  <img src={uploadedImageURL || defaultProfileImage} alt="Profile to be uploaded by sellers" />
                   <UploadWidget setUploadedImageURL={setUploadedImageURL} />
                 </div>
                 <input className="authSubmitBtn" type="submit" value="Submit"

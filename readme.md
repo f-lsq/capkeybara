@@ -17,30 +17,12 @@ Whether you're a seasoned keyboard enthusiast, a newbie exploring the world of m
 * Include a URL to the deployed version of your project -->
 
 ## Table of Contents
-1. [System Design](#system-design)
-2. [UI/UX](#uiux)
-3. [Features](#features)
-4. [Use Cases](#use-cases)
-5. [Technologies Used](#technologies-used)
-6. [Testing](#testing)
-7. [Test Cases](#test-cases)
-8. [Deployment](#deployment)
-9. [Credits](#credits)
-
-## System Design
-### Entity Relationship Diagram
-![Entity Relationship Diagram](src/assets/images/readme/erd.png)
-
-### SQL Schema Diagram
-![SQL Schema](src/assets/images/readme/schema.png)
-
-### API Routes
-| Method/Path                         | Request Body / Parameters  | Response                           | 
-| -----------------------------------| -------------------------- | ---------------------------------- | 
-| GET /products                      |                            | On success,... <br/>On failure,... | 
-| POST /products/add/:productId      | {<br/>"name": string, <br/> "description": string,<br/> etc <br/>}                           | On success,... <br/>On failure,... | 
-| PUT /products/edit/:productId      |                            | On success,... <br/>On failure,... | 
-| DELETE /products/delete/:productId |                            | On success,... <br/>On failure,... | 
+1. [UI/UX](#uiux)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Deployment](#deployment)
+5. [Credits](#credits)
+6. [References](#references)
 
 ## UI/UX
 
@@ -72,52 +54,59 @@ Below are the wireframes for both the buyers, and seller pages. The link to the 
 ![Landing Page](src/assets/images/readme/landing.gif)
 
 #### Shop Page
-![Shop Page](src/assets/images/readme/shop.png)
+![Shop Page](src/assets/images/readme/shop.gif)
 
 #### Build a Keyboard Page
-![Build a Keyboard Page](src/assets/images/readme/build-a-keyboard.png)
+![Build a Keyboard Page](src/assets/images/readme/build-a-keyboard.gif)
 
 #### About Page
-![About Page](src/assets/images/readme/about.png)
+![About Page](src/assets/images/readme/about.gif)
+
+#### Not Found Page
+![Not Found Page](src/assets/images/readme/not-found.gif)
 
 #### Buyer Sign Up Page
-![Buyer Sign Up Page](src/assets/images/readme/buyer-signup.png)
+![Buyer Sign Up Page](src/assets/images/readme/buyer-signup.gif)
 
 #### Buyer Log In Page
-![Buyer Log In Page](src/assets/images/readme/buyer-login.png)
-
-#### Buyer Cart Page
-![Buyer Cart Page](src/assets/images/readme/buyer-cart.png)
+![Buyer Log In Page](src/assets/images/readme/buyer-login.gif)
 
 #### Buyer Profile Page
-![Buyer Profile Page](src/assets/images/readme/buyer-profile.png)
+![Buyer Profile Page](src/assets/images/readme/buyer-profile.gif)
+
+#### Buyer Cart Page
+![Buyer Cart Page](src/assets/images/readme/buyer-cart.gif)
+
+#### Buyer Checkout Success Page
+![Buyer Cart Page](src/assets/images/readme/buyer-checkout-success.gif)
+
+#### Buyer Checkout Cancel Page
+![Buyer Cart Page](src/assets/images/readme/buyer-checkout-cancel.gif)
 
 #### Seller Sign Up Page
-![Buyer Sign Up Page](src/assets/images/readme/buyer-signup.png)
+![Buyer Sign Up Page](src/assets/images/readme/seller-signup.gif)
 
 #### Seller Log In Page
-![Seller Log In Page](src/assets/images/readme/seller-login.png)
-
-#### Seller Cart Page
-![Seller Cart Page](src/assets/images/readme/seller-cart.png)
+![Seller Log In Page](src/assets/images/readme/seller-login.gif)
 
 #### Seller Profile Page
-![Seller Profile Page](src/assets/images/readme/seller-profile.png)
+![Seller Profile Page](src/assets/images/readme/seller-profile.gif)
 
 #### Seller Product Page
 ![Seller Product Page](src/assets/images/readme/seller-product.png)
+*(This is not a GIF)*
 
 #### Seller Add Product Page
-![Seller Add Product Page](src/assets/images/readme/seller-add-product.png)
+![Seller Add Product Page](src/assets/images/readme/seller-add-product.gif)
 
 #### Seller Update Product Page
-![Seller Update Product Page](src/assets/images/readme/seller-update-product.png)
+![Seller Update Product Page](src/assets/images/readme/seller-update-product.gif)
 
 #### Seller Delete Product Page
-![Seller Delete Product Page](src/assets/images/readme/seller-delete-product.png)
+![Seller Delete Product Page](src/assets/images/readme/seller-delete-product.gif)
 
 #### Seller Order Page
-![Seller Order Page](src/assets/images/readme/seller-order.png)
+![Seller Order Page](src/assets/images/readme/seller-order.gif)
 
 ### Choice of Color and Information Organisation
 Capkeybara was mainly inspired by the rodent itself. The site aims to blend cuteness with its actual theme being a mechanical keyboard e-commerce store. The color scheme for the buyers page was also derived images of the capybara, as seen in the image below.
@@ -128,21 +117,12 @@ As the site is aimed for all consumers alike, be it keyboard enthusiast, regular
 * `Browse Keyboard` button allows both keyboard hobbyist and regular consumer looking for a quick buy to directly browse the selection of keyboard the site has to offer, with just a click.
 * `Build a Keyboard` button enables beginners to effectively move to the relevant page to read up and learn about the ways to build a keyboard. Once they have gone through the tutorial style guide, they will then be redirected to the shop to purchase their first keyboard, or keyboard components.
 
-
 ## Features
 <!-- List down the major features of your application, and also the algorithms that you have used to implement those features. If there are any limitations or bugs, please describe them as well. If you have any features pending implementation, you can also take the opportunity to discuss them here. -->
 Major features of capkeybara includes
 1. **Search**, which makes use of algorithm such as mergesort for sorting
 2. **Checkout**, which is handled by Stripe. A session ID will be generated from Stripe and received by the client to indicate a successful transaction. The main limitation of this is that users are able to skip the checkout process and make an order by navigating to the `/checkout/success` page. A possible solution for this is to validate the session ID sent by Stripe before placing an order.
 3. **Order Status**, which allows buyers to check the status of their order. They include `Payment Made`, `Ready to Ship`, `Out for Delivery`, `Delivered`. A limitation of this from the seller side is that the status of an order can only be update once all products in an order meets the order status requirement (eg. order status can only be updated to 'Delivered' if all products in the order has been delivered). Changing this order status will also update the order status for all sellers.
-
-## Use Cases
-<!-- If you wish to present the features list in a form more suitable for software development, you can write them as use cases instead. 
-
-A basic use case consists of:
-* The name of the use case, usually a short title of what it does
-* The objective, from the user's point of view
-* The steps the user will take to achieve the objective -->
 
 ## Technologies Used
 <!-- Provide an overview of the languages, frameworks, libraries and any other tools that you have used to produce the project.  Be sure to provide a short description of where in the project the technology is used, and a URL to its Github repository.  -->
@@ -155,38 +135,6 @@ A basic use case consists of:
 * [MySQL](https://www.mysql.com/) - Database management, used in conjuntion with [db-migrate](https://db-migrate.readthedocs.io/en/latest/)
 
 
-## Testing
-<!-- Provide proof that you have done testing on your project. You can provide step by step instructions for the examiner to test the project. Use your user stories and their acceptance criteria as a starting point. Do note that any unhandled exceptions, console errors etc will be considered as failing the testing criteria. 
-
-You may want to provide manual test cases. An example of a manual test case could be:
-1. Test that user can sign in
-  a. From the home page, click on the 'Login' button
-  b. Fill in a valid username and password and click on the 'Login'  button
-  c. The user should be redirected to the profile page
-
-2. Test user entering an invalid password
-  a. From the home page, click on the 'Login' button
-  b. FIll in a valid username but an invalid password, and click on the 'Login' button
-  c. The user should be informed that the login has failed.
-
-You can consider putting your manual test cases in a PDF file if they make your readme file too long. -->
-
-## Test Cases
-<!-- If you wish to present your testing steps in a clearer method, consider writing *test cases*. A test case consists of the following structure:
-
-| Test Case # | Test Case Description                               | Test Steps                                   | Expected Results         |
-| ------------| --------------------------------------------------- | -------------------------------------------- | ------------------------ |
-|             | Prerequisite: The user is at the calculate BMI form |                                              |                          |
-| 1           | Calculate the BMI                                   | 1. Enter the weight into the textbox as 84kg<br />2. Enter the height into the textbox as 1.71<br />3. Click the Calculate Button | The BMI is shown as 28.7 |
-
-The above format is just an example. As long as you provide:
-* A description of the test case
-* The steps for performing the test
-* The expected results
-* Any assumptions or prerequisites
-
-Your test case should work well! -->
-
 ## Deployment
 
 <!-- Describe the process that you used to host your website on a hosting platform (such as Github pages or Heroku). Provide the following details:
@@ -198,17 +146,46 @@ Your test case should work well! -->
 5.	What are the deployment steps for the project?
 
 You can provide deployment details in a separate document (PDF or another markdown file). There is no need to be original for this section; if another website or document have the steps, just link there and acknowledge the author in your credits. -->
-* [React Frontend](#) (Netlify)
+### Live Links
+* [React Frontend - Main Page](#) (Netlify)
 * [Express Backend - Admin Page](#) (Render)
+
+*(Note that Admin Page is not yet implemented)*
+
+### Test Accounts
+| Account Type | Name                                                       | Email                     | Password          | 
+|--------------|------------------------------------------------------------|---------------------------|-------------------|
+| Buyer        | [Peter Pan](https://en.wikipedia.org/wiki/Peter_Pan)       | peterpan@neverland.com    | peterpan123@      |
+| Buyer        | [Tinkerbell](https://en.wikipedia.org/wiki/Tinker_Bell)    | tinkerbell@neverland.com  | tinkerbell123@    | 
+| Buyer        | [Captain Hook](https://en.wikipedia.org/wiki/Captain_Hook) | captainhook@neverland.com | captainhook123@   |
+| Seller       | [Epomaker](https://epomaker.com/)                          | shop@epomaker.com         | epomaker123@      |
+| Seller       | [Aula](https://www.aulastar.com/)                          | shop@aula.com             | aula123@          |
+| Seller       | [Keychron](https://www.keychron.com/)                      | shop@keychron.com         | keychron123@      |
 
 ## Credits
 <!-- Put here all the code, content and assets that you have used. If you have used a piece of code from an external website, please acknowledge it and provide a link to it.  -->
+Links to all assets are listed here. 
+* Logo and Footer - [Capybara](https://thenounproject.com/icon/capybara-470903/), [Keycap](https://cloudnineergo.com/products/cloud-nine-c989m-ergonomic-keyboard)
+* Landing Page - [Macha Keys](https://goblintechkeys.com/products/matcha-keycaps)
+* Navbar Background - [Buyer](https://www.peakpx.com/en/hd-wallpaper-desktop-erpre), [Seller](https://www.vecteezy.com/photo/33889356-stone-texture-brown-for-interior-wallpaper-background-or-cover)
+* Signup and Login Background- [Buyer](https://2tcraft.com/product/capybara/), [Seller](https://www.etsy.com/ie/listing/1698562222/cute-custom-capybara-keycapshandmade?gpla=1&gao=1&)
+* Products
+* Build a Keyboard - [Bubble Tea & Pastel Keycaps](https://qwertyqop.com/products/bubble-tea-keycaps)
+* Capybara Vectors - [About 1](https://www.vectorstock.com/royalty-free-vector/capybara-and-crocodile-funny-cute-animal-friends-vector-50533036), [About 2](https://www.vectorstock.com/royalty-free-vector/cute-capybaras-bathing-in-water-funny-capibaras-vector-50000662), [Not Found](https://www.vectorstock.com/royalty-free-vector/cute-capybara-and-birds-funny-happy-capibara-vector-50153098), [Buyer Cart](https://www.vectorstock.com/royalty-free-vector/cute-funny-capybara-in-nature-happy-capy-peace-vector-50533037), [Buyer Cart Empty 1](https://www.vectorstock.com/royalty-free-vector/cute-capybara-playing-maracas-funny-mexican-vector-50533040), [Buyer Checkout Success 1](https://www.vectorstock.com/royalty-free-vector/cute-capybara-walking-funny-adorable-capibara-vector-50074374), [Buyer Checkout Cancel 1](https://www.vectorstock.com/royalty-free-vector/cute-funny-capybara-bathing-in-water-with-apples-vector-50059790), [Buyer Order Empty](https://www.vectorstock.com/royalty-free-vector/cute-capybara-family-funny-mother-and-baby-cub-vector-50059789), [Seller Product Empty](https://www.vectorstock.com/royalty-free-vector/cute-capybara-gentleman-animal-funny-capibara-vector-50220216), [Seller Order Empty](https://www.vectorstock.com/royalty-free-vector/cute-funny-capybara-bathing-in-water-hot-bath-vector-50533038)
+* Other Vectors - [Buyer Cart Empty 2](https://www.freepik.com/premium-vector/empty-cart-concept-illustration_65347827.htm), 
+* Animated GIF - [Loading](https://vsgif.com/gif/3565589), [Buyer Checkout Success 2](https://lottiefiles.com/animations/task-complete-tick-FXknfVV32o), [Buyer Checkout Cancel 2](https://lottiefiles.com/animations/cross-close-cancel-icon-animation-imJWR2OMg7)
+* Default Images - [Upload Profile Picture](https://iconduck.com/icons/180867/profile-circle), [Upload Product Image](https://stock.adobe.com/search?k=upload+image+icon&asset_id=304218763), [Image Not Available](https://en.m.wikipedia.org/wiki/File:Image_not_available.png)
 
-[How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
+Do note that some assets were manipulated with using AI and design tools, such as [Picsart Image Extender](https://picsart.com/ai-image-extender/), [Fotor Image Extender](https://www.fotor.com/features/ai-image-extender/), [Adobe Background Remover](https://www.adobe.com/express/feature/image/remove-background), and design tools such as [Krita](https://krita.org/en/).
 
-# Replace all image to 'WebP'
+This project is not intended for commercial use and no profit will be generated from it. For any issues with regard to the use of the above assets, please [contact me via GitHub](https://medium.com/@kahkoii/how-to-contact-a-user-on-github-b6b62c3db92f). Thank you!
 
-Sample CSS 
+## References
+1. [How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
+
+
+
+<!-- Sample CSS 
 ```
   // Mobile View
   padding-top: 2.94em;
@@ -255,4 +232,4 @@ Sample CSS
 
 # Possible Improvement
 * Saving user information in localStorage or sessionStorage instead of constantly calling the API for the information -> Error calling API when token refreshes
-* Currently, buyers can bypass checkout by going to the checkout/success route
+* Currently, buyers can bypass checkout by going to the checkout/success route -->
