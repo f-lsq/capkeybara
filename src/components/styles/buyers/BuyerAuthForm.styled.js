@@ -94,7 +94,7 @@ input:focus {
 .authContinueBtn {
   width: 100%;
   color: #FFFFFF;
-  border: 1px solid #CCE2D3;
+  border: 1px solid #CCE2D3;,
 }
 
 .authBackBtn {
@@ -103,6 +103,7 @@ input:focus {
   width: auto;
   padding: 2px 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .authSubmitBtn {

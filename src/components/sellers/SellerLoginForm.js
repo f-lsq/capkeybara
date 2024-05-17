@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import sellerAuthBackground from "../../assets/images/main/seller-auth.webp";
-import { notifyError } from '../../utils';
+import { notifyError, notifySuccess } from '../../utils';
 import { AuthContext } from "../../context/AuthContext";
 import { SellerContext } from "../../context/SellerContext";
 
@@ -21,6 +21,7 @@ export default function SellerLoginForm() {
       const response = await sellerContext.login(data)
       if (response) {
         const sellerProfileResponse = await sellerContext.getSellerProfile();
+        notifySuccess(`Log in successful. Welcome back, ${sellerProfileResponse.data.payload.name}!`, "loginSuccess");
         authContext.login(sellerProfileResponse.data.payload.role);
         navigate("/seller/product");
       } else {

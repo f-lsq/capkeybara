@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import buyerAuthBackground from "../../assets/images/main/buyer-auth.webp";
-import { notifyError } from '../../utils';
+import { notifyError, notifySuccess } from '../../utils';
 import { AuthContext } from "../../context/AuthContext";
 import { BuyerContext } from "../../context/BuyerContext";
 
@@ -20,10 +20,11 @@ export default function BuyerLoginForm() {
       const response = await buyerContext.login(data)
       if (response) {
         const buyerProfileResponse = await buyerContext.getBuyerProfile();
+        notifySuccess(`Log in successful. Welcome back, ${buyerProfileResponse.data.payload.first_name}!`, "loginSuccess");
         authContext.login(buyerProfileResponse.data.payload.role);
         navigate("/profile");
       } else {
-        notifyError("Wrong email or password", "wrongLogin");
+        notifyError("Wrong email or password", "loginError");
         navigate("/login");
       }
     } catch (e) {

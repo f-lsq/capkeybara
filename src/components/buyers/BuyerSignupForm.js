@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import buyerAuthBackground from "../../assets/images/main/buyer-auth.webp"
-import { notifyError } from '../../utils';
+import { notifyError, notifySuccess } from '../../utils';
 import { BuyerContext } from "../../context/BuyerContext";
 
 export default function BuyerSignupForm() {
@@ -24,6 +24,7 @@ export default function BuyerSignupForm() {
         setShowFormFieldset(false);
         // If on second 'signup' page
         if (!showFormFieldset) {
+          notifySuccess(`Account has been created for @${data.username}!`, "signupSuccess");
           navigate("/login");
         }
       } else {
