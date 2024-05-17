@@ -181,7 +181,7 @@ Do note that some assets were manipulated with using AI and design tools, such a
 This project is not intended for commercial use and no profit will be generated from it. For any issues with regard to the use of the above assets, please [contact me via GitHub](https://medium.com/@kahkoii/how-to-contact-a-user-on-github-b6b62c3db92f). Thank you!
 
 ## References
-1. [How to organise a react project](https://www.taniarascia.com/react-architecture-directory-structure/#services)
+1. [Tania, R. (n.d.). React Architecture: How to Structure and Organize a React Application.](https://www.taniarascia.com/react-architecture-directory-structure/)
 
 
 
