@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ProductContext } from '../../context/ProductContext';
-import { notifySuccess, notifyError } from '../../utils';
 import { StyledSellerDeletePopup } from '../styles/sellers/SellerPopup.styled';
+import { notifySuccess, notifyError } from '../../utils';
+import { ProductContext } from '../../context/ProductContext';
 
 const SellerDeleteProduct = () => {
   const navigate = useNavigate();
-  const productContext = useContext(ProductContext)
   const { productId } = useParams();
-
+  const productContext = useContext(ProductContext)
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -19,10 +18,9 @@ const SellerDeleteProduct = () => {
       } catch (e) {
         console.log(e);
       }
-
     }
     fetchData();
-  },[]) 
+  }, [])
 
   const handleDelete = async (productName) => {
     const response = await productContext.deleteProduct(productId);
@@ -38,12 +36,12 @@ const SellerDeleteProduct = () => {
     <StyledSellerDeletePopup>
       <h1>Are you sure?</h1>
       <p>You are about to delete {product.name}</p>
-      <img src={product.image_url} alt={product.name}/>
+      <img src={product.image_url} alt={product.name} />
       <div>
-        <button onClick={()=>handleDelete(product.name)}>
+        <button onClick={() => handleDelete(product.name)}>
           Yes, delete the product
         </button>
-        <button onClick={()=>{
+        <button onClick={() => {
           navigate("/seller/product/")
         }}>
           No, please cancel this

@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { StyledBuyerProfile } from '../styles/buyers/BuyerProfile.styled';
-import { BuyerContext } from '../../context/BuyerContext';
-import loadingScreen from '../../assets/images/main/loading.gif';
-import { OrderContext } from '../../context/OrderContext';
-import { convertDateTime } from '../../utils';
-import buyerOrdersEmptyBackground from "../../assets/images/main/buyer-orders-empty.webp"
 import { useNavigate } from 'react-router-dom';
+import { StyledBuyerProfile } from '../styles/buyers/BuyerProfile.styled';
+import buyerOrdersEmptyBackground from "../../assets/images/main/buyer-orders-empty.webp"
+import loadingScreen from '../../assets/images/main/loading.gif';
+import { convertDateTime } from '../../utils';
+import { BuyerContext } from '../../context/BuyerContext';
+import { OrderContext } from '../../context/OrderContext';
 
 const BuyerProfile = () => {
-
+  const navigate = useNavigate();
   const buyerContext = useContext(BuyerContext);
   const orderContext = useContext(OrderContext);
   const [buyer, setBuyer] = useState(null);
   const [orders, setOrders] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -125,8 +124,6 @@ const BuyerProfile = () => {
                   <button onClick={() => navigate("/shop")}>Start Shopping</button>
                 </div>
               }
-
-
             </main>
           </div>
           <div id="profile-standard-view">
@@ -159,13 +156,10 @@ const BuyerProfile = () => {
                           <td>
                             Order Status:
                           </td>
-                          {
-                            order.date_fulfilled ?
-                              <td>
-                                Date Fulfilled:
-                              </td> :
-                              <></>
-                          }
+                          {order.date_fulfilled &&
+                            <td>
+                              Date Fulfilled:
+                            </td>}
                         </tr>
                         <tr>
                           <td className='profile-order-id'>
@@ -193,7 +187,6 @@ const BuyerProfile = () => {
                               </td> :
                               <td></td>
                           }
-
                         </tr>
                       </thead>
                       <tbody>
@@ -210,15 +203,14 @@ const BuyerProfile = () => {
                               <td>
                               </td>
                               <td colSpan="2" className="profile-order-bold">
-                              $ {(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2
-                          })}
+                                $ {(order_item.quantity * order_item.product.price).toLocaleString(undefined, {
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}
                               </td>
                             </tr>
                           ))
                         }
-
                       </tbody>
                       <tfoot>
                         <tr>
@@ -256,21 +248,14 @@ const BuyerProfile = () => {
                   <button onClick={() => navigate("/shop")}>Start Shopping</button>
                 </div>
               }
-
             </main>
-
           </div>
-
         </> :
         <div className="loading-screen">
           <img src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
           <h1>Loading...</h1>
         </div>
       }
-
-
-
-
     </StyledBuyerProfile>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { StyledSellerFooter } from '../styles/general/Footer.styled';
 import footerLogo from '../../assets/images/main/footer.webp';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const SellerFooter = () => {
@@ -26,7 +26,6 @@ const SellerFooter = () => {
                   <li><Link to="/seller/signup">Sign Up</Link></li>
                 </>
               }
-
             </ul>
           </nav>
           <nav aria-label="Social navigation">
@@ -39,7 +38,6 @@ const SellerFooter = () => {
         </div>
         <p>&copy; 2024 Capkeybara. All rights reserved.</p>
       </section>
-
     </StyledSellerFooter>
   );
 };

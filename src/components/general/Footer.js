@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { StyledFooter } from '../styles/general/Footer.styled';
 import footerLogo from '../../assets/images/main/footer.webp';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -29,7 +29,6 @@ const Footer = () => {
         </div>
         <p>&copy; 2024 Capkeybara. All rights reserved.</p>
       </section>
-
     </StyledFooter>
   );
 };

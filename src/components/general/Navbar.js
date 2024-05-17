@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Person, Cart3, List, XCircle } from 'react-bootstrap-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { StyledNavbar } from '../styles/general/Navbar.styled';
-import { CartContext } from '../../context/CartContext';
+import { Person, Cart3, List, XCircle } from 'react-bootstrap-icons';
+import { useRefreshAccessToken, notifySuccess } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
-import { useRefreshAccessToken, notifySuccess } from '../../utils';
+import { CartContext } from '../../context/CartContext';
 
 export default function Navbar() {
   useRefreshAccessToken();
@@ -69,7 +69,7 @@ export default function Navbar() {
       <StyledNavbar>
         <div id="navLeft">
           {!displayMenu && <List onClick={() => setDisplayMenu(true)} />}
-          {displayMenu && <XCircle  onClick={() => setDisplayMenu(false)}/>}
+          {displayMenu && <XCircle onClick={() => setDisplayMenu(false)} />}
           {displayMenu &&
             (<ul id="navlist-mobile-view">
               <li onClick={() => setDisplayMenu(false)}><Link to="/">HOME</Link></li>

@@ -1,27 +1,27 @@
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import ProductServiceLayer from '../service-layer/ProductServiceLayer';
 
 export const ProductContext = createContext();
 
-export default function ProductContextData({children}) {
-  
+export default function ProductContextData({ children }) {
+
   const serviceOperations = {
     getAllProduct: async () => {
       try {
         const response = await ProductServiceLayer.getAllProduct();
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
-      } 
+      }
     },
 
     getAllCategories: async () => {
       try {
         const response = await ProductServiceLayer.getAllCategories();
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
-      } 
+      }
     },
 
     getProductById: async (productId) => {
@@ -46,7 +46,7 @@ export default function ProductContextData({children}) {
       try {
         const response = await ProductServiceLayer.createProduct(productData);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
 
@@ -56,20 +56,17 @@ export default function ProductContextData({children}) {
       try {
         const response = await ProductServiceLayer.updateProduct(productId, data);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
-
     },
-
-
 
     deleteProduct: async (productId) => {
       try {
         const response = await ProductServiceLayer.deleteProduct(productId);
         console.log(response);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
     }

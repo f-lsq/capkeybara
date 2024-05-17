@@ -5,7 +5,7 @@ const CheckoutServiceLayer = {
     try {
       const response = await apiRequests.get('/checkout/', params)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   }

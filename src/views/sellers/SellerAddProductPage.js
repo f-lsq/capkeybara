@@ -1,18 +1,17 @@
+import SellerNavbar from "../../components/sellers/SellerNavbar";
+import { StyledSellerMainBody } from "../../components/styles/sellers/SellerMainBody.styled";
+import SellerSidebar from "../../components/sellers/SellerSidebar";
 import SellerAddProduct from "../../components/sellers/SellerAddProduct";
 import SellerFooter from "../../components/sellers/SellerFooter";
-import SellerNavbar from "../../components/sellers/SellerNavbar";
-import SellerSidebar from "../../components/sellers/SellerSidebar";
-import { StyledSellerMainBody } from "../../components/styles/sellers/SellerMainBody.styled";
 
 export default function SellerAddProductPage() {
   return (
     <>
-      <SellerNavbar/>
+      <SellerNavbar />
       <StyledSellerMainBody>
-        <SellerSidebar/><SellerAddProduct/>
+        <SellerSidebar /><SellerAddProduct />
       </StyledSellerMainBody>
-      <SellerFooter/>
-      
+      <SellerFooter />
     </>
   )
 }

@@ -1,18 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { StyledShop } from '../styles/general/Shop.styled';
+import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
 import { BagPlusFill, Search } from 'react-bootstrap-icons';
+import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
 import { notifySuccess, notifyError } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
 import { CartContext } from '../../context/CartContext';
 import { ProductContext } from '../../context/ProductContext';
-import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
-import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
 
 const Shop = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  
   const authContext = useContext(AuthContext);
   const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
@@ -45,19 +44,10 @@ const Shop = () => {
           notifyError(`No more stock for ${productName}!`, 'addToCartError')
         }
       } else {
-        notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')  
+        notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')
       }
     } catch (e) {
       notifyError(`Please login to add products to your cart`, 'unauthorisedBuyer')
-      console.log(e);
-    }
-    
-  }
-
-  const onSubmit = async (data) => {
-    try {
-      console.log(data);
-    } catch (e) {
       console.log(e);
     }
   }
@@ -78,7 +68,7 @@ const Shop = () => {
           <input type='text' id='search-term' name='search-term' 
           {...register('search-term')}/> 
           <button type='submit'><Search/></button>
-        </form> */}        
+        </form> */}
       </StyledShopSidebar>
       <StyledShop>
         {
@@ -96,14 +86,12 @@ const Shop = () => {
                     () => handleAddCart(product.id, product.name)
                   }><BagPlusFill />Add to Cart</button>
                 </div>
-
               </section>
             </article>
           ))
         }
       </StyledShop>
     </>
-    
   );
 };
 

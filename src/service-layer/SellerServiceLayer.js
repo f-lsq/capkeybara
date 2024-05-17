@@ -5,7 +5,7 @@ const SellerServiceLayer = {
     try {
       const response = await apiRequests.post('/sellers/', '', data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -14,7 +14,7 @@ const SellerServiceLayer = {
     try {
       const response = await apiRequests.post('/sellers/login', '', data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -32,7 +32,7 @@ const SellerServiceLayer = {
     try {
       const response = await apiRequests.post('/sellers/profile', "", "");
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -41,7 +41,7 @@ const SellerServiceLayer = {
     try {
       const response = await apiRequests.get('/sellers/', params)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -50,7 +50,7 @@ const SellerServiceLayer = {
     try {
       const response = await apiRequests.post('/sellers/refresh', "", data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   }

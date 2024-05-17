@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 import { StyledSellerProducts } from '../styles/sellers/SellerTables.styled';
 import { Pencil, PlusLg, TrashFill } from 'react-bootstrap-icons';
+import sellerProductsEmptyBackground from "../../assets/images/main/seller-products-empty.webp"
 import { ProductContext } from '../../context/ProductContext';
 import { SellerContext } from '../../context/SellerContext';
-import sellerProductsEmptyBackground from "../../assets/images/main/seller-products-empty.webp"
-import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 
 const SellerProducts = () => {
   const navigate = useNavigate();
@@ -22,10 +22,9 @@ const SellerProducts = () => {
       } catch (e) {
         console.log(e);
       }
-
     }
     fetchData();
-  }, [])
+  }, []);
 
   return (
     <StyledSellerProducts>
@@ -84,7 +83,6 @@ const SellerProducts = () => {
           <img src={sellerProductsEmptyBackground} alt="Capybara with monocle, tophat and bowtie, posing like the distinguised gentleman that he is" />
           <button onClick={() => { navigate(`/seller/product/add/`) }}>Add Your First Product!</button>
         </StyledSellerPopup>}
-
     </StyledSellerProducts>
   );
 };

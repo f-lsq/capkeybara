@@ -5,7 +5,7 @@ const BuyerServiceLayer = {
     try {
       const response = await apiRequests.post('/buyers/', "", data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -14,7 +14,7 @@ const BuyerServiceLayer = {
     try {
       const response = await apiRequests.post('/buyers/login', "", data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -32,7 +32,7 @@ const BuyerServiceLayer = {
     try {
       const response = await apiRequests.post('/buyers/profile', "", "");
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -41,7 +41,7 @@ const BuyerServiceLayer = {
     try {
       const response = await apiRequests.get('/buyers/', params);
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
@@ -50,7 +50,7 @@ const BuyerServiceLayer = {
     try {
       const response = await apiRequests.post('/buyers/refresh', "", data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   }

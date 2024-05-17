@@ -2,16 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledHome } from '../styles/general/Home.styled';
 import { BagPlusFill, PlusSquareFill } from 'react-bootstrap-icons';
-import landingMain from '../../assets/images/main/landing-main.webp';
 import landingHover from '../../assets/images/main/landing-hover.webp';
+import landingMain from '../../assets/images/main/landing-main.webp';
 import loadingScreen from '../../assets/images/main/loading.gif';
 import { notifySuccess, notifyError, mergeSort } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
 import { CartContext } from '../../context/CartContext';
 import { ProductContext } from '../../context/ProductContext';
-
-
 
 const Home = () => {
   const navigate = useNavigate();
@@ -75,7 +73,7 @@ const Home = () => {
             <img onClick={() => handleAddCart(9, "Macha Keys")} src={landingHover}
               alt="Keyboard of various variant of green"></img>
             <div>
-              <PlusSquareFill/>
+              <PlusSquareFill />
               <p>Add to Cart</p>
             </div>
           </figure>
@@ -93,10 +91,9 @@ const Home = () => {
                     <h2>{recommendKeyboard.name}</h2>
                     <h2>${recommendKeyboard.price}</h2>
                     <button onClick={
-                    () => handleAddCart(recommendKeyboard.id, recommendKeyboard.name)
-                  }><BagPlusFill />Add to Cart</button>
+                      () => handleAddCart(recommendKeyboard.id, recommendKeyboard.name)
+                    }><BagPlusFill />Add to Cart</button>
                   </section>
-
                 </article>
               ))
             }
@@ -108,8 +105,6 @@ const Home = () => {
           <h1>Loading...</h1>
         </div>
       }
-
-
     </StyledHome>
   );
 };
