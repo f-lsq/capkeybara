@@ -1,18 +1,17 @@
-import SellerFooter from "../../components/sellers/SellerFooter";
 import SellerNavbar from "../../components/sellers/SellerNavbar";
+import { StyledSellerMainBody } from "../../components/styles/sellers/SellerMainBody.styled";
 import SellerSidebar from "../../components/sellers/SellerSidebar";
 import SellerUpdateProduct from "../../components/sellers/SellerUpdateProduct";
-import { StyledSellerMainBody } from "../../components/styles/sellers/SellerMainBody.styled";
+import SellerFooter from "../../components/sellers/SellerFooter";
 
 export default function SellerDeleteProductPage() {
   return (
     <>
-      <SellerNavbar/>
+      <SellerNavbar />
       <StyledSellerMainBody>
-        <SellerSidebar/><SellerUpdateProduct/>
+        <SellerSidebar /><SellerUpdateProduct />
       </StyledSellerMainBody>
-      <SellerFooter/>
-      
+      <SellerFooter />
     </>
   )
 }

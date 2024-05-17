@@ -1,22 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { StyledSellerOrders } from '../styles/sellers/SellerTables.styled';
+import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
+import { FloppyFill, Pencil, XLg } from 'react-bootstrap-icons';
+import sellerOrdersEmptyBackground from "../../assets/images/main/seller-orders-empty.webp"
+import { convertDateTime, notifySuccess, notifyError } from '../../utils';
 import { SellerContext } from '../../context/SellerContext';
 import { OrderContext } from '../../context/OrderContext';
-import { StyledSellerOrders } from '../styles/sellers/SellerTables.styled';
-import sellerOrdersEmptyBackground from "../../assets/images/main/seller-orders-empty.webp"
-import { useNavigate } from 'react-router-dom';
-import { FloppyFill, Pencil, XLg } from 'react-bootstrap-icons';
-import { convertDateTime, notifySuccess, notifyError } from '../../utils';
-import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 
 const SellerOrders = () => {
-
+  const navigate = useNavigate();
   const sellerContext = useContext(SellerContext);
   const orderContext = useContext(OrderContext);
+  const [isUpdating, setIsUpdating] = useState([false, ""]);
+  const [newOrderStatus, setNewOrderStatus] = useState(null);
   const [orders, setOrders] = useState([]);
   const [sellerId, setSellerId] = useState([]);
-  const [newOrderStatus, setNewOrderStatus] = useState(null);
-  const [isUpdating, setIsUpdating] = useState([false, ""]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +29,7 @@ const SellerOrders = () => {
       }
     }
     fetchData();
-  }, [newOrderStatus])
+  }, [newOrderStatus]);
 
   const handleUpdate = async (orderId, new_order_status) => {
     const orderData = {

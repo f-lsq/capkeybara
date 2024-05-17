@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StyledSellerSidebar } from '../styles/sellers/SellerSidebar.styled';
-import { BoxArrowLeft, BoxSeam, ClipboardCheck} from 'react-bootstrap-icons';
+import { BoxArrowLeft, BoxSeam, ClipboardCheck } from 'react-bootstrap-icons';
+import { useRefreshAccessToken, notifySuccess } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { SellerContext } from '../../context/SellerContext';
-import { useRefreshAccessToken, notifySuccess } from '../../utils';
 
 const SellerSidebar = () => {
   useRefreshAccessToken();
@@ -13,7 +13,7 @@ const SellerSidebar = () => {
   const sellerContext = useContext(SellerContext);
   const [seller, setSeller] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const sellerId = await sellerContext.getSellerId();
@@ -24,7 +24,7 @@ const SellerSidebar = () => {
       }
     }
     fetchData();
-  },[seller])
+  }, [seller])
 
   const handleLogOut = () => {
     authContext.logout();
@@ -37,31 +37,29 @@ const SellerSidebar = () => {
     <>
       <StyledSellerSidebar>
         {
-        seller ? 
-        <Link to="/seller/profile">
-          <figure>
-            <img src={seller.image_url} alt={seller.name}/>
-            <figcaption>
-              <p>{seller.name}</p>
-              <p>@{seller.username}</p>
-            </figcaption>
-          </figure>
-        </Link> : 
-        <p>Loading...</p>
+          seller ?
+            <Link to="/seller/profile">
+              <figure>
+                <img src={seller.image_url} alt={seller.name} />
+                <figcaption>
+                  <p>{seller.name}</p>
+                  <p>@{seller.username}</p>
+                </figcaption>
+              </figure>
+            </Link> :
+            <p>Loading...</p>
         }
         <nav>
           <ul>
-            <li><Link to="/seller/product"><BoxSeam/>Products</Link></li>
-            <li><Link to="/seller/order"><ClipboardCheck/>Orders</Link></li>
+            <li><Link to="/seller/product"><BoxSeam />Products</Link></li>
+            <li><Link to="/seller/order"><ClipboardCheck />Orders</Link></li>
           </ul>
           <ul>
-            <li><Link to="/seller/login" onClick={handleLogOut}><BoxArrowLeft/>Logout</Link></li>
+            <li><Link to="/seller/login" onClick={handleLogOut}><BoxArrowLeft />Logout</Link></li>
           </ul>
         </nav>
-        
       </StyledSellerSidebar>
     </>
-    
   );
 };
 

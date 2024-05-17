@@ -5,31 +5,34 @@ const OrderServiceLayer = {
     try {
       const response = await apiRequests.get('/orders/', params);
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
+
   getSellerOrders: async (params) => {
     try {
       const response = await apiRequests.get('/orders/seller/', params);
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
+
   createNewOrder: async (params) => {
     try {
       const response = await apiRequests.post('/orders/', params, "");
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   },
+
   updateOrderStatus: async (params, data) => {
     try {
       const response = await apiRequests.put('/orders/', params, data);
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
   }

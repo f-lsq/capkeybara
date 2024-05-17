@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Person, List, XCircle, Bell } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { StyledSellerNavbar } from '../styles/sellers/SellerNavbar.styled';
+import { Person, List, XCircle, Bell } from 'react-bootstrap-icons';
 import { AuthContext } from '../../context/AuthContext';
 
 export default function SellerNavbar() {
@@ -36,7 +36,6 @@ export default function SellerNavbar() {
               </>
               : <li><Link to="/seller/login"><Person /></Link></li>
             }
-
           </ul>
         </div>
       </StyledSellerNavbar>

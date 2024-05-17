@@ -1,16 +1,16 @@
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import SellerServiceLayer from '../service-layer/SellerServiceLayer';
 
 export const SellerContext = createContext();
 
-export default function SellerContextData({children}) {
-  
+export default function SellerContextData({ children }) {
+
   const serviceOperations = {
     createSeller: async (data) => {
       try {
         const response = await SellerServiceLayer.createSeller(data);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
     },
@@ -18,8 +18,8 @@ export default function SellerContextData({children}) {
     login: async (data) => {
       try {
         const response = await SellerServiceLayer.login(data);
-        return response;    
-      } catch(e) {
+        return response;
+      } catch (e) {
         throw new Error(e);
       }
     },
@@ -54,8 +54,8 @@ export default function SellerContextData({children}) {
     getSellerById: async (sellerId) => {
       try {
         const response = await SellerServiceLayer.getSellerById(sellerId);
-        return response;    
-      } catch(e) {
+        return response;
+      } catch (e) {
         throw new Error(e);
       }
     },

@@ -1,8 +1,8 @@
-import React, {createContext, useState} from 'react';
+import React, { createContext } from 'react';
 
 export const AuthContext = createContext();
 
-export default function AuthContextData({children}) {
+export default function AuthContextData({ children }) {
 
   // Rationale for storing 'loginStatus' and 'userRole' in sessions rather than local storage
   // - These information are typically session-specific and can be cleared when a user closes their browser

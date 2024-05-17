@@ -1,18 +1,18 @@
-import SellerFooter from "../../components/sellers/SellerFooter";
 import SellerNavbar from "../../components/sellers/SellerNavbar";
-import SellerProfile from "../../components/sellers/SellerProfile";
-import SellerSidebar from "../../components/sellers/SellerSidebar";
 import { StyledSellerMainBody } from "../../components/styles/sellers/SellerMainBody.styled";
+import SellerSidebar from "../../components/sellers/SellerSidebar";
+import SellerProfile from "../../components/sellers/SellerProfile";
+import SellerFooter from "../../components/sellers/SellerFooter";
 
 export default function SellerProfilePage() {
   return (
     <>
-      <SellerNavbar/>
+      <SellerNavbar />
       <StyledSellerMainBody>
-        <SellerSidebar/><SellerProfile/>
+        <SellerSidebar /><SellerProfile />
       </StyledSellerMainBody>
-      <SellerFooter/>
-      
+      <SellerFooter />
+
     </>
   )
 }

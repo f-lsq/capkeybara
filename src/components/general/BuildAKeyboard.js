@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { StyledBuildAKeyboard } from '../styles/general/BuildAKeyboard.styled';
 import buildAKeyboardBackground from '../../assets/images/main/build-a-keyboard.webp';
-import { useNavigate } from 'react-router-dom';
 
 const BuildAKeyboard = () => {
-  const [pageNumber, setPageNumber] = useState(0);
   const navigate = useNavigate();
+  const [pageNumber, setPageNumber] = useState(0);
 
   return (
     <StyledBuildAKeyboard>
@@ -37,10 +37,9 @@ const BuildAKeyboard = () => {
         <div>
           {pageNumber !== 0 && <button onClick={() => setPageNumber(pageNumber - 1)}>Back</button>}
           {pageNumber !== 7 && <button onClick={() => setPageNumber(pageNumber + 1)}><div className='circle'></div>
-          {pageNumber === 0 ? "Let's Get Started" : "Next"}</button>}
+            {pageNumber === 0 ? "Let's Get Started" : "Next"}</button>}
           {pageNumber === 7 && <button id="build-shop-btn" onClick={() => { navigate(`/shop`) }}>Browse Shop</button>}
         </div>
-
       </article>
     </StyledBuildAKeyboard>
   );

@@ -1,25 +1,25 @@
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import BuyerServiceLayer from '../service-layer/BuyerServiceLayer';
 
 export const BuyerContext = createContext();
 
-export default function BuyerContextData({children}) {
-  
+export default function BuyerContextData({ children }) {
+
   const serviceOperations = {
     createBuyer: async (data) => {
       try {
         const response = await BuyerServiceLayer.createBuyer(data);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
     },
-    
+
     login: async (data) => {
       try {
         const response = await BuyerServiceLayer.login(data);
         return response;
-      } catch(e) {
+      } catch (e) {
         throw new Error(e);
       }
     },

@@ -41,30 +41,27 @@ const ProductServiceLayer = {
     try {
       const response = await apiRequests.post('/products/', "", data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
-
   },
 
   updateProduct: async (params, data) => {
     try {
       const response = await apiRequests.put('/products/', params, data)
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
-
   },
 
   deleteProduct: async (params) => {
     try {
       const response = await apiRequests.delete('/products/', params, '')
       return response;
-    } catch(e) {
+    } catch (e) {
       throw new Error(e);
     }
-
   }
 }
 

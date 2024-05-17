@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Arrow90degLeft, ExclamationCircle, FloppyFill } from 'react-bootstrap-icons';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ProductContext } from '../../context/ProductContext';
 import UploadWidget from '../general/UploadWidget';
+import { StyledSellerProductForm } from '../styles/sellers/SellerProductForm.styled';
+import { Arrow90degLeft, ExclamationCircle, FloppyFill } from 'react-bootstrap-icons';
 import defaultUploadImage from "../../assets/images/main/seller-upload-img.webp"
 import { notifySuccess, notifyError } from '../../utils';
-import { StyledSellerProductForm } from '../styles/sellers/SellerProductForm.styled';
+import { ProductContext } from '../../context/ProductContext';
 
 const SellerUpdateProduct = () => {
-
-  const productContext = useContext(ProductContext);
-  const { productId } = useParams();
   const navigate = useNavigate();
-
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const { productId } = useParams();
+  const productContext = useContext(ProductContext);
   const [categories, setCategories] = useState([]);
   const [product, setProduct] = useState({});
   const [uploadedImageURL, setUploadedImageURL] = useState("");
@@ -28,7 +27,6 @@ const SellerUpdateProduct = () => {
       } catch (e) {
         console.log(e);
       }
-
     }
     fetchData();
   }, [productId])
@@ -48,8 +46,6 @@ const SellerUpdateProduct = () => {
       console.log(e);
     }
   }, [product]);
-
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
   const onSubmit = async (data) => {
     if (data) {
@@ -160,7 +156,6 @@ const SellerUpdateProduct = () => {
             </div>
           </div>
         </div>
-
       </form>
     </StyledSellerProductForm>
   );
