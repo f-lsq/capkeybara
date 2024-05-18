@@ -154,9 +154,9 @@ You can provide deployment details in a separate document (PDF or another markdo
 
 ### Test Accounts
 | Account Type | Name                                                       | Email                     | Password          | 
-|--------------|------------------------------------------------------------|---------------------------|-------------------|
+|--------------|------------------------------------------------------------|--------------------------|-------------------|
 | Buyer        | [Peter Pan](https://en.wikipedia.org/wiki/Peter_Pan)       | peterpan@neverland.com    | peterpan123@      |
-| Buyer        | [Tinkerbell](https://en.wikipedia.org/wiki/Tinker_Bell)    | tinkerbell@neverland.com  | tinkerbell123@    | 
+| Buyer        | [Tinker Bell](https://en.wikipedia.org/wiki/Tinker_Bell)   | tinkerbell@neverland.com  | tinkerbell123@    | 
 | Buyer        | [Captain Hook](https://en.wikipedia.org/wiki/Captain_Hook) | captainhook@neverland.com | captainhook123@   |
 | Seller       | [Epomaker](https://epomaker.com/)                          | shop@epomaker.com         | epomaker123@      |
 | Seller       | [Aula](https://www.aulastar.com/)                          | shop@aula.com             | aula123@          |
@@ -176,9 +176,11 @@ Links to all assets are listed here.
 * Animated GIF - [Loading](https://vsgif.com/gif/3565589), [Buyer Checkout Success 2](https://lottiefiles.com/animations/task-complete-tick-FXknfVV32o), [Buyer Checkout Cancel 2](https://lottiefiles.com/animations/cross-close-cancel-icon-animation-imJWR2OMg7)
 * Default Images - [Upload Profile Picture](https://iconduck.com/icons/180867/profile-circle), [Upload Product Image](https://stock.adobe.com/search?k=upload+image+icon&asset_id=304218763), [Image Not Available](https://en.m.wikipedia.org/wiki/File:Image_not_available.png)
 
-Do note that some assets were manipulated with using AI and design tools, such as [Picsart Image Extender](https://picsart.com/ai-image-extender/), [Fotor Image Extender](https://www.fotor.com/features/ai-image-extender/), [Adobe Background Remover](https://www.adobe.com/express/feature/image/remove-background), and design tools such as [Krita](https://krita.org/en/).
+Do note that some assets were manipulated with using AI and design tools, such as [Picsart Image Extender](https://picsart.com/ai-image-extender/), [Fotor Image Extender](https://www.fotor.com/features/ai-image-extender/), [Adobe Background Remover](https://www.adobe.com/express/feature/image/remove-background), and [Krita](https://krita.org/en/).
 
-This project is not intended for commercial use and no profit will be generated from it. For any issues with regard to the use of the above assets, please [contact me via GitHub](https://medium.com/@kahkoii/how-to-contact-a-user-on-github-b6b62c3db92f). Thank you!
+This project is not intended for commercial use and no profit will be generated from it. 
+
+For any issues with regard to the use of the above assets, please [contact me via GitHub](https://medium.com/@kahkoii/how-to-contact-a-user-on-github-b6b62c3db92f). Thank you!
 
 ## References
 1. [Tania, R. (n.d.). React Architecture: How to Structure and Organize a React Application.](https://www.taniarascia.com/react-architecture-directory-structure/)
