@@ -5,11 +5,6 @@ export const StyledHome = styled.main`
 
 // Mobile View
   padding-top: 2.94em;
-
-
-  img {
-    width: 100px;
-  }
   
   figure  {
     background-image: url(${background});
@@ -134,6 +129,10 @@ export const StyledHome = styled.main`
       flex-direction: column;
       align-items: center;
       margin: 5vh 0;
+
+      img {
+        width: 100px;
+      }
 
       section {
         display: flex;

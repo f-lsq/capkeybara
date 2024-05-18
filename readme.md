@@ -65,6 +65,9 @@ Below are the wireframes for both the buyers, and seller pages. The link to the 
 #### Not Found Page
 ![Not Found Page](src/assets/images/readme/not-found.gif)
 
+#### Loading Page
+![Loading Page](src/assets/images/readme/loading.gif)
+
 #### Buyer Sign Up Page
 ![Buyer Sign Up Page](src/assets/images/readme/buyer-signup.gif)
 

@@ -4,6 +4,7 @@ import { StyledShop } from '../styles/general/Shop.styled';
 import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
 import { BagPlusFill, Search } from 'react-bootstrap-icons';
 import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
+import loadingScreen from '../../assets/images/main/loading.gif';
 import { notifySuccess, notifyError } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
@@ -16,7 +17,7 @@ const Shop = () => {
   const buyerContext = useContext(BuyerContext);
   const cartContext = useContext(CartContext);
   const productContext = useContext(ProductContext);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,35 +63,45 @@ const Shop = () => {
 
   return (
     <>
-      <StyledShopSidebar>
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
+      {products ?
+        <>
+          <StyledShopSidebar>
+            {/* <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor='search-term'><h1>Search</h1></label>
           <input type='text' id='search-term' name='search-term' 
           {...register('search-term')}/> 
           <button type='submit'><Search/></button>
         </form> */}
-      </StyledShopSidebar>
-      <StyledShop>
-        {
-          products.map(product => (
-            <article key={product.id}>
-              <img src={product.image_url || imageNotAvailable} alt={product.name} />
-              <section>
-                <div>
-                  <h1>{product.name}</h1>
-                  <p>{product.category.name}</p>
-                </div>
-                <div>
-                  <h2>${product.price}</h2>
-                  <button onClick={
-                    () => handleAddCart(product.id, product.name)
-                  }><BagPlusFill />Add to Cart</button>
-                </div>
-              </section>
-            </article>
-          ))
-        }
-      </StyledShop>
+          </StyledShopSidebar>
+          <StyledShop>
+            {
+              products.map(product => (
+                <article key={product.id}>
+                  <img src={product.image_url || imageNotAvailable} alt={product.name} />
+                  <section>
+                    <div>
+                      <h1>{product.name}</h1>
+                      <p>{product.category.name}</p>
+                    </div>
+                    <div>
+                      <h2>${product.price}</h2>
+                      <button onClick={
+                        () => handleAddCart(product.id, product.name)
+                      }><BagPlusFill />Add to Cart</button>
+                    </div>
+                  </section>
+                </article>
+              ))
+            }
+          </StyledShop>
+        </>
+        :
+        <div className="loading-screen">
+          <img className="loading-img" src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
+          <h1 className="loading-font">Loading...</h1>
+        </div>
+      }
+
     </>
   );
 };

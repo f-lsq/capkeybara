@@ -62,9 +62,9 @@ const Home = () => {
   }
 
   return (
-    <StyledHome>
+    <>
       {recommendKeyboards ?
-        <>
+        <StyledHome>
           <figure>
             <figcaption>
               <h1>Looking for the <span>BEST</span> keyboard?</h1>
@@ -98,14 +98,14 @@ const Home = () => {
               ))
             }
           </section>
-        </>
+        </StyledHome>
         :
         <div className="loading-screen">
-          <img src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
-          <h1>Loading...</h1>
+          <img className="loading-img" src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
+          <h1 className="loading-font">Loading...</h1>
         </div>
       }
-    </StyledHome>
+    </>
   );
 };
 

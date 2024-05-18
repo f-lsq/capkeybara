@@ -15,57 +15,63 @@ export const StyledGlobal = createGlobalStyle`
   }
 
   .loading-screen {
+    padding-top: 2.94em;
+    width: 100%;
     height: 100vh;
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    
-    h1 {
+  }
+  
+  
+  .loading-img {
+      width: 70vw;
+      display: block;
+      margin: 20vh auto 0 auto;
+  }
+
+  .loading-font {
       font-family: Cute-Font;
       text-align: center;
       color: #78481C;
       font-size: 2rem;
-    }
-    
-    img {
-      width: 70vw;
-    }
   }
 
   // Tablet View
   @media screen and (min-width: 481px) and (max-width: 768px) {
-    .loading-screen {
-      h1 {
+    .loading-img {
+      width: 60vw;
+    }
+
+    .loading-font {
         font-size: 3rem;
-      }
-      img {
-        width: 60vw;
-      }
     }
   }
 
   // Laptop View
   @media screen and (min-width: 769px) and (max-width: 1279px) {
     .loading-screen {
-      h1 {
+      padding-top: 3.5em;
+    }
+    
+    .loading-img {
+      width: 50vw;
+    }
+
+    .loading-font {
         font-size: 3.5rem;
-      }
-      img {
-        width: 50vw;
-      }
     }
   }
 
   // Monitor View
   @media screen and (min-width: 1280px) {
     .loading-screen {
-      h1 {
+      padding-top: 4.69em;
+    }
+    
+    .loading-img {
+      width: 50vw;
+    }
+
+    .loading-font {
         font-size: 3.5rem;
-      }
-      img {
-        width: 50vw;
-      }
     }
   }
 
