@@ -13,13 +13,11 @@ export default function SellerSignupForm() {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, getValues, setValue } = useForm();
   const sellerContext = useContext(SellerContext);
-  const [accountTaken, setAccountTaken] = useState("");
   const [showFormFieldset, setShowFormFieldset] = useState(true);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   const onSubmit = async (data) => {
     if (data) {
-      setAccountTaken("")
       const response = await sellerContext.createSeller(data);
       if (response) {
         setShowFormFieldset(false);
@@ -29,16 +27,10 @@ export default function SellerSignupForm() {
           navigate("/seller/login");
         }
       } else {
-        setAccountTaken("Username or Email already taken. Please try again.");
+        notifyError("Username or Email is already taken. Please try again!", "accountTaken")
       }
     } else {
       navigate("/seller/signup")
-    }
-  }
-
-  const notifyIfTaken = () => {
-    if (accountTaken) {
-      notifyError(accountTaken, "accountTaken");
     }
   }
 
@@ -103,7 +95,7 @@ export default function SellerSignupForm() {
                     })} />
                   {errors.confirm_password && <p><ExclamationCircle />&nbsp;{errors.confirm_password.message}</p>}
                 </div>
-                <button className="authContinueBtn" onClick={notifyIfTaken}>Continue</button>
+                <button className="authContinueBtn">Continue</button>
               </fieldset>
             }
             {!showFormFieldset &&

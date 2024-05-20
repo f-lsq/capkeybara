@@ -134,13 +134,15 @@ const SellerAddProduct = () => {
           </div>
           <div className="formRight">
             <div>
-              <label htmlFor="image_url">Upload a Profile Image</label>
+              <label htmlFor="image_url">Upload the Product Image</label>
               <input type="hidden" id="image_url" name="image_url"
                 {...register("image_url", {
+                  required: "Product image is required",
                   value: uploadedImageURL
                 })} />
               <img src={uploadedImageURL || defaultUploadImage} alt="Product to be uploaded by sellers" />
               <UploadWidget setUploadedImageURL={setUploadedImageURL} />
+              {errors.image_url && <p><ExclamationCircle />&nbsp;{errors.image_url.message}</p>}
             </div>
             <div>
               <label htmlFor="description">Description</label>

@@ -103,7 +103,7 @@ export const StyledSellerProductForm = styled.main`
     height: 5vh;
   }
 
-  .formLeft div p {
+  .formBody div p {
     color: red;
     font-size: 0.7rem;
     display: flex;
