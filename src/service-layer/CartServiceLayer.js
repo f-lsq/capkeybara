@@ -13,7 +13,8 @@ const CartServiceLayer = {
   getCartTotalQuantity: async (params) => {
     try {
       const response = await apiRequests.get('/cart/', params)
-      if (response.status === 200) {
+
+      if (response) {
         let cartTotalQuantity = 0;
         const cartItems = response.data.cartItems;
         cartItems.forEach((cartItem) => {
@@ -31,7 +32,7 @@ const CartServiceLayer = {
   getCartTotalPrice: async (params) => {
     try {
       const response = await apiRequests.get('/cart/', params)
-      if (response.status === 200) {
+      if (response) {
         let cartTotalPrice = 0;
         const cartItems = response.data.cartItems;
         cartItems.forEach((cartItem) => {

@@ -193,7 +193,7 @@ padding: calc(2vh + 2.94em) 5vw 5vh 5vw;
         width: 7vw;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
 
