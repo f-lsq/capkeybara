@@ -1,5 +1,5 @@
 # Capkeybara (Frontend)
-[Capkeybara](#) is THE ultimate e-commerce platform for top-notch mechanical keyboard components that cater to all your needs! 
+[Capkeybara](https://capkeybara.netlify.app/) is THE ultimate e-commerce platform for top-notch mechanical keyboard components that cater to all your needs! 
 
 <p align="center">
   <img src="src/assets/images/readme/logo.webp" width="200" margin="auto">
@@ -123,9 +123,10 @@ As the site is aimed for all consumers alike, be it keyboard enthusiast, regular
 ## Features
 <!-- List down the major features of your application, and also the algorithms that you have used to implement those features. If there are any limitations or bugs, please describe them as well. If you have any features pending implementation, you can also take the opportunity to discuss them here. -->
 Major features of capkeybara includes
-1. **Search**, which makes use of algorithm such as mergesort for sorting
-2. **Checkout**, which is handled by Stripe. A session ID will be generated from Stripe and received by the client to indicate a successful transaction. The main limitation of this is that users are able to skip the checkout process and make an order by navigating to the `/checkout/success` page. A possible solution for this is to validate the session ID sent by Stripe before placing an order.
-3. **Order Status**, which allows buyers to check the status of their order. They include `Payment Made`, `Ready to Ship`, `Out for Delivery`, `Delivered`. A limitation of this from the seller side is that the status of an order can only be update once all products in an order meets the order status requirement (eg. order status can only be updated to 'Delivered' if all products in the order has been delivered). Changing this order status will also update the order status for all sellers.
+1. **Search**, which makes use of algorithm such as mergesort for sorting (Not implemented yet)
+2. **Image upload** for buyer and seller profile picture and product images. The cloudinary upload widget was used for this feature.
+2. **Checkout**, which is handled by Stripe. A session ID will be generated from Stripe and received by the client to indicate a successful transaction. <br> The main limitation of this is that users are able to skip the checkout process and make an order by navigating to the `/checkout/success` page. A possible solution for this is to validate the session ID sent by Stripe before placing an order.
+3. **Order Status**, which allows buyers to check the status of their order. They include `Payment Made`, `Ready to Ship`, `Out for Delivery`, `Delivered`. <br> A limitation of this from the seller side is that the status of an order can only be update once all products in an order meets the order status requirement (eg. order status can only be updated to 'Delivered' if all products in the order has been delivered). Changing this order status will also update the order status for all sellers.
 
 ## Technologies Used
 <!-- Provide an overview of the languages, frameworks, libraries and any other tools that you have used to produce the project.  Be sure to provide a short description of where in the project the technology is used, and a URL to its Github repository.  -->
@@ -150,7 +151,7 @@ Major features of capkeybara includes
 
 You can provide deployment details in a separate document (PDF or another markdown file). There is no need to be original for this section; if another website or document have the steps, just link there and acknowledge the author in your credits. -->
 ### Live Links
-* [React Frontend - Main Page](#) (Netlify)
+* [React Frontend - Main Page](https://capkeybara.netlify.app/) (Netlify)
 * [Express Backend - Admin Page](#) (Render)
 
 *(Note that Admin Page is not yet implemented)*
