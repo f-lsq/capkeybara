@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build react-dotenv",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build react-dotenv",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.5"
+    "@babel/plugin-transform-private-property-in-object": "^7.24.5",
+    "cross-env": "^7.0.3"
   }
 }
