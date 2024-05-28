@@ -64,7 +64,6 @@ export default function ProductContextData({ children }) {
     deleteProduct: async (productId) => {
       try {
         const response = await ProductServiceLayer.deleteProduct(productId);
-        console.log(response);
         return response;
       } catch (e) {
         throw new Error(e);

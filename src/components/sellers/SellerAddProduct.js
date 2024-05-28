@@ -43,9 +43,7 @@ const SellerAddProduct = () => {
 
   const onSubmit = async (data) => {
     if (data) {
-      console.log("data", data);
       const response = await productContext.createProduct(data);
-      console.log("response", response);
       if (response) {
         notifySuccess(`Product ${data.name} has been added successfuly.`, 'addProductSuccess')
       } else {

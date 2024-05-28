@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { StyledNavbar } from '../styles/general/Navbar.styled';
 import { Person, Cart3, List, XCircle } from 'react-bootstrap-icons';
-import { useRefreshAccessToken, notifySuccess } from '../../utils';
+import { notifySuccess } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { BuyerContext } from '../../context/BuyerContext';
 import { CartContext } from '../../context/CartContext';
 
 export default function Navbar() {
-  useRefreshAccessToken();
-
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   const buyerContext = useContext(BuyerContext);
@@ -33,7 +31,7 @@ export default function Navbar() {
       }
     }
     fetchData();
-  })
+  },[authContext, buyerContext, cartContext])
 
   const handleRefreshCart = async () => {
     try {

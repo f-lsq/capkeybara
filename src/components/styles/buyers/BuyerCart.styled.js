@@ -78,7 +78,7 @@ button {
 }
 
 #cart-mobile-view {
-  padding-bottom: calc(2vh + 4*0.75rem + 2*2.5px + 2*10px);
+  min-height: calc(100vh - 2vh - 4*0.75rem - 2*2.5px - 2*10px);
   
   h1 {
     font-size: 1rem;
@@ -175,7 +175,7 @@ button {
   }
 
   aside {
-    position: fixed;
+    position: sticky;
     background: white;
     border-top: 0.5px solid #C3C3C3;
     bottom: 0;
@@ -425,7 +425,7 @@ button {
 
   #cart-mobile-view {
     display: block;
-    padding-bottom: calc(2vh + 4*1rem + 2*2.5px + 10px + 2*20px);
+    min-height: calc(100vh - 2vh - 4*1rem - 2*2.5px - 10px - 2*20px);
 
     .cart-item { 
       height: 10vh;

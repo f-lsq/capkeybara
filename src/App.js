@@ -8,7 +8,8 @@ import { ToastContainer } from "react-toastify";
 import { StyledGlobal } from "./components/styles/general/GlobalStyles.styled";
 import { StyledFonts } from './components/styles/general/GlobalFonts.styled';
 
-// Componenets
+// Components
+import TokenRefresher from "./components/general/TokenRefresher";
 import ProtectedRoute from "./components/general/ProtectedRoute";
 
 // Views
@@ -54,6 +55,7 @@ function App() {
               <CartContextData>
                 <CheckoutContextData>
                   <OrderContextData>
+                    <TokenRefresher/>
                     <Routes>
                       <Route path="/" element={<HomePage />} />
                       <Route path="/shop" element={<ShopPage />} />

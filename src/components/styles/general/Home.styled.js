@@ -132,6 +132,8 @@ export const StyledHome = styled.main`
 
       img {
         width: 100px;
+        height: 100px;
+        object-fit: contain;
       }
 
       section {

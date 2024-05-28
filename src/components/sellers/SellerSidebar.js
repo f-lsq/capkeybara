@@ -2,13 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StyledSellerSidebar } from '../styles/sellers/SellerSidebar.styled';
 import { BoxArrowLeft, BoxSeam, ClipboardCheck } from 'react-bootstrap-icons';
-import { useRefreshAccessToken, notifySuccess } from '../../utils';
+import { notifySuccess } from '../../utils';
 import { AuthContext } from '../../context/AuthContext';
 import { SellerContext } from '../../context/SellerContext';
 
 const SellerSidebar = () => {
-  useRefreshAccessToken();
-
   const authContext = useContext(AuthContext);
   const sellerContext = useContext(SellerContext);
   const [seller, setSeller] = useState(null);
@@ -24,7 +22,7 @@ const SellerSidebar = () => {
       }
     }
     fetchData();
-  }, [seller])
+  }, [sellerContext]);
 
   const handleLogOut = () => {
     authContext.logout();

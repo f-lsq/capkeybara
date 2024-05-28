@@ -13,20 +13,18 @@ export const useRefreshAccessToken = () => {
   useEffect(() => {
     const interval = setInterval(() => {
 
-      console.log('isAuthenticatedBuyer', authContext.isAuthenticatedBuyer())
       if (authContext.isAuthenticatedBuyer()) {
         buyerContext.refreshAccessToken();
-        console.log("Access Token has been refreshed")
       }
-
-      console.log('isAuthenticatedSeller', authContext.isAuthenticatedSeller())
       if (authContext.isAuthenticatedSeller()) {
         sellerContext.refreshAccessToken();
-        console.log("Access Token has been refreshed")
       }
-    }, 10 * 60 * 1000);
+      if (authContext.isAuthenticatedBuyer() || authContext.isAuthenticatedSeller()) {
+        console.log("Access Token has been refreshed at", new Date())
+      }
+    }, 10 * 60 * 1000); // Refresh every 10 minutes
     return () => clearInterval(interval);
-  })
+  }, [authContext, buyerContext, sellerContext])
 }
 
 export const notifyInfo = (message, toastId) => {

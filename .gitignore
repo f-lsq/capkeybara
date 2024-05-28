@@ -27,7 +27,3 @@ yarn-error.log*
 
 # Sensitive Information
 .env
-src/api
-src/components/general/UploadWidget.js
-src/components/buyers/BuyerCart.js
-src/components/buyers/BuyerCheckoutCancel.js
