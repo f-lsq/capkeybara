@@ -108,7 +108,7 @@ const BuyerProfile = () => {
                         </tr>
                         <tr>
                           <td className='profile-order-bold'>Total Paid</td>
-                          <td className='profile-order-bold'>$ {(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
+                          <td className='profile-order-bold'>$ {(Number(order.subtotal) + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>
@@ -232,7 +232,7 @@ const BuyerProfile = () => {
                         <tr>
                           <td colSpan="3"></td>
                           <td className="profile-order-bold">Total Paid</td>
-                          <td className="profile-order-bold">$ {(order.subtotal + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
+                          <td className="profile-order-bold">$ {(Number(order.subtotal) + (order.shipping_cost * order.total_quantity)).toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                           })}</td>

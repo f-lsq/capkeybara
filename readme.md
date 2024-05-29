@@ -152,7 +152,7 @@ Major features of capkeybara includes
 You can provide deployment details in a separate document (PDF or another markdown file). There is no need to be original for this section; if another website or document have the steps, just link there and acknowledge the author in your credits. -->
 ### Live Links
 * [React Frontend - Main Page](https://capkeybara.netlify.app/) (Netlify)
-* [Express Backend - Admin Page](#) (Render)
+* [Express Backend - Admin Page](https://capkeybara-backend.onrender.com/) (Render)
 
 *(Note that Admin Page is not yet implemented)*
 
@@ -165,6 +165,8 @@ You can provide deployment details in a separate document (PDF or another markdo
 | Seller       | [Epomaker](https://epomaker.com/)                          | shop@epomaker.com         | epomaker123@      |
 | Seller       | [Aula](https://www.aulastar.com/)                          | shop@aula.com             | aula123@          |
 | Seller       | [Keychron](https://www.keychron.com/)                      | shop@keychron.com         | keychron123@      |
+
+No test admin account will be provided.
 
 ## Credits
 <!-- Put here all the code, content and assets that you have used. If you have used a piece of code from an external website, please acknowledge it and provide a link to it.  -->
