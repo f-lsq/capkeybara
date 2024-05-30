@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledSellerPopup } from '../styles/sellers/SellerPopup.styled';
 import { StyledSellerProducts } from '../styles/sellers/SellerTables.styled';
-import { Pencil, PlusLg, TrashFill } from 'react-bootstrap-icons';
+import { Pencil, PlusLg, ThreeDots, TrashFill, X } from 'react-bootstrap-icons';
 import sellerProductsEmptyBackground from "../../assets/images/main/seller-products-empty.webp"
 import { ProductContext } from '../../context/ProductContext';
 import { SellerContext } from '../../context/SellerContext';
@@ -12,6 +12,7 @@ const SellerProducts = () => {
   const productContext = useContext(ProductContext);
   const sellerContext = useContext(SellerContext);
   const [products, setProducts] = useState([]);
+  const [isTakingAction, setIsTakingAction] = useState([false, ""]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +31,56 @@ const SellerProducts = () => {
     <StyledSellerProducts>
       {products.length !== 0 ?
         <>
+          <div className='seller-mobile-table-view'>
+            <header>
+              <h1>Product Items</h1>
+              <div>
+                <button onClick={() => { navigate(`/seller/product/add/`) }}><PlusLg />Add Product</button>
+              </div>
+            </header>
+            {
+              products.map(product => (
+                <article key={product.id} className='seller-product-article'>
+                  <img src={product.image_url} alt={product.name} />
+                  <section>
+                    <h2>{product.name}</h2>
+                    <dl>
+                      <div>
+                        <dt>Selling Price</dt>
+                        <dd>${product.price}</dd>
+                      </div>
+                      <div>
+                        <dt>Cost Price</dt>
+                        <dd>${product.cost}</dd>
+                      </div>
+                    </dl>
+                  </section>
+                  <section>
+                    <dl>
+                      <dt>In Stock</dt>
+                      {product.quantity_available === 0 ? 
+                        <dd>{product.quantity_available}</dd>
+                        : <dd>{product.quantity_available}</dd>
+                      }
+                      
+                    </dl>
+                    <div>
+                      {isTakingAction[0] && isTakingAction[1] === product.id ?
+                        <>
+                          <div className='seller-edit-delete-btn'>
+                            <button className='seller-edit-btn' onClick={() => { navigate(`/seller/product/update/${product.id}`) }}><Pencil /></button>
+                            <button className='seller-delete-btn' onClick={() => { navigate(`/seller/product/delete/${product.id}`) }}><TrashFill /></button>
+                          </div>
+                          <button className='seller-action-btn' onClick={() => setIsTakingAction([false, ""])}><X /></button>
+                        </> :
+                        <button className='seller-action-btn' onClick={() => setIsTakingAction([true, product.id])}><ThreeDots /></button>
+                      }
+                    </div>
+                  </section>
+                </article>
+              ))
+            }
+          </div>
           <div className='seller-standard-table-view'>
             <div>
               <h1>Product Items</h1>

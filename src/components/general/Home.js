@@ -70,7 +70,7 @@ const Home = () => {
               <h1>Looking for the <span>BEST</span> keyboard?</h1>
             </figcaption>
             <img src={landingMain} alt="Keyboard of various variant of green"></img>
-            <img onClick={() => handleAddCart(9, "Macha Keys")} src={landingHover}
+            <img onClick={() => handleAddCart(1, "Macha Keys")} src={landingHover}
               alt="Keyboard of various variant of green"></img>
             <div>
               <PlusSquareFill />

@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const StyledSellerPopup = styled.div`
+  // Mobile View
   background: #F0E6D9;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 5vh auto 10vh auto;
-  width: 50%;
+
   padding: 5vh 3vw;
   border-radius: 20px;
   
   h1 {
     font-family: Aldrich;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 2vh;
     text-align: center;
   }
@@ -22,6 +23,10 @@ export const StyledSellerPopup = styled.div`
     color: #474747;
     text-align: center;
     width: 70%;
+  }
+
+  p, button {
+    font-size: 0.8rem;
   }
 
   button {
@@ -41,10 +46,52 @@ export const StyledSellerPopup = styled.div`
   button:active {
     background: #65443C;
   }
-  
 
   img {
-    width: 20vw;
+    width: 50vw;
+  }
+
+  // Tablet View
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    width: 80%;
+    
+    img {
+      width: 30vw;
+    }
+  }
+
+  // Laptop View
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+    width: 65%;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p, button {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 20vw;
+    }
+  }
+
+  // Monitor View
+  @media screen and (min-width: 1280px) {
+    width: 50%;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p, button {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 20vw;
+    }
   }
 `
 

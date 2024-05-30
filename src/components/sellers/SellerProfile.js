@@ -1,12 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { StyledSellerProfile } from '../styles/sellers/SellerProfile.styled';
 import loadingScreen from '../../assets/images/main/loading.gif';
-import { convertDateTime } from '../../utils';
+import { convertDateTime, notifySuccess } from '../../utils';
+import { AuthContext } from '../../context/AuthContext';
 import { OrderContext } from '../../context/OrderContext';
 import { ProductContext } from '../../context/ProductContext';
 import { SellerContext } from '../../context/SellerContext';
+import { BoxArrowLeft } from 'react-bootstrap-icons';
 
 const SellerProfile = () => {
+  const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
   const orderContext = useContext(OrderContext);
   const productContext = useContext(ProductContext);
   const sellerContext = useContext(SellerContext);
@@ -45,10 +50,19 @@ const SellerProfile = () => {
     fetchData();
   }, [productsSold, ordersFulfilled])
 
+  const handleLogOut = () => {
+    authContext.logout();
+    sellerContext.logout();
+    setSeller(null);
+    notifySuccess("Log out successful. See you again!", "logoutSuccess");
+    navigate(`/seller/login`);
+  }
+
   return (
     <StyledSellerProfile>
       {seller ?
         <section>
+          <button onClick={handleLogOut}><BoxArrowLeft /></button>
           <figure>
             <img src={seller.image_url} alt={seller.name} />
             <figcaption>

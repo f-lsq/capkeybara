@@ -8,7 +8,7 @@ export const StyledSellerSidebar = styled.aside`
   width: 15vw;
   padding: 1.5%;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 
@@ -83,16 +83,17 @@ export const StyledSellerSidebar = styled.aside`
 
  // Tablet View
  @media screen and (min-width: 481px) and (max-width: 768px) {
-
+  
  }
 
  // Laptop View
  @media screen and (min-width: 769px) and (max-width: 1279px) {
-
+  display: flex;
  }
  
  // Monitor View
  @media screen and (min-width: 1280px) {
   width: 12vw;
+  display: flex;
  }
 `

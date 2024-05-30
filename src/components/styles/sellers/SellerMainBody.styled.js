@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const StyledSellerMainBody = styled.main`
+export const StyledSellerMainBody = styled.div`
   
   // Mobile View
   padding-top: 2.94em;
+  min-height: 100vh;
   display: flex;
 
   // Tablet View
@@ -19,6 +20,5 @@ export const StyledSellerMainBody = styled.main`
   // Monitor View
   @media screen and (min-width: 1280px) {
     padding-top: 4.69em;
-    
   }
 `

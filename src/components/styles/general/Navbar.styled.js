@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import background from "../../../assets/images/main/backdrop.webp";
+import sellerBackground from "../../../assets/images/main/seller-backdrop.webp";
 
 export const StyledNavbar = styled.nav`
   // Mobile View
@@ -44,9 +45,6 @@ export const StyledNavbar = styled.nav`
     margin: 0 10px 0 0;
   }
 
-  #navLeft li span {
-  }
-
   #navRight ul {
     justify-content: flex-end;
     align-items: center;
@@ -86,8 +84,6 @@ export const StyledNavbar = styled.nav`
     justify-content: center;
     align-items: center;
   }
-
-
 
   #navRight li span p {
     font-size: 0.55rem;
@@ -224,6 +220,62 @@ export const StyledNavbar = styled.nav`
 
     #navRight li button {
       font-size: 1rem;
+    }
+    
+  }
+`
+
+export const StyledSellerNavbar = styled(StyledNavbar)`
+  // Mobile View
+  background-image: url(${sellerBackground});
+
+  #navlist-mobile-view {
+    background-color: #BEAFABE6;
+  }
+
+  #navRight li span {
+    background: #D8C1BBE6;
+    border-radius: 0px 0px 5px 5px;
+    color: black;
+    position: absolute;
+    top: calc(15px/2 + 25px/2 + 0.83em);
+    right: -1rem;
+    height: auto;
+    width: auto;
+    padding: 20px 50px;
+    white-space: nowrap;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  #navRight li span img {
+    width: 100%;
+  }
+
+  // Tablet View
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+
+  }
+
+  // Laptop View
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+    #navRight li span {
+      top: calc(20px/2 + 30px/2 + 0.83em);
+    }
+
+    #navRight li span p {
+      font-size: 0.6rem;
+    }
+  }
+
+  // Monitor View
+  @media screen and (min-width: 1280px) {
+    #navRight li span {
+      top: calc(32px/2 + 40px/2 + 0.83em);
+    }
+
+    #navRight li span p {
+      font-size: 0.8rem;
     }
     
   }
