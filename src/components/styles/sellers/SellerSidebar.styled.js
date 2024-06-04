@@ -4,10 +4,9 @@ export const StyledSellerSidebar = styled.aside`
 
  // Mobile View
   background: #EAE0D3;
-  height: calc(100vh - 4.7rem);
+  height: calc(100vh - 2.9rem);
   width: 15vw;
   padding: 1.5%;
-
   display: none;
   flex-direction: column;
   align-items: center;
@@ -88,11 +87,13 @@ export const StyledSellerSidebar = styled.aside`
 
  // Laptop View
  @media screen and (min-width: 769px) and (max-width: 1279px) {
+  height: calc(100vh - 3.5em);
   display: flex;
  }
  
  // Monitor View
  @media screen and (min-width: 1280px) {
+  height: calc(100vh - 4.69em);
   width: 12vw;
   display: flex;
  }

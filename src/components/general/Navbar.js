@@ -56,7 +56,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     authContext.logout();
     buyerContext.logout();
-    setCartTotalQuantity(null)
+    setCartTotalQuantity(null);
     setBuyerProfile(null);
     notifySuccess("Log out successful. See you again!", "logoutSuccess");
     navigate("/login");

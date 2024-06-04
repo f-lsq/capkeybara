@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledBuyerCart = styled.div`
 // Mobile View
 padding-top: 2.94em;
-margin-bottom: 1vh;
+min-height: 100vh;
 
 h1 {
   font-family: Aldrich;

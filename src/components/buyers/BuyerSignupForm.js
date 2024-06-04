@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { StyledBuyerAuthForm } from "../styles/buyers/BuyerAuthForm.styled";
+import { StyledBuyerAuthForm } from "../styles/general/AuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import buyerAuthBackground from "../../assets/images/main/buyer-auth.webp"
 import { notifyError, notifySuccess } from '../../utils';

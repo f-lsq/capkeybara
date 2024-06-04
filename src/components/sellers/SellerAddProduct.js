@@ -35,11 +35,11 @@ const SellerAddProduct = () => {
       }
     }
     fetchData();
-  }, [])
+  }, [productContext, sellerContext])
 
   useEffect(() => {
     setValue('seller_id', sellerId);
-  }, [sellerId]);
+  }, [sellerId, setValue]);
 
   const onSubmit = async (data) => {
     if (data) {
@@ -60,10 +60,13 @@ const SellerAddProduct = () => {
       <h1>Add product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="backSubmitBtn">
-          <button type="button" onClick={() => navigate("/seller/product")}><Arrow90degLeft />Cancel</button>
+          <button type="button" 
+            onClick={() => navigate("/seller/product")}>
+            <Arrow90degLeft /><span>Cancel</span>
+          </button>
           <button type="submit" className="authSubmitBtn"
             onClick={() => setValue("image_url", uploadedImageURL)}>
-            <PlusLg /> Add Product
+            <PlusLg /> <span>Add Product</span>
           </button>
         </div>
         <div className="formBody">

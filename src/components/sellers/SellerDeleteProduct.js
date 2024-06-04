@@ -20,7 +20,7 @@ const SellerDeleteProduct = () => {
       }
     }
     fetchData();
-  }, [])
+  }, [productContext, productId])
 
   const handleDelete = async (productName) => {
     const response = await productContext.deleteProduct(productId);
@@ -39,12 +39,12 @@ const SellerDeleteProduct = () => {
       <img src={product.image_url} alt={product.name} />
       <div>
         <button onClick={() => handleDelete(product.name)}>
-          Yes, delete the product
+          Yes<span>, delete the product</span>
         </button>
         <button onClick={() => {
           navigate("/seller/product/")
         }}>
-          No, please cancel this
+          No<span>, please cancel this</span>
         </button>
       </div>
     </StyledSellerDeletePopup>

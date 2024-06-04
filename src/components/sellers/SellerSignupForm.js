@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import UploadWidget from "../general/UploadWidget";
-import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
+import { StyledSellerAuthForm } from "../styles/general/AuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import sellerAuthBackground from "../../assets/images/main/seller-auth.webp"
 import defaultProfileImage from "../../assets/images/main/upload-img.webp"
@@ -99,7 +99,7 @@ export default function SellerSignupForm() {
               </fieldset>
             }
             {!showFormFieldset &&
-              <fieldset>
+              <fieldset className="sellerSecondPage">
                 <button className="authBackBtn" onClick={() => { setShowFormFieldset(true) }}>&#171; Back</button>
                 <div>
                   <label htmlFor="name">Name</label>

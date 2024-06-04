@@ -36,7 +36,7 @@ const SellerProfile = () => {
         }
         if (orders && orders.length !== 0) {
           orders.forEach(order => {
-            if (order.order_status == "Delivered") {
+            if (order.order_status === "Delivered") {
               ordersCompleted += 1
             }
           })
@@ -48,7 +48,7 @@ const SellerProfile = () => {
       }
     }
     fetchData();
-  }, [productsSold, ordersFulfilled])
+  }, [productsSold, ordersFulfilled, orderContext, productContext, sellerContext])
 
   const handleLogOut = () => {
     authContext.logout();
@@ -88,8 +88,8 @@ const SellerProfile = () => {
         </section>
         :
         <div className="loading-screen">
-          <img src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
-          <h1>Loading...</h1>
+          <img className="loading-img" src={loadingScreen} alt="Loading screen showing a capybara sleeping peacefully beside a flower" />
+          <h1 className="loading-font">Loading...</h1>
         </div>}
     </StyledSellerProfile>
   );

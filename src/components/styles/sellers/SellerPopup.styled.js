@@ -8,7 +8,6 @@ export const StyledSellerPopup = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5vh auto 10vh auto;
-
   padding: 5vh 3vw;
   border-radius: 20px;
   
@@ -96,9 +95,13 @@ export const StyledSellerPopup = styled.div`
 `
 
 export const StyledSellerDeletePopup = styled(StyledSellerPopup)`
+// Mobile View
+padding: 5vh 10vw;
+
 img {
   margin: 3vh 0;
 }
+
 button:first-of-type{
   background: #97DD8C;
   color: black;
@@ -126,5 +129,68 @@ button:last-of-type:active{
   background: #DC8585;
 }
 
+div {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
 
+div button {
+  padding: 1.5vh 5vw;
+}
+
+div button span {
+  display: none;
+}
+
+// Tablet View
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  padding: 5vh 3vw;
+
+  div {
+    width: 95%;
+  }
+
+  div button {
+    padding: 2vh 3vw;
+  }
+  
+  div button span {
+    display: inline-block;
+  }
+}
+
+// Laptop View
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  padding: 5vh 3vw;
+  
+  div {
+    width: 95%;
+  }
+
+  div button {
+    padding: 2vh 3vw;
+  }
+  
+  div button span {
+    display: inline-block;
+  }
+}
+
+// Monitor View
+@media screen and (min-width: 1280px) {
+  padding: 5vh 3vw;
+  
+  div {
+    width: 90%;
+  }
+
+  div button {
+    padding: 2vh 3vw;
+  }
+  
+  div button span {
+    display: inline-block;
+  } 
+}
 `

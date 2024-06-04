@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledSellerProductForm = styled.main`
-  margin: 3vh 3vw;
+  // Mobile View
+  margin: 3vh auto 0 auto;
 
   h1 {
     font-size: 1.2rem;
@@ -25,7 +26,11 @@ export const StyledSellerProductForm = styled.main`
   .backSubmitBtn {
     display: flex;
     justify-content: flex-end;
-    width: 75vw;
+    width: 90vw;
+  }
+
+  .backSubmitBtn button span {
+    display: none;
   }
 
   button:first-of-type {
@@ -58,22 +63,24 @@ export const StyledSellerProductForm = styled.main`
 
   .formBody {
     display: flex;
-    width: 75vw;
+    width: 90vw;
     justify-content: space-between;
-    height: 70vh;
     margin-top: 2vh;
+    flex-direction: column;
   }
 
   .formBody label {
-    font-size: 0.9rem
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
   }
 
   .formLeft,
   .formRight {
     background: #FFF7ED;
-    width: 49%;
+    width: 100%;
     border-radius: 20px;
     padding: 3vh 2vw;
+    margin-bottom: 3vh;
   }
 
   .formLeft div,
@@ -138,6 +145,61 @@ export const StyledSellerProductForm = styled.main`
   .formRight div textarea {
     height: 20vh;
     resize:none;
+  }
+
+    // Tablet View
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .backSubmitBtn button span {
+      display: inline-block;
+    }
+  }
+
+  // Laptop View
+  @media screen and (min-width: 769px) and (max-width: 1279px) {
+    .backSubmitBtn {
+      width: 80vw;
+    }
+
+    .backSubmitBtn button span {
+      display: inline-block;
+    }
+    
+    .formBody {
+      width: 80vw;
+      flex-direction: row;
+    }
+
+    .formLeft,
+    .formRight {
+      width: 49%;
+      margin-bottom: 0;
+    }
+  }
+
+  // Monitor View
+  @media screen and (min-width: 1280px) {
+    .backSubmitBtn {
+      width: 80vw;
+    }
+
+    .backSubmitBtn button span {
+      display: inline-block;
+    }
+
+    .formBody {
+      width: 80vw;
+      flex-direction: row;
+    }
+
+    .formBody label {
+      margin-top: 0;
+    }
+
+    .formLeft,
+    .formRight {
+      width: 49%;
+      margin-bottom: 0;
+    }
   }
 
 `

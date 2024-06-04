@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { StyledSellerAuthForm } from "../styles/sellers/SellerAuthForm.styled";
+import { StyledSellerAuthForm } from "../styles/general/AuthForm.styled";
 import { ExclamationCircle } from "react-bootstrap-icons";
 import sellerAuthBackground from "../../assets/images/main/seller-auth.webp";
 import { notifyError, notifySuccess } from '../../utils';
