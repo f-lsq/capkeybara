@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { StyledShop } from '../styles/general/Shop.styled';
-import { StyledShopSidebar } from '../styles/general/ShopSidebar.styled';
+import { StyledShop, StyledShopProducts, StyledShopSidebar } from '../styles/general/Shop.styled';
 import { BagPlusFill, Search } from 'react-bootstrap-icons';
 import imageNotAvailable from '../../assets/images/main/image-not-available.webp'
 import loadingScreen from '../../assets/images/main/loading.gif';
@@ -62,18 +61,18 @@ const Shop = () => {
   }
 
   return (
-    <>
+    <StyledShop>
       {products ?
         <>
           <StyledShopSidebar>
             {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor='search-term'><h1>Search</h1></label>
-          <input type='text' id='search-term' name='search-term' 
-          {...register('search-term')}/> 
-          <button type='submit'><Search/></button>
-        </form> */}
+              <label htmlFor='search-term'><h1>Search</h1></label>
+              <input type='text' id='search-term' name='search-term'
+                {...register('search-term')} />
+              <button type='submit'><Search /></button>
+            </form> */}
           </StyledShopSidebar>
-          <StyledShop>
+          <StyledShopProducts>
             {
               products.map(product => (
                 <article key={product.id}>
@@ -93,7 +92,7 @@ const Shop = () => {
                 </article>
               ))
             }
-          </StyledShop>
+          </StyledShopProducts>
         </>
         :
         <div className="loading-screen">
@@ -102,7 +101,7 @@ const Shop = () => {
         </div>
       }
 
-    </>
+    </StyledShop>
   );
 };
 

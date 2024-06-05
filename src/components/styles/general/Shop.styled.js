@@ -1,6 +1,27 @@
 import styled from "styled-components";
 
 export const StyledShop = styled.main`
+// Mobile View
+display: flex;
+flex-direction: column;
+
+// Tablet View
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+// Laptop View
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  flex-direction: row;
+}
+
+// Monitor View
+@media screen and (min-width: 1280px) {
+  flex-direction: row;
+}
+`
+
+export const StyledShopProducts = styled.section`
   // Mobile View
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -153,5 +174,29 @@ export const StyledShop = styled.main`
       font-size: 1.8em;
     }
   }
-  }
+`
+
+export const StyledShopSidebar = styled.aside`
+// Mobile View
+padding-top: 2.94em;
+background: red;
+position: sticky;
+top: 0;
+
+// Tablet View
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+// Laptop View
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  padding-top: 3.5em;
+  height: 100vh;
+}
+
+// Monitor View
+@media screen and (min-width: 1280px) {
+  padding-top: 4.69em;
+  height: 100vh;
+}
 `
